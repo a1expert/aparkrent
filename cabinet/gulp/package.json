@@ -1,0 +1,26 @@
+{
+    "name": "apathy-gulp-project",
+    "version": "1.0.0",
+    "description": "Empty gulp project",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Apathy",
+    "url": "https://github.com/Apathy3/gulp-project",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.18.13",
+        "del": "^2.2.2",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-cache": "^0.4.6",
+        "gulp-concat": "^2.6.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.1",
+        "gulp.spritesmith": "^3.8.2",
+        "merge-stream": "^1.0.1",
+        "vinyl-buffer": "^1.0.0"
+    }
+}

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /$
+Allow: /prokat-avto-surgut
+Allow: /reserve/
+Allow: /jobs
+Allow: /conditions
+Allow: /contacts
+Allow: /images/
+Allow: /sitemap.xml
+Allow: /*.js
+Allow: /*.css
+Disallow: /
+Host: http://aparkrent.ru/
+Sitemap: http://aparkrent.ru/sitemap.xml

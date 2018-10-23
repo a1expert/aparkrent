@@ -1,0 +1,2184 @@
+2017-10-26 20:44:22 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:44:22 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:44:22 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:44:22 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'mtdc_r5yPO' => 'true'
+    'last_visit' => '1509014651088::1509032651088'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509032653524'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; mtdc_r5yPO=true; last_visit=1509014651088::1509032651088; _ym_visorc_45911007=w; tmr_detect=0%7C1509032653524'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '34548'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509032662.485
+    'REQUEST_TIME' => 1509032662
+]
+2017-10-26 20:44:44 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:44:44 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:44:44 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:44:44 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509014670185::1509032670185'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509032672734'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509014670185::1509032670185; _ym_visorc_45911007=w; tmr_detect=0%7C1509032672734'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '34964'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509032684.478
+    'REQUEST_TIME' => 1509032684
+]
+2017-10-26 20:46:14 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:46:14 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:46:14 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:46:14 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'mtdc_A7OxS' => 'true'
+    'last_visit' => '1509014761063::1509032761063'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509032763503'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; mtdc_A7OxS=true; last_visit=1509014761063::1509032761063; _ym_visorc_45911007=w; tmr_detect=0%7C1509032763503'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '36690'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509032774.676
+    'REQUEST_TIME' => 1509032774
+]
+2017-10-26 20:46:19 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:46:19 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:46:19 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:46:19 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509014761063::1509032761063'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509032763503'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509014761063::1509032761063; _ym_visorc_45911007=w; tmr_detect=0%7C1509032763503'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '36810'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509032779.429
+    'REQUEST_TIME' => 1509032779
+]
+2017-10-26 20:46:23 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:46:23 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:46:23 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:46:22 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509014761063::1509032761063'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509032763503'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509014761063::1509032761063; _ym_visorc_45911007=w; tmr_detect=0%7C1509032763503'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '36882'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509032782.924
+    'REQUEST_TIME' => 1509032782
+]
+2017-10-26 20:49:15 [5.141.210.85][-][-][info][payments] Проверка оплаты
+2017-10-26 20:49:15 [5.141.210.85][-][-][info][payments] Резерв существует
+2017-10-26 20:49:15 [5.141.210.85][-][-][info][application] $_GET = [
+    'id' => '87'
+    'orderId' => 'd9110176-9a55-7b61-d911-0176000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '1505134036850875823'
+    '_csrf-frontend' => '23581a82adc0481eac6034ee0a3f83f1a0a071f03f84e3c74fed921cda8a2e2aa:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"5�C^౅�˱�HGj3c��y��y$�\'���\";}'
+    '_csrf-cabinet' => '5715afef4282d69fae82c27fbecad4c262666221ca543ac2f65d0d84d4cb3967a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"�̠(�\'[���42�U��\0h�4b���R�U��j\";}'
+    'marker' => '150112.$1489'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '0vbfaijkacal4502618dve2524'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509014902592::1509032902592'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509032905026'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '5.141.210.85'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 YaBrowser/17.9.1.768 Yowser/2.5 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en;q=0.8'
+    'HTTP_COOKIE' => '_ym_uid=1505134036850875823; _csrf-frontend=23581a82adc0481eac6034ee0a3f83f1a0a071f03f84e3c74fed921cda8a2e2aa%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22%025%E2C%5E%E0%B1%85%83%CB%B1%A0HGj3c%C7%EEy%EE%FF%1Ey%24%1C%A1%27%EA%88%CF%ED%22%3B%7D; _csrf-cabinet=5715afef4282d69fae82c27fbecad4c262666221ca543ac2f65d0d84d4cb3967a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%C0%CC%A0%28%EC%27%5B%91%D2%C542%E7U%9C%80%00h%E7%BB4b%A0%D4%1D%F8R%92U%A4%EDj%22%3B%7D; marker=150112.%241489; _ym_isad=2; PHPSESSID=0vbfaijkacal4502618dve2524; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509014902592::1509032902592; _ym_visorc_45911007=w; tmr_detect=0%7C1509032905026'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '5.141.210.85'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '40624'
+    'REDIRECT_QUERY_STRING' => 'orderId=d9110176-9a55-7b61-d911-0176000bef14'
+    'REDIRECT_URL' => '/payment/aviso/87'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d9110176-9a55-7b61-d911-0176000bef14'
+    'REQUEST_URI' => '/payment/aviso/87?orderId=d9110176-9a55-7b61-d911-0176000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509032955.241
+    'REQUEST_TIME' => 1509032955
+]
+2017-10-26 20:50:40 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:50:40 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:50:40 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:50:40 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509015027583::1509033027583'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509033030074'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509015027583::1509033027583; _ym_visorc_45911007=w; tmr_detect=0%7C1509033030074'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '42264'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509033040.137
+    'REQUEST_TIME' => 1509033040
+]
+2017-10-26 20:55:53 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:55:53 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:55:53 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:55:52 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509015342780::1509033342780'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509033345382'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509015342780::1509033342780; _ym_visorc_45911007=w; tmr_detect=0%7C1509033345382'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '48372'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509033352.952
+    'REQUEST_TIME' => 1509033352
+]
+2017-10-26 20:57:57 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 20:57:57 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 20:57:57 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 20:57:57 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509015428135::1509033428135'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509033430572'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509015428135::1509033428135; _ym_visorc_45911007=w; tmr_detect=0%7C1509033430572'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '50788'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509033477.156
+    'REQUEST_TIME' => 1509033477
+]
+2017-10-26 21:00:37 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 21:00:37 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 21:00:37 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 21:00:37 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '1506947889375801175'
+    '_ym_isad' => '2'
+    'marker' => '150112.$1489'
+    '_csrf-cabinet' => '06128a22ff9c2bd769b052f5788677ef025fbe171eabf58bc1e23ac9281ef5aca:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"mAx��μ���7
+ʻqoHZ\'ы�B*��\";}'
+    'tmr_detect' => '0|1509028697406'
+    'PHPSESSID' => '1o8e0m0dlq9qaebjt1ppkukkj5'
+    'last_visit' => '1509010693574::1509028693574'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_ACCEPT' => 'text/html, application/xhtml+xml, image/jxr, */*'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_ym_uid=1506947889375801175; _ym_isad=2; marker=150112.%241489; _csrf-cabinet=06128a22ff9c2bd769b052f5788677ef025fbe171eabf58bc1e23ac9281ef5aca%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22mAx%AF%F5%12%CE%BC%86%89%897%0A%CA%BBq%1Ao%7F%1CHZ%1B%27%D1%8B%E8B%2A%88%0B%E8%22%3B%7D; tmr_detect=0%7C1509028697406; PHPSESSID=1o8e0m0dlq9qaebjt1ppkukkj5; last_visit=1509010693574::1509028693574'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '54250'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509033637.333
+    'REQUEST_TIME' => 1509033637
+]
+2017-10-26 21:15:49 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 21:15:49 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 21:15:49 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 21:15:48 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => '9n6m0j37a01tdjod5ea96gngk7'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509016535287::1509034535287'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509034538229'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=9n6m0j37a01tdjod5ea96gngk7; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509016535287::1509034535287; _ym_visorc_45911007=w; tmr_detect=0%7C1509034538229'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '44550'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509034548.947
+    'REQUEST_TIME' => 1509034548
+]
+2017-10-26 23:00:26 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-26 23:00:26 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-26 23:00:26 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-26 23:00:26 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    '_ym_isad' => '2'
+    'ucc148' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => 'b6krt586s10rh76ec8073ucrc2'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509022779482::1509040779482'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509040782339'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; _ym_isad=2; ucc148=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897; marker=150112.%241489; PHPSESSID=b6krt586s10rh76ec8073ucrc2; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509022779482::1509040779482; _ym_visorc_45911007=w; tmr_detect=0%7C1509040782339'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '54952'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509040826.503
+    'REQUEST_TIME' => 1509040826
+]
+2017-10-27 12:16:35 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 12:16:35 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 12:16:35 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 12:16:35 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'ucc148' => '1'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '7bu4pbi9utdr1t27aufbmcrtd6'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509070583102::1509088583102'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509088585591'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; ucc148=1; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=7bu4pbi9utdr1t27aufbmcrtd6; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509070583102::1509088583102; _ym_visorc_45911007=w; tmr_detect=0%7C1509088585591'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '49484'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509088595.711
+    'REQUEST_TIME' => 1509088595
+]
+2017-10-27 16:04:24 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:04:24 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:04:24 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:04:24 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'ucc148' => '1'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509084241977::1509102241977'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509102245663'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; ucc148=1; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509084241977::1509102241977; _ym_visorc_45911007=w; tmr_detect=0%7C1509102245663'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '45504'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509102264.705
+    'REQUEST_TIME' => 1509102264
+]
+2017-10-27 16:16:35 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:16:35 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:16:35 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:16:35 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-frontend' => 'bb328ee3726c89d6ebbedb8087b1ccff43eed1f11c8d64636b012841176d329ea:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"��UM�PՀ\'�e��Iȧ�2I׍��\";}'
+    '_ym_uid' => '1505131666468338328'
+    '_csrf-cabinet' => 'e9409325643723ac6d3ca9580d76e3df334859a2fe48aeacce484889705b3c6fa:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"/�V��a\'�̎e���*M�� P��g���\0\";}'
+    'PHPSESSID' => '0h1rugmeicvu5915vv8j2kpej6'
+    'mamka_auid' => 'FGZ87sv3DoiiOfZGPqZ39f7V'
+    'marker' => '150112.$1489'
+    '_ym_isad' => '2'
+    'mamka_session_id_wl_search' => 'UPSUv0iMSORwTckYOYPXjqPlG1OCkNxz'
+    'mamka_session_id' => 'gIMbFKCCMarIXF0RramvrUZotaUSskNW'
+    'mamka_session_id_travelpayouts_mewtwo' => 'nfCMni8mqLWr7FjS1UTczEOPS9SaFkT6'
+    'mamka_user_projects' => 'wl_search,travelpayouts_mewtwo'
+    'last_visit' => '1509077066132::1509098666132'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509098668434'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-frontend=bb328ee3726c89d6ebbedb8087b1ccff43eed1f11c8d64636b012841176d329ea%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22%E3%FDUM%BB%06P%D5%80%27%05%10%D7e%E4%C7I%C8%A7%F1%1A2%07%03%16I%D7%8D%E8%E3%A0%0C%22%3B%7D; _ym_uid=1505131666468338328; _csrf-cabinet=e9409325643723ac6d3ca9580d76e3df334859a2fe48aeacce484889705b3c6fa%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%2F%B8V%B8%81a%27%97%CC%8Ee%88%82%CC%2A%08M%D5%14%80+P%E0%0B%C1g%B7%17%F9%1D%AD%00%22%3B%7D; PHPSESSID=0h1rugmeicvu5915vv8j2kpej6; mamka_auid=FGZ87sv3DoiiOfZGPqZ39f7V; marker=150112.%241489; _ym_isad=2; mamka_session_id_wl_search=UPSUv0iMSORwTckYOYPXjqPlG1OCkNxz; mamka_session_id=gIMbFKCCMarIXF0RramvrUZotaUSskNW; mamka_session_id_travelpayouts_mewtwo=nfCMni8mqLWr7FjS1UTczEOPS9SaFkT6; mamka_user_projects=wl_search,travelpayouts_mewtwo; last_visit=1509077066132::1509098666132; _ym_visorc_45911007=w; tmr_detect=0%7C1509098668434'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '45384'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509102995.653
+    'REQUEST_TIME' => 1509102995
+]
+2017-10-27 16:45:00 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:45:00 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:45:00 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:45:00 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '1506947889375801175'
+    '_ym_isad' => '2'
+    'marker' => '150112.$1489'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509104690478'
+    '_csrf-cabinet' => '88c306a5a86537fc162d243429afd60f28cd1cde78b8465356208bd5ef57e118a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"�t�������g`a���*�5&8�$}2G_�\";}'
+    'mtdc_gkeLE' => 'true'
+    'last_visit' => '1509086686707::1509104686707'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_ACCEPT' => 'text/html, application/xhtml+xml, image/jxr, */*'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_ym_uid=1506947889375801175; _ym_isad=2; marker=150112.%241489; _ym_visorc_45911007=w; tmr_detect=0%7C1509104690478; _csrf-cabinet=88c306a5a86537fc162d243429afd60f28cd1cde78b8465356208bd5ef57e118a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%B7t%1F%18%BB%85%B3%9B%89%E0%CFg%08%60%08a%F8%9C%95%2A%E65%268%EE%24%7D2G_%18%E2%22%3B%7D; mtdc_gkeLE=true; last_visit=1509086686707::1509104686707'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '55630'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509104700
+    'REQUEST_TIME' => 1509104700
+]
+2017-10-27 16:51:26 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:51:26 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:51:26 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:51:26 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509087073121::1509105073121'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509105075860'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509087073121::1509105073121; _ym_visorc_45911007=w; tmr_detect=0%7C1509105075860'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '42294'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509105086.035
+    'REQUEST_TIME' => 1509105086
+]
+2017-10-27 16:51:29 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:51:29 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:51:29 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:51:29 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509087073121::1509105073121'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509105075860'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509087073121::1509105073121; _ym_visorc_45911007=w; tmr_detect=0%7C1509105075860'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '42420'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509105089.648
+    'REQUEST_TIME' => 1509105089
+]
+2017-10-27 16:51:31 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:51:31 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:51:31 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:51:31 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509087073121::1509105073121'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509105075860'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509087073121::1509105073121; _ym_visorc_45911007=w; tmr_detect=0%7C1509105075860'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '42502'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509105091.782
+    'REQUEST_TIME' => 1509105091
+]
+2017-10-27 16:51:43 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 16:51:43 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 16:51:43 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 16:51:43 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509087090647::1509105090647'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509105093919'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509087090647::1509105090647; _ym_visorc_45911007=w; tmr_detect=0%7C1509105093919'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '42996'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509105103.408
+    'REQUEST_TIME' => 1509105103
+]
+2017-10-27 17:19:19 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 17:19:19 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 17:19:19 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 17:19:19 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509088702135::1509106702135'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509106705658'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509088702135::1509106702135; _ym_visorc_45911007=w; tmr_detect=0%7C1509106705658'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '51106'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509106759.272
+    'REQUEST_TIME' => 1509106759
+]
+2017-10-27 18:13:58 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 18:13:58 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 18:13:58 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 18:13:58 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'marker' => '150112.$1489'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '2q4suka67lelmtvei7vgtu9d70'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'mtdc_xh9p1' => 'true'
+    'mtdc_Ywinc' => 'true'
+    'last_visit' => '1509092026060::1509110026060'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509110028962'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; marker=150112.%241489; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=2q4suka67lelmtvei7vgtu9d70; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; mtdc_xh9p1=true; mtdc_Ywinc=true; last_visit=1509092026060::1509110026060; _ym_visorc_45911007=w; tmr_detect=0%7C1509110028962'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '44680'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509110038.02
+    'REQUEST_TIME' => 1509110038
+]
+2017-10-27 22:12:03 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 22:12:03 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 22:12:03 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 22:12:02 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'ucc62' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092'
+    '_ym_isad' => '2'
+    'PHPSESSID' => 'r75opvs4339p6c03tdofsl2ok4'
+    'marker' => '150112.$1489'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509106310025::1509124310025'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509124312599'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; ucc62=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092; _ym_isad=2; PHPSESSID=r75opvs4339p6c03tdofsl2ok4; marker=150112.%241489; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509106310025::1509124310025; _ym_visorc_45911007=w; tmr_detect=0%7C1509124312599'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '41854'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509124322.812
+    'REQUEST_TIME' => 1509124322
+]
+2017-10-27 22:56:24 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 22:56:24 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 22:56:24 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 22:56:24 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'ucc62' => '1'
+    '_ym_isad' => '2'
+    'marker' => '150112.$1489'
+    'ucc6' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092|129545060512954;6;1509126482072'
+    'PHPSESSID' => 'eioofp8bbg9akvtgg875nacra5'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509108948752::1509126948752'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509126951224'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; ucc62=1; _ym_isad=2; marker=150112.%241489; ucc6=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092%7C129545060512954%3B6%3B1509126482072; PHPSESSID=eioofp8bbg9akvtgg875nacra5; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509108948752::1509126948752; _ym_visorc_45911007=w; tmr_detect=0%7C1509126951224'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '34820'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509126984.789
+    'REQUEST_TIME' => 1509126984
+]
+2017-10-27 22:56:42 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 22:56:42 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 22:56:42 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 22:56:42 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => 'c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"��`�j�-\\���I�fD�%}�|�7�����*\";}'
+    '_ym_uid' => '1507375448937902759'
+    'ucc62' => '1'
+    '_ym_isad' => '2'
+    'marker' => '150112.$1489'
+    'ucc6' => '1'
+    'click_meta' => '|128503970144902;6;1508085395026|129437198459257;148;1509018622897|129463804770612;62;1509045226092|129545060512954;6;1509126482072'
+    'PHPSESSID' => 'eioofp8bbg9akvtgg875nacra5'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'mtdc_89lRS' => 'true'
+    'last_visit' => '1509108990058::1509126990058'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509126992708'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=c8a7a9d28f63d88fd8e317fe1edf8b350a7c1ea2403138440591e7ebe9fb6687a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%99%A9%60%B9j%B3-%5C%D4%17%DC%E8%9D%11I%91fD%A3%25%04%7D%EE%7C%ED7%AC%B3%E0%C2%ED%2A%22%3B%7D; _ym_uid=1507375448937902759; ucc62=1; _ym_isad=2; marker=150112.%241489; ucc6=1; click_meta=%7C128503970144902%3B6%3B1508085395026%7C129437198459257%3B148%3B1509018622897%7C129463804770612%3B62%3B1509045226092%7C129545060512954%3B6%3B1509126482072; PHPSESSID=eioofp8bbg9akvtgg875nacra5; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; mtdc_89lRS=true; last_visit=1509108990058::1509126990058; _ym_visorc_45911007=w; tmr_detect=0%7C1509126992708'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '35328'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509127002.41
+    'REQUEST_TIME' => 1509127002
+]
+2017-10-27 23:55:20 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-27 23:55:20 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-27 23:55:20 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-27 23:55:20 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => '32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"5>BU,������♁	Of������\";}'
+    '_ym_uid' => '1509129423899746309'
+    '_ym_isad' => '2'
+    'PHPSESSID' => 'ji7scogvb4sfoi30hi6qafpj71'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509112499998::1509130499998'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509130502837'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%EF%95%B35%3EBU%2C%F6%FF%B4%D6%EC%BA%F8%E2%99%81%09O%0Ef%F2%F2%98%D2%E5%99%06%07%86%D7%22%3B%7D; _ym_uid=1509129423899746309; _ym_isad=2; PHPSESSID=ji7scogvb4sfoi30hi6qafpj71; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509112499998::1509130499998; _ym_visorc_45911007=w; tmr_detect=0%7C1509130502837'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '50494'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509130520.755
+    'REQUEST_TIME' => 1509130520
+]
+2017-10-28 03:54:42 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-28 03:54:42 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-28 03:54:42 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-28 03:54:42 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '88'
+    'orderId' => '8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => '32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"5>BU,������♁	Of������\";}'
+    '_ym_uid' => '1509129423899746309'
+    '_ym_isad' => '2'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => 'hli4ien4t9a9t49uspeit382j2'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509126868009::1509144868009'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509144871207'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%EF%95%B35%3EBU%2C%F6%FF%B4%D6%EC%BA%F8%E2%99%81%09O%0Ef%F2%F2%98%D2%E5%99%06%07%86%D7%22%3B%7D; _ym_uid=1509129423899746309; _ym_isad=2; marker=150112.%241489; PHPSESSID=hli4ien4t9a9t49uspeit382j2; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509126868009::1509144868009; _ym_visorc_45911007=w; tmr_detect=0%7C1509144871207'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '49080'
+    'REDIRECT_QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REDIRECT_URL' => '/payment/aviso/88'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REQUEST_URI' => '/payment/aviso/88?orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509144882.19
+    'REQUEST_TIME' => 1509144882
+]
+2017-10-28 03:55:24 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-28 03:55:24 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-28 03:55:24 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-28 03:55:24 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '88'
+    'orderId' => '8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => '32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"5>BU,������♁	Of������\";}'
+    '_ym_uid' => '1509129423899746309'
+    '_ym_isad' => '2'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => 'hli4ien4t9a9t49uspeit382j2'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'mtdc_7wSxW' => 'true'
+    'last_visit' => '1509126911634::1509144911634'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509144914437'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%EF%95%B35%3EBU%2C%F6%FF%B4%D6%EC%BA%F8%E2%99%81%09O%0Ef%F2%F2%98%D2%E5%99%06%07%86%D7%22%3B%7D; _ym_uid=1509129423899746309; _ym_isad=2; marker=150112.%241489; PHPSESSID=hli4ien4t9a9t49uspeit382j2; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; mtdc_7wSxW=true; last_visit=1509126911634::1509144911634; _ym_visorc_45911007=w; tmr_detect=0%7C1509144914437'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '50170'
+    'REDIRECT_QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REDIRECT_URL' => '/payment/aviso/88'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REQUEST_URI' => '/payment/aviso/88?orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509144924.193
+    'REQUEST_TIME' => 1509144924
+]
+2017-10-28 14:44:33 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-28 14:44:33 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-28 14:44:33 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-28 14:44:33 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '88'
+    'orderId' => '8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => '32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"5>BU,������♁	Of������\";}'
+    '_ym_uid' => '1509129423899746309'
+    '_ym_isad' => '2'
+    'PHPSESSID' => 'jd7k94sgdkb8n92a7eqjmjre74'
+    'marker' => '150112.$1489'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509165859849::1509183859849'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509183862541'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%EF%95%B35%3EBU%2C%F6%FF%B4%D6%EC%BA%F8%E2%99%81%09O%0Ef%F2%F2%98%D2%E5%99%06%07%86%D7%22%3B%7D; _ym_uid=1509129423899746309; _ym_isad=2; PHPSESSID=jd7k94sgdkb8n92a7eqjmjre74; marker=150112.%241489; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509165859849::1509183859849; _ym_visorc_45911007=w; tmr_detect=0%7C1509183862541'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '35590'
+    'REDIRECT_QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REDIRECT_URL' => '/payment/aviso/88'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REQUEST_URI' => '/payment/aviso/88?orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509183873.015
+    'REQUEST_TIME' => 1509183873
+]
+2017-10-28 14:55:48 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-28 14:55:48 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-28 14:55:48 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-28 14:55:48 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '88'
+    'orderId' => '8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-frontend' => 'bb328ee3726c89d6ebbedb8087b1ccff43eed1f11c8d64636b012841176d329ea:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"��UM�PՀ\'�e��Iȧ�2I׍��\";}'
+    '_ym_uid' => '1505131666468338328'
+    '_csrf-cabinet' => 'e9409325643723ac6d3ca9580d76e3df334859a2fe48aeacce484889705b3c6fa:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"/�V��a\'�̎e���*M�� P��g���\0\";}'
+    'PHPSESSID' => '0h1rugmeicvu5915vv8j2kpej6'
+    'mamka_auid' => 'FGZ87sv3DoiiOfZGPqZ39f7V'
+    '_ym_isad' => '2'
+    'mtdc_CS2cH' => 'true'
+    'marker' => '150112.$1489'
+    'mamka_session_id_wl_search' => 'kmDwysYvvjAWmKBTdjFUkwByiWQd5BIt'
+    'mamka_session_id' => 'wrtrajKS8oRlMfwtHq4v9lTANj7IXL3o'
+    'mamka_session_id_travelpayouts_mewtwo' => 'kabwsVGGGU7bszheUWBqE9pLkVhzWKJv'
+    'mamka_user_projects' => 'wl_search,travelpayouts_mewtwo'
+    'last_visit' => '1509158627539::1509180227539'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509180230314'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-frontend=bb328ee3726c89d6ebbedb8087b1ccff43eed1f11c8d64636b012841176d329ea%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22%E3%FDUM%BB%06P%D5%80%27%05%10%D7e%E4%C7I%C8%A7%F1%1A2%07%03%16I%D7%8D%E8%E3%A0%0C%22%3B%7D; _ym_uid=1505131666468338328; _csrf-cabinet=e9409325643723ac6d3ca9580d76e3df334859a2fe48aeacce484889705b3c6fa%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%2F%B8V%B8%81a%27%97%CC%8Ee%88%82%CC%2A%08M%D5%14%80+P%E0%0B%C1g%B7%17%F9%1D%AD%00%22%3B%7D; PHPSESSID=0h1rugmeicvu5915vv8j2kpej6; mamka_auid=FGZ87sv3DoiiOfZGPqZ39f7V; _ym_isad=2; mtdc_CS2cH=true; marker=150112.%241489; mamka_session_id_wl_search=kmDwysYvvjAWmKBTdjFUkwByiWQd5BIt; mamka_session_id=wrtrajKS8oRlMfwtHq4v9lTANj7IXL3o; mamka_session_id_travelpayouts_mewtwo=kabwsVGGGU7bszheUWBqE9pLkVhzWKJv; mamka_user_projects=wl_search,travelpayouts_mewtwo; last_visit=1509158627539::1509180227539; _ym_visorc_45911007=w; tmr_detect=0%7C1509180230314'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '59958'
+    'REDIRECT_QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REDIRECT_URL' => '/payment/aviso/88'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REQUEST_URI' => '/payment/aviso/88?orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509184548.076
+    'REQUEST_TIME' => 1509184548
+]
+2017-10-28 14:56:45 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-28 14:56:45 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-28 14:56:45 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-28 14:56:45 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '88'
+    'orderId' => '8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => '32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"5>BU,������♁	Of������\";}'
+    '_ym_uid' => '1509129423899746309'
+    '_ym_isad' => '2'
+    'PHPSESSID' => 'jd7k94sgdkb8n92a7eqjmjre74'
+    'marker' => '150112.$1489'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509166593494::1509184593494'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509184596245'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%EF%95%B35%3EBU%2C%F6%FF%B4%D6%EC%BA%F8%E2%99%81%09O%0Ef%F2%F2%98%D2%E5%99%06%07%86%D7%22%3B%7D; _ym_uid=1509129423899746309; _ym_isad=2; PHPSESSID=jd7k94sgdkb8n92a7eqjmjre74; marker=150112.%241489; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509166593494::1509184593494; _ym_visorc_45911007=w; tmr_detect=0%7C1509184596245'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '34024'
+    'REDIRECT_QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REDIRECT_URL' => '/payment/aviso/88'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REQUEST_URI' => '/payment/aviso/88?orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509184605.116
+    'REQUEST_TIME' => 1509184605
+]
+2017-10-28 15:35:25 [5.141.210.85][-][-][info][payments] Проверка оплаты
+2017-10-28 15:35:25 [5.141.210.85][-][-][info][payments] Резерв существует
+2017-10-28 15:35:25 [5.141.210.85][-][-][info][payments] OrderStatus wrong
+2017-10-28 15:35:24 [5.141.210.85][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '15061917654503718'
+    '_csrf-cabinet' => 'f6a674fff78951bd967fe42efee2ee88dbd024028c9c30b079c8026fa9331874a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"�-D�m�����hJ���
+�k���n�>�v�\";}'
+    'marker' => '150112.$1489'
+    '_ym_isad' => '2'
+    'PHPSESSID' => '6vjmbgnc1nd8jver0njqkgrer3'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509168890793::1509186890793'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509186893076'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '5.141.210.85'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ym_uid=15061917654503718; _csrf-cabinet=f6a674fff78951bd967fe42efee2ee88dbd024028c9c30b079c8026fa9331874a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%9E-D%D6m%DA%03%90%D4%F6%B4hJ%A9%EB%B1%FF%0A%90k%AC%FF%8Cn%94%3E%05%84v%10%0F%C3%22%3B%7D; marker=150112.%241489; _ym_isad=2; PHPSESSID=6vjmbgnc1nd8jver0njqkgrer3; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509168890793::1509186890793; _ym_visorc_45911007=w; tmr_detect=0%7C1509186893076'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '5.141.210.85'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '40078'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509186924.911
+    'REQUEST_TIME' => 1509186924
+]
+2017-10-28 15:35:26 [31.162.155.200][-][-][info][payments] Проверка оплаты
+2017-10-28 15:35:26 [31.162.155.200][-][-][info][payments] Резерв существует
+2017-10-28 15:35:26 [31.162.155.200][-][-][info][payments] OrderStatus wrong
+2017-10-28 15:35:25 [31.162.155.200][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_csrf-cabinet' => '32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"5>BU,������♁	Of������\";}'
+    '_ym_uid' => '1509129423899746309'
+    '_ym_isad' => '2'
+    'PHPSESSID' => 'jd7k94sgdkb8n92a7eqjmjre74'
+    'marker' => '150112.$1489'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'last_visit' => '1509168909943::1509186909943'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509186915484'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '31.162.155.200'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_csrf-cabinet=32b3864ef155aa3352406ff8657dcd769624e4e551693062851adb79abe8cb1ea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%EF%95%B35%3EBU%2C%F6%FF%B4%D6%EC%BA%F8%E2%99%81%09O%0Ef%F2%F2%98%D2%E5%99%06%07%86%D7%22%3B%7D; _ym_uid=1509129423899746309; _ym_isad=2; PHPSESSID=jd7k94sgdkb8n92a7eqjmjre74; marker=150112.%241489; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; last_visit=1509168909943::1509186909943; _ym_visorc_45911007=w; tmr_detect=0%7C1509186915484'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '31.162.155.200'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '40126'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509186925.919
+    'REQUEST_TIME' => 1509186925
+]
+2017-10-28 18:39:03 [5.141.210.85][-][-][info][payments] Проверка оплаты
+2017-10-28 18:39:03 [5.141.210.85][-][-][info][payments] Резерв существует
+2017-10-28 18:39:03 [5.141.210.85][-][-][info][payments] OrderStatus wrong
+2017-10-28 18:39:03 [5.141.210.85][-][-][info][application] $_GET = [
+    'id' => '38'
+    'orderId' => 'd204455a-02bc-7744-d204-455a000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '1505136740772996369'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'marker' => '150112.$1489'
+    '_csrf-cabinet' => 'd4267053d2f2c7e3b36e1e0f73d10afaca736558d90415f68f700b0b92b892dea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"z-��;���ǌ���GZ�1A�1��l2�zq\";}'
+    '_ym_isad' => '2'
+    'last_visit' => '1509179936392::1509197936392'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509197938931'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '5.141.210.85'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_ym_uid=1505136740772996369; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; marker=150112.%241489; _csrf-cabinet=d4267053d2f2c7e3b36e1e0f73d10afaca736558d90415f68f700b0b92b892dea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22z-%F7%D1%3B%C0%B1%14%99%C7%8C%CC%C6%C3GZ%98%19%131A%B31%8D%16%16%D5l2%9Fzq%22%3B%7D; _ym_isad=2; last_visit=1509179936392::1509197936392; _ym_visorc_45911007=w; tmr_detect=0%7C1509197938931'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '5.141.210.85'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '56980'
+    'REDIRECT_QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REDIRECT_URL' => '/payment/aviso/38'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'REQUEST_URI' => '/payment/aviso/38?orderId=d204455a-02bc-7744-d204-455a000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509197942.991
+    'REQUEST_TIME' => 1509197942
+]
+2017-10-28 18:41:58 [5.141.210.85][-][-][info][payments] Проверка оплаты
+2017-10-28 18:41:58 [5.141.210.85][-][-][info][payments] Резерв существует
+2017-10-28 18:41:58 [5.141.210.85][-][-][info][payments] OrderStatus wrong
+2017-10-28 18:41:58 [5.141.210.85][-][-][info][application] $_GET = [
+    'id' => '88'
+    'orderId' => '8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '1505136740772996369'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    'marker' => '150112.$1489'
+    '_csrf-cabinet' => 'd4267053d2f2c7e3b36e1e0f73d10afaca736558d90415f68f700b0b92b892dea:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"z-��;���ǌ���GZ�1A�1��l2�zq\";}'
+    '_ym_isad' => '2'
+    'mtdc_shwUS' => 'true'
+    'last_visit' => '1509180112698::1509198112698'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509198114965'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '5.141.210.85'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_ym_uid=1505136740772996369; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; marker=150112.%241489; _csrf-cabinet=d4267053d2f2c7e3b36e1e0f73d10afaca736558d90415f68f700b0b92b892dea%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22z-%F7%D1%3B%C0%B1%14%99%C7%8C%CC%C6%C3GZ%98%19%131A%B31%8D%16%16%D5l2%9Fzq%22%3B%7D; _ym_isad=2; mtdc_shwUS=true; last_visit=1509180112698::1509198112698; _ym_visorc_45911007=w; tmr_detect=0%7C1509198114965'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '5.141.210.85'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '60992'
+    'REDIRECT_QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REDIRECT_URL' => '/payment/aviso/88'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'REQUEST_URI' => '/payment/aviso/88?orderId=8eaa3fec-0d78-7146-8eaa-3fec000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509198118.363
+    'REQUEST_TIME' => 1509198118
+]
+2017-11-06 12:54:43 [94.50.197.125][-][-][info][payments] Проверка оплаты
+2017-11-06 12:54:43 [94.50.197.125][-][-][info][payments] Резерв существует
+2017-11-06 12:54:43 [94.50.197.125][-][-][info][application] $_GET = [
+    'id' => '31'
+    'orderId' => '0cb316ae-b15a-76f0-0cb3-16ae000bef14'
+]
+
+$_COOKIE = [
+    '_ym_uid' => '1505136740772996369'
+    'marker' => '150112.$1489'
+    'PHPSESSID' => 'kl0fs413414j14bnk10g2ntfl0'
+    '_ym_isad' => '2'
+    '_identity_user' => '2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a:2:{i:0;s:14:\"_identity_user\";i:1;s:14:\"[1,\"\",2592000]\";}'
+    '_csrf-cabinet' => '160a4651256d18ab7b6baec5b37fb955466b4a4d6e8fc47a54157136d69b5e40a:2:{i:0;s:13:\"_csrf-cabinet\";i:1;s:32:\"�*��UqaL1m<��_vO�K/+о�\"p�L\";}'
+    'last_visit' => '1509936844308::1509954844308'
+    '_ym_visorc_45911007' => 'w'
+    'tmr_detect' => '0|1509954847155'
+]
+
+$_SERVER = [
+    'REDIRECT_PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'REDIRECT_STATUS' => '200'
+    'PERL5LIB' => '/usr/share/awstats/lib:/usr/share/awstats/plugins'
+    'HTTP_HOST' => 'aparkrent.ru'
+    'HTTP_X_FORWARDED_FOR' => '94.50.197.125'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_FORWARDED_PORT' => '80'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'
+    'HTTP_COOKIE' => '_ym_uid=1505136740772996369; marker=150112.%241489; PHPSESSID=kl0fs413414j14bnk10g2ntfl0; _ym_isad=2; _identity_user=2cc45427027d411b8cd45a224f163d1ed7c34f51612e076a691571177788d5a2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_identity_user%22%3Bi%3A1%3Bs%3A14%3A%22%5B1%2C%22%22%2C2592000%5D%22%3B%7D; _csrf-cabinet=160a4651256d18ab7b6baec5b37fb955466b4a4d6e8fc47a54157136d69b5e40a%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-cabinet%22%3Bi%3A1%3Bs%3A32%3A%22%E5%1A%2A%91%12%D3UqaL1m%3C%0E%AB%E7_%1CvO%C8K%2F%2B%D0%BE%EB%9C%22p%C1L%22%3B%7D; last_visit=1509936844308::1509954844308; _ym_visorc_45911007=w; tmr_detect=0%7C1509954847155'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (@RELEASE@) Server at aparkrent.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.22 (@RELEASE@)'
+    'SERVER_NAME' => 'aparkrent.ru'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '94.50.197.125'
+    'DOCUMENT_ROOT' => '/var/www/darok/data/www/aparkrent.ru/frontend/web'
+    'SERVER_ADMIN' => 'webmaster@aparkrent.ru'
+    'SCRIPT_FILENAME' => '/var/www/darok/data/www/aparkrent.ru/frontend/web/index.php'
+    'REMOTE_PORT' => '44212'
+    'REDIRECT_QUERY_STRING' => 'orderId=0cb316ae-b15a-76f0-0cb3-16ae000bef14'
+    'REDIRECT_URL' => '/payment/aviso/31'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.0'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'orderId=0cb316ae-b15a-76f0-0cb3-16ae000bef14'
+    'REQUEST_URI' => '/payment/aviso/31?orderId=0cb316ae-b15a-76f0-0cb3-16ae000bef14'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1509954883.79
+    'REQUEST_TIME' => 1509954883
+]

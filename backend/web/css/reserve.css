@@ -1,0 +1,32 @@
+.reserve {
+    color: #000000;
+}
+.reserve.red {
+    background-color: rgba(249, 166, 156, 0.7) !important;
+}
+.reserve.green {
+    background-color: rgba(170, 212, 169, 0.7) !important;
+}
+.reserve.gray {
+    background-color: rgba(197, 212, 208, 0.7) !important;
+}
+.table-button {
+    color: #FFFFFF;
+    padding: 0 5px;
+    display: inline-block;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.table-button.green {
+    background-color: #449d44;
+}
+.table-button.red {
+    background-color: #c9302c;
+}
+.table-button.green:hover {
+    background-color: #2a832a;
+}
+.table-button.red:hover {
+    background-color: #781f1f;
+}
