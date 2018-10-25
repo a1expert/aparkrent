@@ -1,83 +1,98 @@
 <?php
-/**
- * Created at 12.10.2017 18:39
- * @author Tsvetkov Alexander <ac@goldcarrot.ru>
- */
 
-namespace common\models;
+namespace frontend\models;
 
-use yii\db\ActiveRecord;
+use frontend\services\LoyaltyService;
+use Yii;
 
 /**
- * This is the model class for table "reserve".
+ * @property int $days
+ * @property int $daysForAdditional
+ * @property float $rentCost
+ * @property float $additionalCost
+ * @property bool $additionalHours
  *
- * @property integer $id
- * @property integer $model_id
- * @property integer $delivery_date
- * @property integer $return_date
- * @property integer $status
- * @property integer $car_id
- * @property integer $client_id
- * @property integer $source
- * @property integer $lead_status
- * @property string $comment
- * @property integer $invoice_id
- *
+ * @property AutoModel $model
+ * @property ReserveAdditionalService[] $reserveAdditionalServices
+ * @property ReserveFile[] $files
  * @property Client $client
  * @property Invoice $invoice
- * @property ReserveChild[] $children
  *
- * @property bool $deliveryNotInWorkTime
- * @property bool $returnNotInWorkTime
- * @property array $rentTime
+ * @property [] $addServices
  */
-class Reserve extends ActiveRecord
+class Reserve extends \common\models\Reserve
 {
-    const STATUS_NEW = 1;
-    const STATUS_ACCEPTED = 2;
-    const STATUS_REJECTED = 3;
-    const STATUS_DELETED = 4;
+    public function beforeSave($insert)
+    {
+        if ($insert) {
+            $this->status = self::STATUS_NEW;
+            $this->source = self::SOURCE_SITE;
+            if ($this->client && $this->client->status == Client::STATUS_DELETED) {
+                $this->client->status = Client::STATUS_NOT_VERIFIED;
+                $this->client->save(false);
+            }
+        }
+        return parent::beforeSave($insert);
+    }
 
-    const SOURCE_SITE = 1;
-    const SOURCE_MANAGER = 2;
-
-    const LEAD_STATUS_OPEN = 1;
-    const LEAD_STATUS_CLOSE = 2;
+    public function beforeValidate()
+    {
+        if ($this->return_date - $this->delivery_date < 3600) {
+            $this->addError('delivery_date', 'Даты некорректны');
+        }
+        return parent::beforeValidate();
+    }
 
     /**
-     * @return array
+     * @inheritdoc
      */
-    public static function getStatusArray()
+    public function rules()
     {
         return [
-            self::STATUS_NEW => 'Новая заявка',
-            self::STATUS_ACCEPTED => 'Одобрено',
-            self::STATUS_REJECTED => 'Отказано',
-        ];
-    }
-
-    public static function getSourceArray()
-    {
-        return [
-            self::SOURCE_SITE => 'С сайта',
-            self::SOURCE_MANAGER => 'Добавил менеджер',
-        ];
-    }
-
-    public static function getLeadStatusArray()
-    {
-        return [
-            self::LEAD_STATUS_OPEN => 'Открыта',
-            self::LEAD_STATUS_CLOSE => 'Закрыта',
+            [['delivery_date', 'return_date'], 'required'],
+            [['model_id', 'delivery_date', 'return_date', 'status', 'client_id', 'source', 'created_at'], 'integer'],
+            [['model_id'], 'exist', 'skipOnError' => true, 'targetClass' => AutoModel::className(), 'targetAttribute' => ['model_id' => 'id']],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public static function tableName()
+    public function attributeLabels()
     {
-        return 'reserve';
+        return [
+            'id' => 'ID',
+            'model_id' => 'Модель',
+            'delivery_date' => 'Дата доставки',
+            'price' => 'Цена',
+            'return_date' => 'Дата возврата',
+            'client_id' => 'Клиент',
+            'source' => 'Источник',
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModel()
+    {
+        return $this->hasOne(AutoModel::className(), ['id' => 'model_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getReserveAdditionalServices()
+    {
+        return $this->hasMany(ReserveAdditionalService::className(), ['reserve_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFiles()
+    {
+        return $this->hasMany(ReserveFile::className(), ['reserve_id' => 'id']);
     }
 
     /**
@@ -85,7 +100,7 @@ class Reserve extends ActiveRecord
      */
     public function getClient()
     {
-        return $this->hasOne(Client::class, ['id' => 'client_id']);
+        return $this->hasOne(Client::className(), ['id' => 'client_id']);
     }
 
     /**
@@ -93,72 +108,83 @@ class Reserve extends ActiveRecord
      */
     public function getInvoice()
     {
-        return $this->hasOne(Invoice::class, ['id' => 'invoice_id']);
+        return $this->hasOne(Invoice::className(), ['id' => 'invoice_id']);
     }
 
-    public function getChildren()
+    public function createInvoice()
     {
-        return $this->hasMany(ReserveChild::class, ['reserve_id' => 'id']);
+        if ($this->invoice == null) {
+            $invoice = new Invoice();
+            $invoice->save(false);
+            $this->invoice_id = $invoice->id;
+            $this->save(false);
+            $this->refresh();
+        }
+    }
+    /**
+     * @return float|int
+     */
+    public function getDays()
+    {
+        $hours = ($this->return_date - $this->delivery_date) / 3600;
+        if ($hours <= 27) {
+            return 1;
+        }
+        if ($hours % 24 <= 3) {
+            return floor($hours / 24);
+        }
+        return ceil($hours / 24);
     }
 
     /**
-     * @return bool
+     * @return float
      */
-    public function getDeliveryNotInWorkTime()
-    {
-        $hour = \Yii::$app->formatter->asTime($this->delivery_date, 'H');
-        if (($hour > 20) || ($hour < 8)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getReturnNotInWorkTime()
-    {
-        $hour = \Yii::$app->formatter->asTime($this->return_date, 'H');
-        if (($hour > 20) || ($hour < 8)) {
-            return true;
-        }
-        return false;
-    }
-
-    public function getRentTime()
-    {
-        $hours = ceil(($this->return_date - $this->delivery_date) / 3600);
-        $days = (int)($hours / 24);
-        if ($hours - ($days * 24) > 3) {
-            $days++;
-            $hours = 0;
-        } else {
-            $hours = ceil($hours - $days * 24);
-        }
-        return [
-            'days' => $days,
-            'hours' => $hours,
-        ];
-    }
-
     public function getDaysForAdditional()
     {
-        $timeArray = $this->getRentTime();
-        return $timeArray['days'] + ($timeArray['hours'] == 0 ? 0 : 1);
+        return ceil(($this->return_date - $this->delivery_date) / (24 * 3600));
     }
 
-    public function getRentDate()
+    /**
+     * @return bool|mixed
+     */
+    public function getRentCost()
     {
-        $endDate = $this->return_date;
-        $prolongation = false;
-        foreach ($this->children as $child) {
-            if ($child->type == ReserveChild::TYPE_PROLONGATION) {
-                if ($child->date_to > $endDate) {
-                    $prolongation = true;
-                    $endDate = $child->date_to;
-                }
-            }
+        $tariff = Tariff::find()->where(['model_id' => $this->model_id])->andWhere(['<=', 'minimal_days', $this->days])->orderBy('minimal_days DESC')->one();
+        if (!$tariff) {
+            return false;
         }
-        return \Yii::$app->formatter->asDatetime($this->delivery_date, 'd-M-Y') . ' - ' . \Yii::$app->formatter->asDatetime($endDate, 'd-M-Y') . ($prolongation ? ' (продлено)' : '');
+        return $tariff->price_for_day * $this->days;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAdditionalCost()
+    {
+        if ($this->invoice) {
+            return $this->invoice->price - $this->rentCost;
+        }
+        return 0;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAdditionalHours()
+    {
+        $hours = ceil(($this->return_date - $this->delivery_date) / 3600);
+        if (($hours > 3) && ($hours % 24) < 4) {
+            return $hours % 24;
+        } else {
+            return 0;
+        }
+    }
+
+    public function isPayed()
+    {
+        if ($this->invoice) {
+            return $this->invoice->paid_at != null;
+        }
+        return false;
     }
 }
