@@ -17,22 +17,22 @@
             </tr>
         </thead>
         <tbody>
-        <?php if ($model->deliveryNotInWorkTime): ?>
+        <?php /*if ($model->deliveryNotInWorkTime): */?><!--
             <tr>
                 <td>Доставка вне рабочее время</td>
                 <td></td>
                 <td>0</td>
                 <td></td>
             </tr>
-        <?php endif;?>
-        <?php if ($model->returnNotInWorkTime): ?>
+        <?php /*endif;*/?>
+        <?php /*if ($model->returnNotInWorkTime): */?>
             <tr>
                 <td>Возврат вне рабочее время</td>
                 <td></td>
                 <td>0</td>
                 <td></td>
             </tr>
-        <?php endif;?>
+        --><?php /*endif;*/?>
         <?php foreach ($model->reserveAdditionalServices as $keyServices) :?>
             <?= $this->render('_item', [
                 'keyServices' => $keyServices,

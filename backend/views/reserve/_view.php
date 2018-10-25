@@ -84,10 +84,10 @@ if ($model->status == Reserve::STATUS_ACCEPTED) {
 <?php if ($model->paidAt == null): ?>
     <div class="btn btn-success js-update-and-new-to-reserve" data-id="<?= $model->id ?>" data-url="<?= Url::to(['/reserve/add-service']) ?>">Добавить услугу</div>
 <?php endif; ?>
-<!--<div id="services">
+<div id="services">
     <div class="js-content">
-        <?/*= $this->render('services/list', [
+        <?= $this->render('services/list', [
             'model' => $model,
-        ]); */?>
+        ]); ?>
     </div>
-</div>-->
+</div>
