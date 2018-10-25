@@ -186,7 +186,7 @@ $(document).ready(function () {
 
     $('.datetimepicker').datetimepicker({
         minDate: 0,
-        format: 'd-m-Y',
+        format: 'Y-m-d',
         dayOfWeekStart: 1,
         timepicker: false,
         scrollMonth: false,

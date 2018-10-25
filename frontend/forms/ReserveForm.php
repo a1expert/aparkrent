@@ -50,7 +50,6 @@ class ReserveForm extends Model
             [['addServices', 'reserve', 'files'], 'safe'],
             [['date_from'], 'reserveDateValidator'],
             [['delivery_time'], 'date', 'format' => 'php:H:i'],
-//            [['delivery_time'], 'deliveryTimePrice'],
             [['email'], 'email'],
             [['phone'], PhoneInputValidator::className()],
         ];
@@ -205,6 +204,7 @@ class ReserveForm extends Model
         $this->reserve->model_id = $this->model_id;
         $this->reserve->delivery_date = $formatter->asTimestamp($this->date_from);
         $this->reserve->return_date = $formatter->asTimestamp($this->date_to);
+        $this->reserve->created_at = $formatter->asTimestamp(date('Y-m-d')) + 18000;
         $this->reserve->createInvoice();
         $this->reserve->invoice->price = $this->price;
         $this->reserve->invoice->save();
@@ -251,6 +251,7 @@ class ReserveForm extends Model
                 $fileToBase->client_id = $client->id;
                 $fileToBase->save();
             }
+            $this->actionExport();
             return true;
         }
         return false;
@@ -269,5 +270,78 @@ class ReserveForm extends Model
                 ->send();
         }
         return true;
+    }
+
+    public function actionExport()
+    {
+        $reserve = Reserve::find()->where(['created_at' => \Yii::$app->formatter->asTimestamp(date("Y-m-d")) + 18000])->all();
+        $reserveToXml = [
+            [
+                'tag' => 'AllReserve',
+                'elements' => $this->getReserve($reserve)
+            ]
+        ];
+
+        $request = (new \bupy7\xml\constructor\XmlConstructor())->fromArray($reserveToXml)->toOutput();
+        file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
+    }
+
+    private function getReserve($reserve)
+    {
+        $arr = [];
+        foreach ($reserve as $key => $item) {
+            $option = ['нет', 'нет', 'нет'];
+            foreach (ReserveAdditionalService::findAll(['reserve_id' => $item->id]) as $value) {
+                switch ($value->additional_service_id) {
+                    case 10: $option[0] = 'да';
+                        break;
+                    case 11: $option[1] = 'да';
+                        break;
+                    case 12: $option[2] = 'да';
+                        break;
+                }
+            }
+            $arr[$key] = [
+                'tag' => 'ReserveCar',
+                'attributes' => [
+                    'ReserveId' => $item->id,
+                    'ModelCode' => $item->model->code,
+                    'ModelId' => $item->model->id,
+                    'Model' => $item->model->title,
+                    'DeliveryDate' => $item->delivery_date + 18000,
+                    'ReturnDate' => $item->return_date + 18000,
+                    'Phone' => $item->client->phone,
+                    'Price' => $item->invoice->price,
+                ],
+                'elements' => [
+                    [
+                        'tag' => 'AdditionalServices',
+                        'attributes' => [
+                            'Address' => $this->getDeliveryAddress($item->id),
+                            'Time' => $this->getDeliveryTime($item->id),
+                        ],
+                    ],
+                    [
+                        'tag' => 'OptionalEquipment',
+                        'attributes' => [
+                            'VideoRecorder' => $option[0],
+                            'Navigator' => $option[1],
+                            'BabySeat' => $option[2],
+                        ],
+                    ],
+                ],
+            ];
+        }
+        return $arr;
+    }
+
+    private function getDeliveryTime($id){
+        $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
+        return !empty($item->time) ? $item->time + 18000 : \Yii::$app->formatter->asTimestamp('09:00') + 18000;
+    }
+
+    private function getDeliveryAddress($id){
+        $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
+        return !empty($item->address) ? $item->address : 'Югорский тракт 1 к.1';
     }
 }
