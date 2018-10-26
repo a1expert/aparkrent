@@ -308,8 +308,8 @@ class ReserveForm extends Model
                     'ModelCode' => $item->model->code,
                     'ModelId' => $item->model->id,
                     'Model' => $item->model->title,
-                    'DeliveryDate' => $item->delivery_date + 18000,
-                    'ReturnDate' => $item->return_date + 18000,
+                    'DeliveryDate' => \Yii::$app->formatter->asDatetime($item->delivery_date,'YMMddHHiss'),
+                    'ReturnDate' => \Yii::$app->formatter->asDatetime($item->return_date, 'YMMddHHiss'),
                     'Phone' => $item->client->phone,
                     'Price' => $item->invoice->price,
                 ],
@@ -337,7 +337,7 @@ class ReserveForm extends Model
 
     private function getDeliveryTime($id){
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
-        return !empty($item->time) ? $item->time + 18000 : \Yii::$app->formatter->asTimestamp('09:00') + 18000;
+        return !empty($item->time) ? \Yii::$app->formatter->asDatetime($item->time, 'HH:i') : '09:00';
     }
 
     private function getDeliveryAddress($id){

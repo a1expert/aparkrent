@@ -54,7 +54,7 @@ $(document).ready(function () {
         countPrice();
     });
 
-    $(document).on('change', '.js-input-delivery-time', function () {
+    $(document).on('keyup', '.js-input-delivery-time', function () {
         countPrice();
     });
 
