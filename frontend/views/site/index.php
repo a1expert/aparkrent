@@ -104,7 +104,7 @@ $this->registerMetaTag([
     </main>
 <? if (!empty($models)) :?>
     <h1 class="section-title js-brand-cars-title">Прокат авто в сургуте: передвигайтесь по городу с комфортом</h1>
-    <p class="section-title-description js-brand-cars-title-description">Новые машины и быстрое оформление всего за 20 минут</p>
+    <p class="section-title-description js-brand-cars-title-description">Новые машины и быстрое оформление всего за 10 минут</p>
     <section class="brand-cars">
         <div class="content">
             <div class="finded-cars">
