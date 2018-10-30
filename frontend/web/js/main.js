@@ -300,3 +300,10 @@ $(document).ready(function () {
     var im = new Inputmask('+79999999999');
     im.mask('.js-phone-mask');
 });
+
+$(document).ready(function () {
+	if(device.mobile()) {
+    	$('.js-brand-cars-title').text('Прокат авто в сургуте');
+    	$('.js-brand-cars-title-description').remove();
+	}
+});

@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         'js/main.js',
         '//maps.googleapis.com/maps/api/js?key=AIzaSyDu93I0n3wQBYWgLMiQa8D1mvXmAJ6EzM0',
         'js/map.js',
+        'js/device.js',
     ];
     public $depends = [
         YiiAsset::class,
