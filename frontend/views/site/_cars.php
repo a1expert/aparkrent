@@ -24,7 +24,7 @@ use frontend\models\AutoModel;
                 <div class="nums-auto-buttons-wrap">
                     <div class="free-autos">
                         <?php if($model->id == 3) : ?>
-                            <div class="text">Доступен с 10 ноября</div>
+                            <div class="text">Доступен с 20 ноября</div>
                         <?php endif; ?>
                         <?php if ($model->getFreeCars() != null) : ?>
                             <div class="text">Свободно автомобилей: <?= $model->getCountFree() ?></div>

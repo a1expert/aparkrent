@@ -1,0 +1,155 @@
+<?php
+use frontend\models\AutoClass;
+use frontend\models\AutoMark;
+use frontend\models\AutoModel;
+
+$this->title = 'Прокат авто в Сургуте - аренда машины без водителя - «Автопарк»';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => ' Автопарк 🚗 - предлагает услуги по прокату авто в Сургуте. Аренда новых автомобилей, доставка авто в удобное для вас место, оформление за 15 минут. Заходите, будем рады ☎ +7 (3462) 96-10-41'
+]);
+/** @var AutoMark[] $marks */
+/** @var AutoModel[] $models */
+/** @var AutoClass[] $classes */
+?>
+    <main>
+        <section class="index-banner">
+            <div class="index-banner-slider">
+                <div class="slide slide1">
+                    <div class="content">
+                        <div class="text">
+                            <div class='h3'>ПОДАРИМ</div>
+                            <div class='h2'>Бонусы за аренду автомобиля</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide slide2">
+                    <div class="content">
+                        <div class="text">
+                            <div class='h3'>АВТОПАРК</div>
+                            <div class='h2'>ПРОКАТ АВТО В СУРГУТЕ</div>
+                            <a href="<?= \yii\helpers\Url::to(['/site/jobs']) ?>" class="button">ПОДРОБНЕЕ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide slide3">
+                    <div class="content">
+                        <div class="text">
+                            <div class='h3'>ДОСТАВИМ</div>
+                            <div class='h2'>АВТО В АЭРОПОРТ Г. СУРГУТА</div>
+                            <a href="<?= \yii\helpers\Url::to(['/site/jobs']) ?>" class="button">ПОДРОБНЕЕ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="find-module">
+                <div class="switch-button active avto" data-id=0>Автомобили</div>
+                <div class="switch-button avia" data-id=1>Авиабилеты</div>
+                <form class="form-groups-avto">
+                    <!--<div class="form-group">
+                        <select name="SearchForm[class_id]">
+                            <option value="">Класс автомобиля</option>
+                            <?php /*foreach ($classes as $class): */?>
+                                <option value="<?/*= $class->id */?>"><?/*= $class->title */?></option>
+                            <?php /*endforeach; */?>
+                        </select>
+                    </div>-->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <?= yii\jui\DatePicker::widget( [
+                                'dateFormat' => 'dd-MM-yyyy',
+                                'options' => [
+                                    'placeholder' => 'Дата аренды (с)',
+                                    'autocomplete' => 'off'
+                                ],
+                                'name' => 'SearchForm[date_from]',
+                            ]) ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <?= yii\jui\DatePicker::widget( [
+                                'dateFormat' => 'dd-MM-yyyy',
+                                'options' => [
+                                    'placeholder' => 'Дата аренды (по)',
+                                    'autocomplete' => 'off'
+                                ],
+                                'name' => 'SearchForm[date_to]',
+                            ]) ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="button">ПОДОБРАТЬ</button>
+                    </div>
+                </form>
+                <div class="form-groups-avia">
+                    <script charset="utf-8" src="//www.travelpayouts.com/widgets/1c1dbaed5956d3238b55a32f770a9aeb.js?v=1052" async></script>
+                </div>
+            </div>
+            <div>
+            </div>
+        </section>
+    </main>
+<? if (!empty($models)) :?>
+    <h1 class="section-title js-brand-cars-title">Прокат авто в сургуте</h1>
+    <section class="brand-cars">
+        <div class="content">
+            <!--            <h1 class="finded-desc">В автопарке предоставлены следующие модели данного бренда:</h1>-->
+            <div class="finded-cars">
+                <?= $this->render('_cars', [
+                    'models' => $models,
+                ]) ?>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+<!-- TODO -->
+<!-- SEO TEXT -->
+<!-- <article class="seo-text">
+    <div class="content">
+        text
+    </div>
+</article> -->
+<?= $this->render('_callback') ?>
+<!--<section class="advantages-section">
+    <div class="content">
+        <div class="section-title">ПРЕИМУЩЕСТВА</div>
+        <div class="section-body">
+            <div class="advantage-block">
+                <div class="icon">
+                    <div class="num">01</div>
+                    <i></i>
+                </div>
+                <div class="name">Без ограничений по пробегу</div>
+            </div>
+            <div class="advantage-block">
+                <div class="icon">
+                    <div class="num">02</div>
+                    <i></i>
+                </div>
+                <div class="name">Быстрое оформление</div>
+            </div>
+            <div class="advantage-block">
+                <div class="icon">
+                    <div class="num">03</div>
+                    <i></i>
+                </div>
+                <div class="name">Доставка автомобилей</div>
+            </div>
+            <div class="advantage-block">
+                <div class="icon">
+                    <div class="num">04</div>
+                    <i></i>
+                </div>
+                <div class="name">Застрахованные автомобили, не старше 2-х лет.</div>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- TODO -->
+<!-- SEO TEXT -->
+<!-- <article class="seo-text">
+    <div class="content">
+        text
+    </div>
+</article> -->

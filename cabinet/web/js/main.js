@@ -166,6 +166,18 @@ $('.a-head').click(function(){
 	}
 });
 
+$('.mobile-substitute-table-wrap .block__head').click(function(){
+	if ($(this).hasClass('open')) {
+		$(this).removeClass('open');
+		$(this).next().slideUp(300);
+	} else {
+		$('.mobile-substitute-table-wrap .block__head').not(this).removeClass('open');
+		$('.mobile-substitute-table-wrap .block__head').not(this).next().slideUp(300);
+		$(this).addClass('open');
+		$(this).next().slideDown(300);
+	}
+});
+
 $(document).on('keyup', '.js-bonuses-field', function () {
 	var _this = $(this);
 	$.ajax({

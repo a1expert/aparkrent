@@ -1,4 +1,18 @@
 <header>
+	<section class="login" style="display: none;">
+		<div class="content">
+			<div class="login_group">
+                <?php if (Yii::$app->user->isGuest) :?>
+                    <a href="<?= Yii::$app->params['cabinet'] . '/site/index' ?>" class="login"><img src="/images/logout.png" alt=""> Личный кабинет </a>
+                <?php else: ?>
+                    <a href="<?= Yii::$app->params['cabinet'] . '/site/index' ?>" class="login">
+                        <?= Yii::$app->user->identity->client->getNameAndInitials() ?>
+                    </a>
+                    <a href="<?= Yii::$app->params['cabinet'] . '/user/logout' ?>" class="login">Выход <img src="/images/logout.png" alt=""></a>
+                <?php endif; ?>
+			</div>
+		</div>
+	</section>
 	<div class="content">
 		<a href="<?= \yii\helpers\Url::to(['/']) ?>" class="logo"></a>
 		<nav>

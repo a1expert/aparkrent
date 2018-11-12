@@ -40,7 +40,7 @@ foreach ($client->fines as $fine) {
         </div>
     </div>
     <div class="block_m info">
-        <div class="icon"></div>
+        <div class="icon"><img src="/images/main_page-info-m-2.png" alt=""></div>
         <div class="info_block">
             <div class="text">У вас <span><?= count($client->getInvoices(0)) ?></span> <?= \Yii::t('app', '{n, plural, one{неоплаченный счет} few{неоплаченных счета} other{неоплаченных счетов}}', ['n' => count($client->getInvoices(0))]) ?> </div>
             <a href="<?= Url::to(['/invoice/index']) ?>" class="button">ПОДРОБНЕЕ</a>
@@ -48,36 +48,42 @@ foreach ($client->fines as $fine) {
     </div>
     <div class="block">
         <div class="img">
-            <div class="i-1"></div>
+            <img src="/images/main_page_block-1.png" alt="">
         </div>
-        <div class="text-block">
-            <div class="title">Активные заказы</div>
-            <div class="text">У вас <span><?= $client->getActiveReserveCount() ?></span> <?= \Yii::t('app', '{n, plural, one{активный заказ} few{активных заказа} other{активных заказов}}', ['n' => $client->getActiveReserveCount()]) ?> </div>
+        <div class="wrap">
+            <div class="text-block">
+                <div class="title">Активные заказы</div>
+                <div class="text">У вас <span><?= $client->getActiveReserveCount() ?></span> <?= \Yii::t('app', '{n, plural, one{активный заказ} few{активных заказа} other{активных заказов}}', ['n' => $client->getActiveReserveCount()]) ?> </div>
+            </div>
+            <a href="<?= Url::to(['/reserve/index']) ?>" class="button">ПОДРОБНЕЕ</a>
         </div>
-        <a href="<?= Url::to(['/reserve/index']) ?>" class="button">ПОДРОБНЕЕ</a>
     </div>
     <div class="block">
         <div class="img">
-            <div class="i-2"></div>
+            <img src="/images/main_page_block-2.png" alt="">
         </div>
-        <div class="text-block">
-            <div class="title">Штрафы</div>
-            <?php if ($notPaidFines == 0) :?>
-                <div class="text">Неоплаченных штрафов нет</div>
-            <?php else: ?>
-                <div class="text">У вас <span><?= $notPaidFines ?></span> <?= \Yii::t('app', '{n, plural, one{неоплаченный штраф} few{неоплаченных штрафа} other{неоплаченных штрафов}}', ['n' => $notPaidFines]) ?></div>
-            <?php endif; ?>
+        <div class="wrap">
+            <div class="text-block">
+                <div class="title">Штрафы</div>
+                <?php if ($notPaidFines == 0) :?>
+                    <div class="text">Неоплаченных штрафов нет</div>
+                <?php else: ?>
+                    <div class="text">У вас <span><?= $notPaidFines ?></span> <?= \Yii::t('app', '{n, plural, one{неоплаченный штраф} few{неоплаченных штрафа} other{неоплаченных штрафов}}', ['n' => $notPaidFines]) ?></div>
+                <?php endif; ?>
+            </div>
+            <a href="<?= Url::to(['/fine/index']) ?>" class="button">ПОДРОБНЕЕ</a>
         </div>
-        <a href="<?= Url::to(['/fine/index']) ?>" class="button">ПОДРОБНЕЕ</a>
     </div>
     <div class="block">
         <div class="img">
-            <div class="i-3"></div>
+            <img src="/images/main_page_block-3.png" alt="">
         </div>
-        <div class="text-block">
-            <div class="title">ДТП</div>
-            <div class="text">Активных ДТП нет</div>
+        <div class="wrap">
+            <div class="text-block">
+                <div class="title">ДТП</div>
+                <div class="text">Активных ДТП нет</div>
+            </div>
+            <a href="" class="button">ПОДРОБНЕЕ</a>
         </div>
-        <a href="" class="button">ПОДРОБНЕЕ</a>
     </div>
 </section>
