@@ -284,7 +284,7 @@ class ReserveForm extends Model
 
         $request = (new \bupy7\xml\constructor\XmlConstructor())->fromArray($reserveToXml)->toOutput();
         file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
-        $this->soapExport();
+//        $this->soapExport();
     }
 
     private function getReserve($reserve)
