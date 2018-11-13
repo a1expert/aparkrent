@@ -284,7 +284,7 @@ class ReserveForm extends Model
 
         $request = (new \bupy7\xml\constructor\XmlConstructor())->fromArray($reserveToXml)->toOutput();
         file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
-//        $this->soapExport();
+        $this->soapExport();
     }
 
     private function getReserve($reserve)
@@ -351,7 +351,7 @@ class ReserveForm extends Model
         $wsdl = 'http://79.98.88.136:8080/prokatbs/ws/aparkrent.1cws?wsdl';
 
         $client = new \SoapClient($wsdl, [
-            'admin' => 'exchange',
+            'login' => 'exchange',
             'password' => '7S0m0B0d',
             'cache_wsdl' => WSDL_CACHE_MEMORY,
         ]);
