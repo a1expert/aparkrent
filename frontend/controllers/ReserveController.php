@@ -30,6 +30,7 @@ class ReserveController extends Controller
             $reserveForm->scenario = ReserveForm::SCENARIO_NON_LOGGED;
         }
         if ($reserveForm->load(\Yii::$app->request->post()) && $reserveForm->validate() && $reserveForm->createReserve() && $reserveForm->sendMessage()) {
+            $reserveForm->soapExport();
             return json_encode([
                 'status' => 'ok',
                 'message' => 'Ваша заявка принята и будет обработана в ближайшее время! Номер вашего заказа - ' . $reserveForm->reserve->id,

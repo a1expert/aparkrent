@@ -284,7 +284,6 @@ class ReserveForm extends Model
 
         $request = (new \bupy7\xml\constructor\XmlConstructor())->fromArray($reserveToXml)->toOutput();
         file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
-//        $this->soapExport();
     }
 
     private function getReserve($reserve)
@@ -336,20 +335,20 @@ class ReserveForm extends Model
         return $arr;
     }
 
-    private function getDeliveryTime($id){
+    private function getDeliveryTime($id) {
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
         return !empty($item->time) ? \Yii::$app->formatter->asDatetime($item->time, 'HH:i') : '09:00';
     }
 
-    private function getDeliveryAddress($id){
+    private function getDeliveryAddress($id) {
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
         return !empty($item->address) ? $item->address : 'Югорский тракт 1 к.1';
     }
 
-    private function soapExport()
+    public function soapExport()
     {
+        $data = file_get_contents(\Yii::getAlias('@console/data/reserve.xml'));
         $wsdl = 'http://79.98.88.136:8080/prokatbs/ws/aparkrent.1cws?wsdl';
-
         $client = new \SoapClient($wsdl, [
             'login' => 'exchange',
             'password' => '7S0m0B0d',
@@ -357,7 +356,7 @@ class ReserveForm extends Model
         ]);
 
         $client->postOrder([
-            'data' => file_get_contents(\Yii::getAlias('@console/data/reserve.xml')),
+            'data' => $data,
         ]);
     }
 }
