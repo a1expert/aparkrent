@@ -89,6 +89,10 @@ class ReserveForm extends Model
         }
     }
 
+    /**
+     * @return array
+     * @throws \yii\base\InvalidConfigException
+     */
     public function countPrice()
     {
         $formatter = \Yii::$app->formatter;
@@ -139,6 +143,7 @@ class ReserveForm extends Model
         if ($this->addServices != '') {
             foreach ($this->addServices as $id => $addService) {
                 if ($addService == 1) {
+                    /** @var AdditionalService $additionalService */
                     $additionalService = AdditionalService::findOne($id);
                     if ($additionalService) {
                         if ($additionalService->type == AdditionalService::TYPE_WASH) {
@@ -210,22 +215,22 @@ class ReserveForm extends Model
         $this->reserve->invoice->save();
 
         if ($this->reserve->save()) {
-            if ($this->delivery_type != '') {
+//            if ($this->delivery_type != '') {
                 $delivery = new ReserveAdditionalService();
                 $delivery->reserve_id = $this->reserve->id;
                 $delivery->additional_service_id = $this->delivery_type;
                 $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
-                $delivery->address = $this->delivery_address;
-                $delivery->time = $formatter->asTimestamp($this->delivery_time);
+                $delivery->address = !empty($this->delivery_address) ? $this->delivery_address : 'Югорский тракт 1 к.1';
+                $delivery->time = $formatter->asTimestamp(!empty($this->delivery_time) ? $this->delivery_time : '09:00');
                 $delivery->save();
-            } else if ($this->delivery_time != '') {
-                $delivery = new ReserveAdditionalService();
-                $delivery->reserve_id = $this->reserve->id;
-                $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
-                $delivery->address = 'Югорский тракт 1 к.1';
-                $delivery->time = $formatter->asTimestamp($this->delivery_time);
-                $delivery->save();
-            }
+                /*} else if ($this->delivery_time != '') {
+                    $delivery = new ReserveAdditionalService();
+                    $delivery->reserve_id = $this->reserve->id;
+                    $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
+                    $delivery->address = 'Югорский тракт 1 к.1';
+                    $delivery->time = $formatter->asTimestamp($this->delivery_time);
+                    $delivery->save();
+                }*/
             if ($this->return_type != '') {
                 $return = new ReserveAdditionalService();
                 $return->reserve_id = $this->reserve->id;
@@ -259,7 +264,7 @@ class ReserveForm extends Model
 
     public function sendMessage()
     {
-        $emails = ['info@aparkrent.ru', 'admin@goldcarrot.ru'];
+        $emails = ['dmb@goldcarrot.ru'];
         foreach ($emails as $email) {
             \Yii::$app->mailer->compose('reserve_mail', [
                 'reserve' => $this->reserve,

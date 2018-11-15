@@ -8,9 +8,12 @@ $this->registerMetaTag([
     'name' => 'description',
     'content' => ' Автопарк 🚗 - предлагает услуги по прокату авто в Сургуте. Аренда новых автомобилей, доставка авто в удобное для вас место, оформление за 15 минут. Заходите, будем рады ☎ +7 (3462) 96-10-41'
 ]);
-/** @var AutoMark[] $marks */
-/** @var AutoModel[] $models */
-/** @var AutoClass[] $classes */
+/**
+ * @var AutoMark[] $marks
+ * @var AutoModel[] $models
+ * @var AutoClass[] $classes
+ */
+
 ?>
     <main>
         <section class="index-banner">

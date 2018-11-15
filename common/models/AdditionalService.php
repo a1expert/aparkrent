@@ -4,6 +4,10 @@
  * @author Tsvetkov Alexander <ac@goldcarrot.ru>
  */
 
+namespace common\models;
+
+use yii\db\ActiveRecord;
+
 /**
  * This is the model class for table "additional_service".
  *
@@ -15,12 +19,6 @@
  *
  * @property string $fullTitle
  */
-
-namespace common\models;
-
-
-use yii\db\ActiveRecord;
-
 class AdditionalService extends ActiveRecord
 {
     const TYPE_DELIVERY = 1;
