@@ -247,7 +247,7 @@ class ReserveForm extends Model
 
     public function sendMessage()
     {
-        $emails = ['dmb@goldcarrot.ru'];
+        $emails = ['info@aparkrent.ru', 'admin@goldcarrot.ru'];
         foreach ($emails as $email) {
             \Yii::$app->mailer->compose('reserve_mail', [
                 'reserve' => $this->reserve,
