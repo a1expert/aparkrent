@@ -32,15 +32,28 @@ class XmlRequestParcer extends Model
                     $reserveAdditionalService->time = \Yii::$app->formatter->asTimestamp($additionalServices[0]->getAttribute('Time'));
                     $reserveAdditionalService->save();
                 }
-
+                $deliveryDate = $this->dateFormat($entry, 'DeliveryDate');
+                $returnDate = $this->dateFormat($entry, 'ReturnDate');
+                $reserve->delivery_date = \Yii::$app->formatter->asTimestamp($deliveryDate);
+                $reserve->return_date = \Yii::$app->formatter->asTimestamp($returnDate);
                 $reserve->model->code = $entry->getAttribute('ModelCode');
                 $reserve->model_id = $entry->getAttribute('ModelId');
-                $reserve->delivery_date = $entry->getAttribute('DeliveryDate');
-                $reserve->return_date = $entry->getAttribute('ReturnDate');
                 $reserve->invoice->price = $entry->getAttribute('Price');
                 $reserve->save();
             }
         }
+    }
+
+    /**
+     * @param $entry
+     * @param $xmlAttribute
+     * @return string
+     */
+    private function dateFormat($entry, $xmlAttribute)
+    {
+        $xmlDate = str_split($entry->getAttribute($xmlAttribute));
+        $date = implode("-",[$xmlDate[0] . $xmlDate[1] . $xmlDate[2] . $xmlDate[3], $xmlDate[4] . $xmlDate[5], $xmlDate[6] . $xmlDate[7]]);
+        return $date;
     }
 
     /**
@@ -68,7 +81,8 @@ class XmlRequestParcer extends Model
     {
         $doc = new \DOMDocument();
         $doc->preserveWhiteSpace = false;
-        $doc->load(\Yii::getAlias('@console/data/reserve.xml'));
+//        $doc->load(\Yii::getAlias('@console/data/reserve.xml'));
+        $doc->loadXML(file_get_contents(\Yii::getAlias('@console/data/reserve.xml')));
         return new \DOMXPath($doc);
     }
 

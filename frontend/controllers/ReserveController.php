@@ -44,4 +44,9 @@ class ReserveController extends Controller
             }
         }
     }
+
+    public function actionSoapRequest()
+    {
+        $xmlString = \Yii::$app->request->post('data');
+    }
 }

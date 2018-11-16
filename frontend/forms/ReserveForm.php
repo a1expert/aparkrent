@@ -215,31 +215,12 @@ class ReserveForm extends Model
         $this->reserve->invoice->save();
 
         if ($this->reserve->save()) {
-//            if ($this->delivery_type != '') {
-                $delivery = new ReserveAdditionalService();
-                $delivery->reserve_id = $this->reserve->id;
-                if (!empty($this->delivery_type)) $delivery->additional_service_id = $this->delivery_type;
-                $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
-                $delivery->address = !empty($this->delivery_address) ? $this->delivery_address : 'Югорский тракт 1 к.1';
-                $delivery->time = $formatter->asTimestamp(!empty($this->delivery_time) ? $this->delivery_time : '09:00');
-                $delivery->save();
-                /*} else if ($this->delivery_time != '') {
-                    $delivery = new ReserveAdditionalService();
-                    $delivery->reserve_id = $this->reserve->id;
-                    $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
-                    $delivery->address = 'Югорский тракт 1 к.1';
-                    $delivery->time = $formatter->asTimestamp($this->delivery_time);
-                    $delivery->save();
-                }*/
-            if ($this->return_type != '') {
-                $return = new ReserveAdditionalService();
-                $return->reserve_id = $this->reserve->id;
-                $return->additional_service_id = $this->return_type;
-                $return->delivery_type = ReserveAdditionalService::DELIVERY_FROM_CLIENT;
-                $return->address = $this->return_address;
-                $return->time = $formatter->asTimestamp($this->delivery_time);
-                $return->save();
-            }
+            $delivery = new ReserveAdditionalService();
+            $delivery->reserve_id = $this->reserve->id;
+            $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
+            $delivery->address = !empty($this->delivery_address) ? $this->delivery_address : 'Югорский тракт 1 к.1';
+            $delivery->time = $formatter->asTimestamp(!empty($this->delivery_time) ? $this->delivery_time : '09:00');
+            $delivery->save();
             foreach ($this->addServices as $key => $value) {
                 if ($value) {
                     $service = new ReserveAdditionalService();
@@ -256,7 +237,9 @@ class ReserveForm extends Model
                 $fileToBase->client_id = $client->id;
                 $fileToBase->save();
             }
-            $this->actionExport();
+            if (YII_ENV_PROD) {
+                $this->actionExport();
+            }
             return true;
         }
         return false;
