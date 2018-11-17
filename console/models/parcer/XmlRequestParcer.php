@@ -8,9 +8,9 @@ use yii\base\Model;
 
 class XmlRequestParcer extends Model
 {
-    public function importSoapRequest()
+    public function importSoapRequest($xmlString)
     {
-        $xpath = $this->openXml();
+        $xpath = $this->openXml($xmlString);
         $query = '//AllReserve/ReserveCar';
         $entries = $xpath->query($query);
         foreach ($entries as $entry) {
@@ -28,6 +28,7 @@ class XmlRequestParcer extends Model
                 if (empty($reserveAdditionalServices)) {
                     $reserveAdditionalService = new ReserveAdditionalService();
                     $reserveAdditionalService->reserve_id = $reserve->id;
+                    $reserveAdditionalService->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
                     $reserveAdditionalService->address = $additionalServices[0]->getAttribute('Address');
                     $reserveAdditionalService->time = \Yii::$app->formatter->asTimestamp($additionalServices[0]->getAttribute('Time'));
                     $reserveAdditionalService->save();
@@ -77,12 +78,13 @@ class XmlRequestParcer extends Model
     /**
      * @return \DOMXPath
      */
-    private function openXml()
+    private function openXml($xmlString)
     {
         $doc = new \DOMDocument();
         $doc->preserveWhiteSpace = false;
 //        $doc->load(\Yii::getAlias('@console/data/reserve.xml'));
-        $doc->loadXML(file_get_contents(\Yii::getAlias('@console/data/reserve.xml')));
+//        $doc->loadXML(file_get_contents(\Yii::getAlias('@console/data/reserve.xml')));
+        $doc->loadXML($xmlString);
         return new \DOMXPath($doc);
     }
 

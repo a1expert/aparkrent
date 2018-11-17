@@ -12,23 +12,23 @@ use yii\helpers\Url;
 
 ?>
 <tr>
-    <?php if ($keyServices->additionalService->type == AdditionalService::TYPE_DELIVERY):?>
-        <?php if ($keyServices->delivery_type == ReserveAdditionalService::DELIVERY_TO_CLIENT):?>
+    <?php if ($keyServices->additionalService->type == AdditionalService::TYPE_DELIVERY) : ?>
+        <?php if ($keyServices->delivery_type == ReserveAdditionalService::DELIVERY_TO_CLIENT) : ?>
             <td>Доставка - <?= $keyServices->additionalService->title ?></td>
             <td><?= $keyServices->address ?></td>
             <td><?= $keyServices->additionalService->price ?></td>
-        <?php else: ?>
+        <?php else : ?>
             <td>Возврат - <?= $keyServices->additionalService->title ?></td>
             <td><?= $keyServices->address ?></td>
             <td><?= $keyServices->additionalService->price ?></td>
         <?php endif; ?>
-    <?php elseif ($keyServices->additionalService->type == AdditionalService::TYPE_WASH): ?>
+    <?php elseif ($keyServices->additionalService->type == AdditionalService::TYPE_WASH) : ?>
         <td><?= $keyServices->additionalService->title ?></td>
         <td>---</td>
         <td><?= $keyServices->additionalService->price ?></td>
-    <?php else:?>
+    <?php else : ?>
         <td><?= $keyServices->additionalService->title ?></td>
-        <td>---</td>
+        <td><?= !empty($keyServices->address) ? $keyServices->address : '---'; ?></td>
         <td><?= $model->getDaysForAdditional() * $keyServices->additionalService->price ?></td>
     <?php endif; ?>
     <td>

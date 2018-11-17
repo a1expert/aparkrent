@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use console\models\parcer\XmlRequestParcer;
 use frontend\forms\ReserveForm;
 use yii\helpers\Html;
 use yii\web\Controller;
@@ -30,7 +31,9 @@ class ReserveController extends Controller
             $reserveForm->scenario = ReserveForm::SCENARIO_NON_LOGGED;
         }
         if ($reserveForm->load(\Yii::$app->request->post()) && $reserveForm->validate() && $reserveForm->createReserve() && $reserveForm->sendMessage()) {
-            $reserveForm->soapExport();
+            if (YII_ENV_PROD) {
+                $reserveForm->soapExport();
+            }
             return json_encode([
                 'status' => 'ok',
                 'message' => 'Ваша заявка принята и будет обработана в ближайшее время! Номер вашего заказа - ' . $reserveForm->reserve->id,
@@ -47,6 +50,15 @@ class ReserveController extends Controller
 
     public function actionSoapRequest()
     {
+
         $xmlString = \Yii::$app->request->post('data');
+//        $xmlString = file_get_contents(\Yii::getAlias('@console/data/reserve.xml'));
+        $time = microtime(true);
+
+        $parcer = new XmlRequestParcer();
+        $parcer->importSoapRequest($xmlString);
+
+        echo microtime(true) - $time;
+        return true;
     }
 }
