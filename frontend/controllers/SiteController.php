@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\AdditionalService;
 use frontend\models\AutoClass;
 use frontend\models\AutoMark;
 use frontend\models\AutoModel;
@@ -86,7 +87,12 @@ class SiteController extends Controller
 
     public function actionJobs()
     {
-        return $this->render('jobs');
+        $wash = AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->one();
+        $express_wash = AdditionalService::find()->where(['type' => AdditionalService::TYPE_EXPRESS_WASH])->one();
+        return $this->render('jobs', [
+            'wash' => $wash,
+            'express_wash' => $express_wash,
+        ]);
     }
 
     public function actionConditions()

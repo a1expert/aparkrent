@@ -35,10 +35,18 @@ $this->registerMetaTag([
 						<div class="image">
 							<i class="ic26"></i>
 						</div>
-						<div class="title">МОЙКА АВТОМОБИЛЯ</div>
-						<div class="locations">
-							<div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format(AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->one()->price, 0, '.', ' ') ?> ₽</span></div>
-						</div>
+                        <?php if (!empty($wash)) : ?>
+                            <div class="title"><?= $wash->title ?></div>
+                            <div class="locations">
+                                <div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format($wash->price, 0, '.', ' ') ?> ₽</span></div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($express_wash)) : ?>
+                            <div class="title"><?= $express_wash->title ?></div>
+                            <div class="locations">
+                                <div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format($express_wash->price, 0, '.', ' ') ?> ₽</span></div>
+                            </div>
+                        <?php endif; ?>
 					</div>
 					<div class="block">
 						<div class="image">

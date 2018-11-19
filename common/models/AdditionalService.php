@@ -24,6 +24,15 @@ class AdditionalService extends ActiveRecord
     const TYPE_DELIVERY = 1;
     const TYPE_WASH = 2;
     const TYPE_RENT = 3;
+    const TYPE_EXPRESS_WASH = 4;
+
+    public static $types =[
+        self::TYPE_DELIVERY => 'Транспортировка',
+        self::TYPE_WASH => 'Полная Мойка',
+        self::TYPE_EXPRESS_WASH => 'Экспресс Мойка',
+        self::TYPE_RENT => 'Доп. оборудование',
+    ];
+
     /**
      * @inheritdoc
      */
