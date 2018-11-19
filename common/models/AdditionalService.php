@@ -47,6 +47,7 @@ class AdditionalService extends ActiveRecord
             self::TYPE_DELIVERY => 'Транспортировка',
             self::TYPE_WASH => 'Мойка',
             self::TYPE_RENT => 'Доп. оборудование',
+            self::TYPE_EXPRESS_WASH => 'Экспресс мойка',
         ];
     }
 
