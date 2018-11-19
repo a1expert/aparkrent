@@ -9,6 +9,10 @@ use yii\web\Controller;
 
 class ReserveController extends Controller
 {
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionCountPrice()
     {
         $form = new ReserveForm();
@@ -50,7 +54,6 @@ class ReserveController extends Controller
 
     public function actionSoapRequest()
     {
-
         $xmlString = \Yii::$app->request->post('data');
 //        $xmlString = file_get_contents(\Yii::getAlias('@console/data/reserve.xml'));
         $time = microtime(true);
@@ -59,6 +62,20 @@ class ReserveController extends Controller
         $parcer->importSoapRequest($xmlString);
 
         echo microtime(true) - $time;
+        $this->sendMessage();
+        return true;
+    }
+
+    public function sendMessage()
+    {
+        $emails = ['dmb@goldcarrot.ru'];
+        foreach ($emails as $email) {
+            \Yii::$app->mailer->compose('test_mail')
+                ->setTo($email)
+                ->setFrom(['admin@goldcarrot.ru' => 'Gold Carrot'])
+                ->setSubject('Резерв с сайта aparkrent.ru')
+                ->send();
+        }
         return true;
     }
 }

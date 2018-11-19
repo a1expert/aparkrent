@@ -281,6 +281,9 @@ class ReserveForm extends Model
         return true;
     }
 
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionXmlExport()
     {
         $reserve = Reserve::find()->where(['created_at' => \Yii::$app->formatter->asTimestamp(date("Y-m-d")) + 18000])->all();
@@ -295,6 +298,11 @@ class ReserveForm extends Model
         file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
     }
 
+    /**
+     * @param $reserve
+     * @return array
+     * @throws \yii\base\InvalidConfigException
+     */
     private function getReserve($reserve)
     {
         $arr = [];
@@ -344,11 +352,20 @@ class ReserveForm extends Model
         return $arr;
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     private function getDeliveryTime($id) {
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
         return !empty($item->time) ? \Yii::$app->formatter->asDatetime($item->time, 'HH:i') : '09:00';
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     private function getDeliveryAddress($id) {
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
         return !empty($item->address) ? $item->address : 'Югорский тракт 1 к.1';
