@@ -9,6 +9,7 @@ use backend\models\Client;
 use backend\models\Reserve;
 use backend\models\ReserveAdditionalService;
 use backend\models\search\ReserveSearch;
+use backend\models\SoapReserve;
 use backend\services\CountReservePriceService;
 use Yii;
 use yii\filters\AccessControl;
@@ -63,6 +64,7 @@ class ReserveController extends Controller
     /**
      * @param $id
      * @return string
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -88,6 +90,7 @@ class ReserveController extends Controller
 
     /**
      * @return string|\yii\web\Response
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionCreate()
     {
@@ -95,6 +98,8 @@ class ReserveController extends Controller
         $model->reserve = new Reserve();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            (new SoapReserve())->actionXmlExport($model->reserve->id);
+//            $exportSoapRequest->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('create', [
@@ -106,6 +111,8 @@ class ReserveController extends Controller
     /**
      * @param $id
      * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionUpdate($id)
     {
@@ -113,6 +120,8 @@ class ReserveController extends Controller
         $model->setReserve($this->findModel($id));
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            (new SoapReserve())->actionXmlExport($id);
+//            $exportSoapRequest->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('update', [
@@ -124,6 +133,7 @@ class ReserveController extends Controller
     /**
      * @param $id
      * @return \yii\web\Response
+     * @throws NotFoundHttpException
      */
     public function actionDelete($id)
     {
@@ -137,10 +147,17 @@ class ReserveController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionAddService($id)
     {
         $service = new AdditionalReserveForm();
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
+            (new SoapReserve())->actionXmlExport($id);
+//            $exportSoapRequest->soapExport();
             return json_encode([
                 'status' => 'ok',
                 'loaded' => 'true',
@@ -164,10 +181,20 @@ class ReserveController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \Throwable
+     * @throws \yii\base\InvalidConfigException
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionDeleteService($id)
     {
         $service = ReserveAdditionalService::findOne($id);
+        $reserve_id = $service->reserve_id;
         if ($service && $service->delete()) {
+            (new SoapReserve())->actionXmlExport($reserve_id);
+//            $exportSoapRequest->soapExport();
             return json_encode([
                 'status' => 'ok',
             ]);

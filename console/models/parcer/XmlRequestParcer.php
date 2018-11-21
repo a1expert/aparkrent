@@ -37,7 +37,6 @@ class XmlRequestParcer extends Model
                 $returnDate = $this->dateFormat($entry, 'ReturnDate');
                 $reserve->delivery_date = \Yii::$app->formatter->asTimestamp($deliveryDate);
                 $reserve->return_date = \Yii::$app->formatter->asTimestamp($returnDate);
-                $reserve->model->code = $entry->getAttribute('ModelCode');
                 $reserve->model_id = $entry->getAttribute('ModelId');
                 $reserve->invoice->price = $entry->getAttribute('Price');
                 $reserve->save();
