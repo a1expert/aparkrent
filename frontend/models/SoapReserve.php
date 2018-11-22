@@ -7,15 +7,16 @@ class SoapReserve extends \common\models\SoapReserve
 {
     /**
      * @param $reserve_id
+     * @param $delivery_type
      * @throws \yii\base\InvalidConfigException
      */
-    public function xmlExport($reserve_id)
+    public function xmlExport($reserve_id, $delivery_type)
     {
         $reserve = Reserve::findAll(['id' => $reserve_id]);
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
-                'elements' => $this->getReserve($reserve)
+                'elements' => $this->getReserve($reserve, $delivery_type)
             ]
         ];
 
@@ -25,22 +26,20 @@ class SoapReserve extends \common\models\SoapReserve
 
     /**
      * @param $reserve
+     * @param $delivery_type
      * @return array
      * @throws \yii\base\InvalidConfigException
      */
-    private function getReserve($reserve)
+    private function getReserve($reserve, $delivery_type)
     {
         $arr = [];
         foreach ($reserve as $key => $item) {
-            $option = ['нет', 'нет', 'нет'];
+            $option = ['нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет'];
             foreach (ReserveAdditionalService::findAll(['reserve_id' => $item->id]) as $value) {
-                switch ($value->additional_service_id) {
-                    case 10: $option[0] = 'да';
-                        break;
-                    case 11: $option[1] = 'да';
-                        break;
-                    case 12: $option[2] = 'да';
-                        break;
+                for ($i = 1; $i < 14; $i++) {
+                    if ($value->additional_service_id == $i) {
+                        $option[$i-1] = 'да';
+                    }
                 }
             }
             $arr[$key] = [
@@ -59,16 +58,27 @@ class SoapReserve extends \common\models\SoapReserve
                     [
                         'tag' => 'AdditionalServices',
                         'attributes' => [
-                            'Address' => $this->getDeliveryAddress($item->id),
+//                            'Region' => $delivery_type->title,
+                            'Address' => $this->getDeliveryAddress($item->id, $delivery_type),
                             'Time' => $this->getDeliveryTime($item->id),
                         ],
                     ],
                     [
                         'tag' => 'OptionalEquipment',
                         'attributes' => [
-                            'VideoRecorder' => $option[0],
-                            'Navigator' => $option[1],
-                            'BabySeat' => $option[2],
+                            'AirportSurgut' => $option[0],
+                            'RailwayStation' => $option[1],
+                            'DeliveryCity' => $option[2],
+                            'Nefteyugansk' => $option[3],
+                            'KhantyMansiysk' => $option[4],
+                            'Nizhnevartovsk' => $option[5],
+                            'Noyabrsk' => $option[6],
+                            'NovyUrengoy' => $option[7],
+                            'FullCarWash' => $option[8],
+                            'VideoRecorder' => $option[9],
+                            'Navigator' => $option[10],
+                            'BabySeat' => $option[11],
+                            'ExpressWash' => $option[12],
                         ],
                     ],
                 ],
@@ -89,10 +99,12 @@ class SoapReserve extends \common\models\SoapReserve
 
     /**
      * @param $id
+     * @param $delivery_type
      * @return string
      */
-    private function getDeliveryAddress($id) {
+    private function getDeliveryAddress($id, $delivery_type) {
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
-        return !empty($item->address) ? $item->address : 'Югорский тракт 1 к.1';
+        return !empty($item->address) ? $item->address : ($delivery_type == '' ? 'Югорский тракт 1 к.1' : '');
+
     }
 }

@@ -225,7 +225,7 @@ class ReserveForm extends Model
                 $delivery->reserve_id = $this->reserve->id;
                 $delivery->additional_service_id = $this->delivery_type;
                 $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
-                $delivery->address = !empty($this->delivery_address) ? $this->delivery_address : 'Югорский тракт 1 к.1';
+                $delivery->address = empty($this->delivery_type) ? 'Югорский тракт 1 к.1' : (!empty($this->delivery_address) ? $this->delivery_address : '');
                 $delivery->time = $formatter->asTimestamp(!empty($this->delivery_time) ? $this->delivery_time : '09:00');
                 $delivery->save();
             }
@@ -266,7 +266,7 @@ class ReserveForm extends Model
                 $fileToBase->client_id = $client->id;
                 $fileToBase->save();
             }
-            (new SoapReserve)->xmlExport($this->reserve->id);
+            (new SoapReserve)->xmlExport($this->reserve->id, $this->delivery_type);
             return true;
         }
         return false;

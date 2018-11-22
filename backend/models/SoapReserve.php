@@ -35,7 +35,9 @@ class SoapReserve extends \common\models\SoapReserve
             $option = ['нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет'];
             foreach (ReserveAdditionalService::findAll(['reserve_id' => $item->id]) as $value) {
                 for ($i = 1; $i < 14; $i++) {
-                    $option[$i-1] = $value->additional_service_id == $i ? 'да' : 'нет' ;
+                    if ($value->additional_service_id == $i) {
+                        $option[$i-1] = 'да';
+                    }
                 }
             }
             $arr[$key] = [
