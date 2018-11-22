@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 
 class SoapReserve extends \common\models\SoapReserve
@@ -9,9 +9,9 @@ class SoapReserve extends \common\models\SoapReserve
      * @param $reserve_id
      * @throws \yii\base\InvalidConfigException
      */
-    public function xmlExport($reserve_id = null)
+    public function xmlExport($reserve_id)
     {
-        $reserve = !empty($reserve_id) ? Reserve::findAll(['id' => $reserve_id]) : [new Reserve()] ;
+        $reserve = Reserve::findAll(['id' => $reserve_id]);
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
@@ -32,10 +32,15 @@ class SoapReserve extends \common\models\SoapReserve
     {
         $arr = [];
         foreach ($reserve as $key => $item) {
-            $option = ['нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет'];
+            $option = ['нет', 'нет', 'нет'];
             foreach (ReserveAdditionalService::findAll(['reserve_id' => $item->id]) as $value) {
-                for ($i = 1; $i < 14; $i++) {
-                    $option[$i-1] = $value->additional_service_id == $i ? 'да' : 'нет' ;
+                switch ($value->additional_service_id) {
+                    case 10: $option[0] = 'да';
+                        break;
+                    case 11: $option[1] = 'да';
+                        break;
+                    case 12: $option[2] = 'да';
+                        break;
                 }
             }
             $arr[$key] = [
@@ -61,19 +66,9 @@ class SoapReserve extends \common\models\SoapReserve
                     [
                         'tag' => 'OptionalEquipment',
                         'attributes' => [
-                            'AirportSurgut' => $option[0],
-                            'RailwayStation' => $option[1],
-                            'DeliveryCity' => $option[2],
-                            'Nefteyugansk' => $option[3],
-                            'KhantyMansiysk' => $option[4],
-                            'Nizhnevartovsk' => $option[5],
-                            'Noyabrsk' => $option[6],
-                            'NovyUrengoy' => $option[7],
-                            'FullCarWash' => $option[8],
-                            'VideoRecorder' => $option[9],
-                            'Navigator' => $option[10],
-                            'BabySeat' => $option[11],
-                            'ExpressWash' => $option[12],
+                            'VideoRecorder' => $option[0],
+                            'Navigator' => $option[1],
+                            'BabySeat' => $option[2],
                         ],
                     ],
                 ],

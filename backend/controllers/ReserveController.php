@@ -98,7 +98,7 @@ class ReserveController extends Controller
         $model->reserve = new Reserve();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            (new SoapReserve())->actionXmlExport($model->reserve->id);
+            (new SoapReserve())->xmlExport($model->reserve->id);
 //            (new SoapReserve())->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
@@ -120,7 +120,7 @@ class ReserveController extends Controller
         $model->setReserve($this->findModel($id));
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            (new SoapReserve())->actionXmlExport($id);
+            (new SoapReserve())->xmlExport($id);
 //            (new SoapReserve())->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
@@ -156,7 +156,7 @@ class ReserveController extends Controller
     {
         $service = new AdditionalReserveForm();
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
-            (new SoapReserve())->actionXmlExport($id);
+            (new SoapReserve())->xmlExport($id);
 //            (new SoapReserve())->soapExport();
             return json_encode([
                 'status' => 'ok',
@@ -193,7 +193,7 @@ class ReserveController extends Controller
         $service = ReserveAdditionalService::findOne($id);
         $reserve_id = $service->reserve_id;
         if ($service && $service->delete()) {
-            (new SoapReserve())->actionXmlExport($reserve_id);
+            (new SoapReserve())->xmlExport($reserve_id);
 //            (new SoapReserve())->soapExport();
             return json_encode([
                 'status' => 'ok',
@@ -219,10 +219,17 @@ class ReserveController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionCountPrice($id)
     {
         $reserve = Reserve::findOne($id);
         if ($reserve) {
+            (new SoapReserve())->xmlExport($reserve->id);
+//            (new SoapReserve())->soapExport();
             return json_encode(CountReservePriceService::countPrice($reserve));
         }
     }
