@@ -184,6 +184,10 @@ class ReserveForm extends Model
         ];
     }
 
+    /**
+     * @return bool
+     * @throws \yii\base\InvalidConfigException
+     */
     public function createReserve()
     {
         $formatter = \Yii::$app->formatter;
@@ -215,9 +219,10 @@ class ReserveForm extends Model
         $this->reserve->invoice->save();
 
         if ($this->reserve->save()) {
-            /*if (($this->delivery_type != '') || ($this->delivery_time != '')) {
+            if (($this->delivery_type != '') || ($this->delivery_time != '')) {
                 $delivery = new ReserveAdditionalService();
                 $delivery->reserve_id = $this->reserve->id;
+                $delivery->additional_service_id = $this->delivery_type;
                 $delivery->delivery_type = ReserveAdditionalService::DELIVERY_TO_CLIENT;
                 $delivery->address = !empty($this->delivery_address) ? $this->delivery_address : 'Югорский тракт 1 к.1';
                 $delivery->time = $formatter->asTimestamp(!empty($this->delivery_time) ? $this->delivery_time : '09:00');
@@ -230,8 +235,8 @@ class ReserveForm extends Model
                     $service->additional_service_id = $key;
                     $service->save();
                 }
-            }*/
-            if (($this->addServices[10] != 0) || ($this->addServices[11] != 0) || ($this->addServices[12] != 0)) {
+            }
+            /*if (($this->addServices[10] != 0) || ($this->addServices[11] != 0) || ($this->addServices[12] != 0)) {
                 foreach ($this->addServices as $key => $value) {
                     if ($value) {
                         $delivery = new ReserveAdditionalService();
@@ -251,7 +256,7 @@ class ReserveForm extends Model
                 $delivery->address = !empty($this->delivery_address) ? $this->delivery_address : 'Югорский тракт 1 к.1';
                 $delivery->time = $formatter->asTimestamp(!empty($this->delivery_time) ? $this->delivery_time : '09:00');
                 $delivery->save();
-            }
+            }*/
             $this->files = $this->files == '' ? [] : $this->files;
             foreach ($this->files as $file) {
                 $fileToBase = new ClientFile();
@@ -260,7 +265,7 @@ class ReserveForm extends Model
                 $fileToBase->client_id = $client->id;
                 $fileToBase->save();
             }
-            $this->actionXmlExport();
+            $this->actionXmlExport($this->reserve->id);
             return true;
         }
         return false;
@@ -282,11 +287,12 @@ class ReserveForm extends Model
     }
 
     /**
+     * @param $reserve_id
      * @throws \yii\base\InvalidConfigException
      */
-    public function actionXmlExport()
+    public function actionXmlExport($reserve_id)
     {
-        $reserve = Reserve::find()->where(['created_at' => \Yii::$app->formatter->asTimestamp(date("Y-m-d")) + 18000])->all();
+        $reserve = Reserve::findAll(['id' => $reserve_id]);
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',

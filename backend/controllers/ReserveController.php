@@ -99,7 +99,7 @@ class ReserveController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             (new SoapReserve())->actionXmlExport($model->reserve->id);
-//            $exportSoapRequest->soapExport();
+//            (new SoapReserve())->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('create', [
@@ -121,7 +121,7 @@ class ReserveController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             (new SoapReserve())->actionXmlExport($id);
-//            $exportSoapRequest->soapExport();
+//            (new SoapReserve())->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('update', [
@@ -157,7 +157,7 @@ class ReserveController extends Controller
         $service = new AdditionalReserveForm();
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
             (new SoapReserve())->actionXmlExport($id);
-//            $exportSoapRequest->soapExport();
+//            (new SoapReserve())->soapExport();
             return json_encode([
                 'status' => 'ok',
                 'loaded' => 'true',
@@ -194,7 +194,7 @@ class ReserveController extends Controller
         $reserve_id = $service->reserve_id;
         if ($service && $service->delete()) {
             (new SoapReserve())->actionXmlExport($reserve_id);
-//            $exportSoapRequest->soapExport();
+//            (new SoapReserve())->soapExport();
             return json_encode([
                 'status' => 'ok',
             ]);

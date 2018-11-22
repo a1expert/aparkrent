@@ -85,7 +85,7 @@ ReserveAsset::register($this);
                                             </div>-->
                                             <div class="form-group">
                                                 <label>Адрес получения автомобиля</label>
-                                                <input name="ReserveForm[delivery_address]" class="delivery" type="text" value="Югорский тракт 1 к.1">
+                                                <input name="ReserveForm[delivery_address]" class="delivery" type="text" value="">
                                             </div>
                                             <div class="form-group js-delivery-time">
                                                 <label>Время получения автомобиля</label>

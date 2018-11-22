@@ -88,13 +88,12 @@ class SiteController extends Controller
     public function actionJobs()
     {
         $deliveryType = AdditionalService::find()->where(['type' => AdditionalService::TYPE_DELIVERY])->all();
-        $wash = AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->one();
-        $expressWash = AdditionalService::find()->where(['type' => AdditionalService::TYPE_EXPRESS_WASH])->one();
+        $wash = AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->all();
         $rentType = AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all();
         return $this->render('jobs', [
             'deliveryType' => $deliveryType,
-            'wash' => $wash,
-            'expressWash' => $expressWash,
+            'wash' => $wash[0],
+            'expressWash' => $wash[1],
             'rentType' => $rentType,
         ]);
     }

@@ -65,15 +65,16 @@ class AdditionalReserveForm extends Model
 
     public function saveWash()
     {
-        $washService = AdditionalService::findOne(['type' => AdditionalService::TYPE_WASH]);
-        $currentService = ReserveAdditionalService::findOne(['reserve_id' => $this->reserve_id, 'additional_service_id' => $washService->id]);
+//        $washService = AdditionalService::findOne(['type' => AdditionalService::TYPE_WASH]);
+//        $currentService = ReserveAdditionalService::findOne(['reserve_id' => $this->reserve_id, 'additional_service_id' => $washService->id]);
+        $currentService = ReserveAdditionalService::findOne(['reserve_id' => $this->reserve_id, 'additional_service_id' => $this->additional_service_id]);
         if ($currentService != null) {
             $this->addError('type', 'Данная услуга уже прикреплена к резерву');
             return false;
         }
         $currentService = new ReserveAdditionalService();
         $currentService->reserve_id = $this->reserve_id;
-        $currentService->additional_service_id = $washService->id;
+        $currentService->additional_service_id = $this->additional_service_id;
         if ($currentService->save()) {
             return true;
         }
