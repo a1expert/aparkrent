@@ -24,6 +24,7 @@ use yii\db\ActiveRecord;
  * @property integer $invoice_id
  * @property integer $created_at
  *
+ * @property AutoModel $model
  * @property Client $client
  * @property Invoice $invoice
  * @property ReserveChild[] $children
@@ -79,6 +80,14 @@ class Reserve extends ActiveRecord
     public static function tableName()
     {
         return 'reserve';
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModel()
+    {
+        return $this->hasOne(AutoModel::className(), ['id' => 'model_id']);
     }
 
     /**

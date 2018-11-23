@@ -117,7 +117,9 @@ class ReserveController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             (new SoapReserve())->xmlExport($model->reserve->id, '');
-//            (new SoapReserve())->soapExport();
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('create', [
@@ -140,7 +142,9 @@ class ReserveController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $delivery_type_id = $this->findRegion($id);
             (new SoapReserve())->xmlExport($id, $delivery_type_id);
-//            (new SoapReserve())->soapExport();
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('update', [
@@ -177,7 +181,9 @@ class ReserveController extends Controller
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
             $delivery_type_id = $this->findRegion($id);
             (new SoapReserve())->xmlExport($id, $delivery_type_id);
-//            (new SoapReserve())->soapExport();
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode([
                 'status' => 'ok',
                 'loaded' => 'true',
@@ -215,7 +221,9 @@ class ReserveController extends Controller
         if ($service && $service->delete()) {
             $delivery_type_id = $this->findRegion($id);
             (new SoapReserve())->xmlExport($reserve_id, $delivery_type_id);
-//            (new SoapReserve())->soapExport();
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode([
                 'status' => 'ok',
             ]);
@@ -250,7 +258,9 @@ class ReserveController extends Controller
         $reserve = Reserve::findOne($id);
         if ($reserve) {
             (new SoapReserve())->xmlExport($reserve->id);
-//            (new SoapReserve())->soapExport();
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode(CountReservePriceService::countPrice($reserve));
         }
     }
