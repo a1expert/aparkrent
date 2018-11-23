@@ -6,16 +6,17 @@ namespace backend\models;
 class SoapReserve extends \common\models\SoapReserve
 {
     /**
-     * @param $reserve_id
+     * @param null $reserve_id
+     * @param $delivery_type_id
      * @throws \yii\base\InvalidConfigException
      */
-    public function xmlExport($reserve_id = null)
+    public function xmlExport($reserve_id = null, $delivery_type_id)
     {
         $reserve = !empty($reserve_id) ? Reserve::findAll(['id' => $reserve_id]) : [new Reserve()] ;
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
-                'elements' => $this->getReserve($reserve)
+                'elements' => $this->getReserve($reserve, $delivery_type_id)
             ]
         ];
 
@@ -25,14 +26,17 @@ class SoapReserve extends \common\models\SoapReserve
 
     /**
      * @param $reserve
+     * @param $delivery_type_id
      * @return array
      * @throws \yii\base\InvalidConfigException
      */
-    private function getReserve($reserve)
+    private function getReserve($reserve, $delivery_type_id)
     {
         $arr = [];
         foreach ($reserve as $key => $item) {
-            $option = ['нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет','нет'];
+            for ($i = 0; $i < 13; $i++) {
+                $option[$i] = 'нет';
+            }
             foreach (ReserveAdditionalService::findAll(['reserve_id' => $item->id]) as $value) {
                 for ($i = 1; $i < 14; $i++) {
                     if ($value->additional_service_id == $i) {
@@ -56,7 +60,8 @@ class SoapReserve extends \common\models\SoapReserve
                     [
                         'tag' => 'AdditionalServices',
                         'attributes' => [
-                            'Address' => $this->getDeliveryAddress($item->id),
+                            'Region' => $this->getDeliveryRegion($delivery_type_id),
+                            'Address' => $this->getDeliveryAddress($item->id, $delivery_type_id),
                             'Time' => $this->getDeliveryTime($item->id),
                         ],
                     ],
@@ -85,6 +90,15 @@ class SoapReserve extends \common\models\SoapReserve
     }
 
     /**
+     * @param $delivery_type_id
+     * @return string
+     */
+    private function getDeliveryRegion($delivery_type_id) {
+        $item = AdditionalService::findOne(['id' => $delivery_type_id]);
+        return !empty($item) ? $item->title : 'Офис компании';
+    }
+
+    /**
      * @param $id
      * @return string
      * @throws \yii\base\InvalidConfigException
@@ -96,10 +110,12 @@ class SoapReserve extends \common\models\SoapReserve
 
     /**
      * @param $id
+     * @param $delivery_type_id
      * @return string
      */
-    private function getDeliveryAddress($id) {
+    private function getDeliveryAddress($id, $delivery_type_id) {
         $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
-        return !empty($item->address) ? $item->address : 'Югорский тракт 1 к.1';
+        return !empty($item->address) ? $item->address : ($delivery_type_id == '' ? 'Югорский тракт 1 к.1' : '');
+
     }
 }

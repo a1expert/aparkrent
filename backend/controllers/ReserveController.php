@@ -89,6 +89,24 @@ class ReserveController extends Controller
     }
 
     /**
+     * @param $id
+     * @return string
+     */
+    protected function findRegion($id)
+    {
+        $reserveAdditionalService = ReserveAdditionalService::findAll(['reserve_id' => $id]);
+        if (!empty($reserveAdditionalService)) {
+            foreach ($reserveAdditionalService as $value) {
+                foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $item) {
+                    if ($value->additional_service_id == $item)
+                        return $value->additional_service_id;
+                }
+            }
+        }
+        return '';
+    }
+
+    /**
      * @return string|\yii\web\Response
      * @throws \yii\base\InvalidConfigException
      */
@@ -98,7 +116,7 @@ class ReserveController extends Controller
         $model->reserve = new Reserve();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            (new SoapReserve())->xmlExport($model->reserve->id);
+            (new SoapReserve())->xmlExport($model->reserve->id, '');
 //            (new SoapReserve())->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
@@ -120,7 +138,8 @@ class ReserveController extends Controller
         $model->setReserve($this->findModel($id));
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            (new SoapReserve())->xmlExport($id);
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($id, $delivery_type_id);
 //            (new SoapReserve())->soapExport();
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
@@ -156,7 +175,8 @@ class ReserveController extends Controller
     {
         $service = new AdditionalReserveForm();
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
-            (new SoapReserve())->xmlExport($id);
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($id, $delivery_type_id);
 //            (new SoapReserve())->soapExport();
             return json_encode([
                 'status' => 'ok',
@@ -193,7 +213,8 @@ class ReserveController extends Controller
         $service = ReserveAdditionalService::findOne($id);
         $reserve_id = $service->reserve_id;
         if ($service && $service->delete()) {
-            (new SoapReserve())->xmlExport($reserve_id);
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($reserve_id, $delivery_type_id);
 //            (new SoapReserve())->soapExport();
             return json_encode([
                 'status' => 'ok',
