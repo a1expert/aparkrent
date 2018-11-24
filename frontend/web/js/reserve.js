@@ -195,4 +195,10 @@ $(document).ready(function () {
 
     countPrice();
 
+    $('#redirect-to-main').click(function(){
+        if(!device.mobile()) {
+            window.location.href = '/';
+        }
+    });
+
 });
