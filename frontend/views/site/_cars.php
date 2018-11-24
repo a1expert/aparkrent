@@ -1,6 +1,7 @@
 <?php
 
 /** @var \frontend\models\AutoModel[] $models */
+use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\models\AutoModel;
 
@@ -55,7 +56,7 @@ use frontend\models\AutoModel;
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($model->climate_control)) : ?>
-                             <div class="option" title="Климат контроль">
+                            <div class="option" title="Климат контроль">
                                 <div class="option-icon">
                                     <img src="/images/climate-control.png" alt="климат контроль">
                                 </div>
@@ -108,6 +109,19 @@ use frontend\models\AutoModel;
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
+
+                <div class="mobile-panel">
+                    <?php if (!in_array(Yii::$app->controller->action->id, ['reserve', 'pay'])) :?>
+                        <?php if ($model->status == \frontend\models\AutoModel::STATUS_ACTIVE) :?>
+                            <a href="tel:83462961041" class="button js-reserve-button">ЗАБРОНИРОВАТЬ</a>
+                        <?php else:?>
+                            <a href="tel:83462961041" class="button disabled">ВРЕМЕННО НЕДОСТУПНО</a>
+                        <?php endif;?>
+                    <?php endif; ?>
+
+                    <p style="padding-top: 10px;"><?= Html::a('узнать подробнее', ['/site/reserve', 'id' => $model->id]); ?></p>
+
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
