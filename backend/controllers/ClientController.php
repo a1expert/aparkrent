@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use backend\models\Client;
 use backend\models\search\ClientSearch;
+use common\models\SoapClient;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -58,8 +59,9 @@ class ClientController extends Controller
 
     /**
      * Displays a single Client model.
-     * @param integer $id
-     * @return mixed
+     * @param $id
+     * @return string
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -85,10 +87,9 @@ class ClientController extends Controller
     }
 
     /**
-     * Creates a new Client model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
      * @param null $type
-     * @return mixed
+     * @return string|Response
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionCreate($type = null)
     {
@@ -97,6 +98,10 @@ class ClientController extends Controller
             $model->type = $type;
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            (new SoapClient())->xmlExport($model->id);
+            /*if (YII_ENV_PROD) {
+                (new SoapClient())->soapExport();
+            }*/
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -106,16 +111,20 @@ class ClientController extends Controller
     }
 
     /**
-     * Updates an existing Client model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
+     * @param $id
+     * @return string|Response
+     * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            (new SoapClient())->xmlExport($id);
+            /*if (YII_ENV_PROD) {
+                (new SoapClient())->soapExport();
+            }*/
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -129,6 +138,7 @@ class ClientController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionDelete($id)
     {
