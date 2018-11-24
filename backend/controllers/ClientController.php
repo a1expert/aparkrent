@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use backend\models\Client;
 use backend\models\search\ClientSearch;
-use common\models\SoapClient;
+use backend\models\SoapClient;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
