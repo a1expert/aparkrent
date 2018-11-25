@@ -125,11 +125,11 @@ use frontend\models\AutoModel;
                         </a>
                     </div>
                 <?php else : ?>
-                    <div class="car-gallery">
+                    <!-- <div class="car-gallery">
                         <div class="item item-empty">фото с переди</div>
                         <div class="item item-empty">фото с боку</div>
                         <div class="item item-empty">фото сзади</div>
-                    </div>
+                    </div> -->
                 <?php endif; ?>
 
                 <div class="mobile-panel">
