@@ -114,14 +114,14 @@ use frontend\models\AutoModel;
 
                 <?php if($model->id == 9) : ?>
                     <div class="car-gallery">
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="https://files.slack.com/files-pri/T9GRS3VQC-FEB2100DR/foto-speredi.jpg">
-                            <div class="item" style="background-image: url('https://files.slack.com/files-pri/T9GRS3VQC-FEB2100DR/foto-speredi.jpg');"></div>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-speredi.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/9/foto-speredi.jpg');"></div>
                         </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="https://files.slack.com/files-pri/T9GRS3VQC-FEB51GW9Y/foto-s-boku.jpg">
-                            <div class="item" style="background-image: url('https://files.slack.com/files-pri/T9GRS3VQC-FEB51GW9Y/foto-s-boku.jpg');"></div>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-s-boku.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/9/foto-s-boku.jpg');"></div>
                         </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="https://files.slack.com/files-pri/T9GRS3VQC-FEBAX64S1/foto-salona.jpg">
-                            <div class="item" style="background-image: url('https://files.slack.com/files-pri/T9GRS3VQC-FEBAX64S1/foto-salona.jpg');"></div>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-salona.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/9/foto-salona.jpg');"></div>
                         </a>
                     </div>
                 <?php else : ?>
