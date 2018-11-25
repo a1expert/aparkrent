@@ -33,7 +33,7 @@ ReserveAsset::register($this);
                             <div class="logo"></div>
                             <div class="info">
                                 <div class="image">
-                                    <img src="<?= \common\components\FileHelper::getImageThumb($model->image, 172, 100) ?>" alt="Прокат авто <?= $model->mark->title . ' ' . $model->title ?> в Сургуте">
+                                    <img id="redirect-to-main" src="<?= \common\components\FileHelper::getImageThumb($model->image, 172, 100) ?>" alt="Прокат авто <?= $model->mark->title . ' ' . $model->title ?> в Сургуте">
                                 </div>
                                 <div class="title"><?= $model->mark->title . ' ' . $model->title ?></div>
                             </div>

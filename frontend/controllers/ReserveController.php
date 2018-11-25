@@ -6,6 +6,8 @@ use console\models\parcer\XmlRequestParcer;
 use frontend\forms\ReserveForm;
 use yii\helpers\Html;
 use yii\web\Controller;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 class ReserveController extends Controller
 {
@@ -77,5 +79,19 @@ class ReserveController extends Controller
                 ->send();
         }
         return true;
+    }
+
+    public function actionValidate()
+    {
+        $reserveForm = new ReserveForm();
+        $reserveForm->scenario = ReserveForm::SCENARIO_AJAX;
+
+        $request = \Yii::$app->getRequest();
+        if ($request->isPost && $reserveForm->load($request->post())) {
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($reserveForm);
+        }
+
+        return false;
     }
 }
