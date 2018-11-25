@@ -16,9 +16,11 @@ use yii\base\Model;
 class ReserveForm extends Model
 {
     const SCENARIO_NON_LOGGED = 'not_logged';
+    const SCENARIO_AJAX = 'ajax';
 
     public $date_from;
     public $date_to;
+    public $date_reserve;
 
     public $model_id;
 
@@ -45,11 +47,16 @@ class ReserveForm extends Model
     {
         return [
             [['phone'], 'required', 'on' => 'not_logged'],
-            [['model_id', 'date_from', 'date_to'], 'required'],
-            [['name', 'email', 'phone', 'delivery_address', 'return_address', 'date_from', 'date_to', 'delivery_time'], 'string'],
+            [['date_reserve', 'phone'], 'required', 'on' => 'ajax'],
+            [['model_id'], 'required'],
+            [['date_from', 'date_to'], 'required', 'when' => function($model){
+                return $model->date_reserve ? false : true;
+            }],
+            [['name', 'email', 'phone', 'delivery_address', 'return_address', 'date_from', 'date_to', 'delivery_time', 'date_reserve'], 'string'],
             [['model_id', 'delivery_type', 'return_type', 'price', 'type'], 'integer'],
             [['addServices', 'reserve', 'files'], 'safe'],
             [['date_from'], 'reserveDateValidator'],
+            [['date_reserve'], 'reserveDateRangeValidator'],
             [['delivery_time'], 'date', 'format' => 'php:H:i'],
             [['email'], 'email'],
             [['phone'], PhoneInputValidator::className()],
@@ -64,6 +71,7 @@ class ReserveForm extends Model
             'phone' => 'Телефон',
             'date_from' => 'Дата аренды (с)',
             'date_to' => 'Дата аренды (по)',
+            'date_reserve' => 'Дата аренды',
             'delivery_time' => 'Время получения автомобиля',
         ];
     }
@@ -90,6 +98,43 @@ class ReserveForm extends Model
         }
     }
 
+    public function getDatesWithoutReserveDate($date) {
+        $data = explode('до', $date);
+
+        if(count($data) > 1) {
+            $from = trim($data[0]);
+            $to = trim($data[1]);
+
+            return [
+                'from' => $from,
+                'to' => $to,
+            ];
+        }
+
+        return false;
+    }
+
+    public function reserveDateRangeValidator($attribute)
+    {
+        if($dates = $this->getDatesWithoutReserveDate($this->$attribute))
+        {
+            $dateFrom = \Yii::$app->formatter->asTimestamp($dates['from']);
+            $dateTo = \Yii::$app->formatter->asTimestamp($dates['to']);
+            if ($dateFrom - $dateTo >= 0) {
+                $this->addError($attribute, 'Даты некорректны');
+                return false;
+            }
+
+            if ($dateFrom < date('now')) {
+                $this->addError($attribute, 'Резервы доступны только на будущие дни');
+                return false;
+            }
+        } else {
+            $this->addError($attribute, 'Даты некорректны');
+            return false;
+        }
+    }
+
     /**
      * @return array
      * @throws \yii\base\InvalidConfigException
@@ -99,15 +144,25 @@ class ReserveForm extends Model
         $formatter = \Yii::$app->formatter;
         $message = '';
         $timeInfo = 0;
-        if ($this->date_from == 0 || $this->date_to == 0) {
-            $message .= '<p>Выберите даты</p>';
-            return [
-                'price' => 0,
-                'message' => $message,
-            ];
+
+        if($this->date_reserve) {
+            $dates = $this->getDatesWithoutReserveDate($this->date_reserve);
+
+            $from = $formatter->asTimestamp($dates['from']);
+            $to = $formatter->asTimestamp($dates['to']);
+        } else {
+            if ($this->date_from == 0 || $this->date_to == 0) {
+                $message .= '<p>Выберите даты</p>';
+                return [
+                    'price' => 0,
+                    'message' => $message,
+                ];
+            }
+
+            $from = $formatter->asTimestamp($this->date_from);
+            $to = $formatter->asTimestamp($this->date_to);
         }
-        $from = $formatter->asTimestamp($this->date_from);
-        $to = $formatter->asTimestamp($this->date_to);
+
         if (date('now') > $from) {
             $message .= '<p>Резервирование доступно только на будущие дни</p>';
             return [
@@ -126,6 +181,7 @@ class ReserveForm extends Model
         $hours = ceil(($to - $from) / 3600);
         $days = (int)(($to - $from) / (24 * 3600));
         $daysForAdditional = ceil($hours/24);
+
         $price = 0;
         if (($hours < 24) || (ceil($hours % 24)) > 3) {
             $days++;
@@ -179,6 +235,7 @@ class ReserveForm extends Model
                 $price += $return->price;
             }
         }
+
         return [
             'price' => $price,
             'message' => $message,
@@ -209,14 +266,24 @@ class ReserveForm extends Model
         } else {
             $client = \Yii::$app->user->identity->client;
         }
+
         $this->reserve = new Reserve();
         $this->reserve->client_id = $client->id;
         $this->reserve->model_id = $this->model_id;
-        $this->reserve->delivery_date = $formatter->asTimestamp($this->date_from);
-        $this->reserve->return_date = $formatter->asTimestamp($this->date_to);
         $this->reserve->created_at = $formatter->asTimestamp(date('Y-m-d')) + 18000;
         $this->reserve->createInvoice();
         $this->reserve->invoice->price = $this->price;
+
+        if(isset($this->date_reserve)) {
+            $dates = $this->getDatesWithoutReserveDate($this->date_reserve);
+
+            $this->reserve->delivery_date = $formatter->asTimestamp($dates['from']);
+            $this->reserve->return_date = $formatter->asTimestamp($dates['to']);
+        } else {
+            $this->reserve->delivery_date = $formatter->asTimestamp($this->date_from);
+            $this->reserve->return_date = $formatter->asTimestamp($this->date_to);
+        }
+
         $this->reserve->invoice->save();
 
         if ($this->reserve->save()) {

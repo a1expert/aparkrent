@@ -6,6 +6,7 @@ use yii\helpers\Url;
 use frontend\models\AutoModel;
 
 ?>
+
 <?php if (empty($models)): ?>
     <div class="alert-block">
         <div class="name">Свободные автомобили отсутствуют</div>
@@ -16,8 +17,9 @@ use frontend\models\AutoModel;
         <div class="car">
             <div class="color-block" style="background: <?= $model->mark->color ?>"></div>
             <div class="logo"></div>
-            <div class="image">
+            <div class="image" style="position: relative">
                 <img src="<?= \common\components\FileHelper::getImageThumb($model->image, 469, 272) ?>" alt="Прокат авто <?= $model->mark->title . ' ' . $model->title ?> в Сургуте">
+                <?= Html::a('Узнать подробнее', ['/site/reserve', 'id' => $model->id], ['class' => 'button']); ?></p>
             </div>
             <div class="common">
                 <div class="car-name"><?= $model->mark->title . ' ' . $model->title ?></div>
@@ -38,7 +40,7 @@ use frontend\models\AutoModel;
                     </div>
                     <?php if (!in_array(Yii::$app->controller->action->id, ['reserve', 'pay'])) :?>
                         <?php if ($model->status == \frontend\models\AutoModel::STATUS_ACTIVE) :?>
-                            <a href="<?= Url::to(['/site/reserve', 'id' => $model->id]) ?>" class="button js-reserve-button">ЗАБРОНИРОВАТЬ</a>
+                            <a href="#reserve-modal" data-id="<?=$model->id; ?>" data-title="Забронировать <?= $model->mark->title . ' ' . $model->title ?>" class="button js-reserve-button popup-reserve">ЗАБРОНИРОВАТЬ</a>
                         <?php else:?>
                             <a href="<?= Url::to(['/site/reserve', 'id' => $model->id]) ?>" class="button disabled">ВРЕМЕННО НЕДОСТУПНО</a>
                         <?php endif;?>
@@ -110,6 +112,26 @@ use frontend\models\AutoModel;
                     </div>
                 <?php endif; ?>
 
+                <?php if($model->id == 9) : ?>
+                    <div class="car-gallery">
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="https://files.slack.com/files-pri/T9GRS3VQC-FEB2100DR/foto-speredi.jpg">
+                            <div class="item" style="background-image: url('https://files.slack.com/files-pri/T9GRS3VQC-FEB2100DR/foto-speredi.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="https://files.slack.com/files-pri/T9GRS3VQC-FEB51GW9Y/foto-s-boku.jpg">
+                            <div class="item" style="background-image: url('https://files.slack.com/files-pri/T9GRS3VQC-FEB51GW9Y/foto-s-boku.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="https://files.slack.com/files-pri/T9GRS3VQC-FEBAX64S1/foto-salona.jpg">
+                            <div class="item" style="background-image: url('https://files.slack.com/files-pri/T9GRS3VQC-FEBAX64S1/foto-salona.jpg');"></div>
+                        </a>
+                    </div>
+                <?php else : ?>
+                    <div class="car-gallery">
+                        <div class="item item-empty">фото с переди</div>
+                        <div class="item item-empty">фото с боку</div>
+                        <div class="item item-empty">фото сзади</div>
+                    </div>
+                <?php endif; ?>
+
                 <div class="mobile-panel">
                     <?php if (!in_array(Yii::$app->controller->action->id, ['reserve', 'pay'])) :?>
                         <?php if ($model->status == \frontend\models\AutoModel::STATUS_ACTIVE) :?>
@@ -118,9 +140,6 @@ use frontend\models\AutoModel;
                             <a href="tel:83462961041" class="button disabled">ВРЕМЕННО НЕДОСТУПНО</a>
                         <?php endif;?>
                     <?php endif; ?>
-
-                    <p style="padding-top: 10px;"><?= Html::a('узнать подробнее', ['/site/reserve', 'id' => $model->id]); ?></p>
-
                 </div>
             </div>
         </div>

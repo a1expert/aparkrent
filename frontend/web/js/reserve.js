@@ -46,7 +46,14 @@ $(document).ready(function () {
         $('.check-other-job').removeClass('active');
         $('input[name="ReserveForm[type]"]').val(1);
         $('.js-radio-target').attr('placeholder', 'ФИО');
-        dropzone.removeAllFiles();
+
+        if(dropzone !== undefined) {
+            dropzone.removeAllFiles();
+        }
+
+        $('.additional-parameters').css({'display':'none'});
+        $('.additional-parameters-switch').find("input").prop("checked", false);
+
         filesToSend = [];
     }
 
@@ -198,6 +205,49 @@ $(document).ready(function () {
     $('#redirect-to-main').click(function(){
         if(!device.mobile()) {
             window.location.href = '/';
+        }
+    });
+
+    $('.js-date-range-picker').dateRangePicker({
+        singleMonth: true,
+        showShortcuts: false,
+        showTopbar: false,
+        language: 'ru',
+        startDate: moment().endOf('day').format('YYYY-MM-DD'),
+        separator: ' до ',
+    }).bind('datepicker-closed', function(){
+        countPrice();
+    });
+
+    // Подключение Magnific Modal
+    $('.popup-reserve').magnificPopup({
+        type: 'inline',
+
+        fixedContentPos: false,
+        fixedBgPos: true,
+
+        overflowY: 'auto',
+
+        closeBtnInside: true,
+        preloader: false,
+
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in',
+
+        callbacks: {
+            open: function(data) {
+                var magnificPopup = $.magnificPopup.instance;
+
+                var id = $(magnificPopup.st.el).data('id');
+                var title = $(magnificPopup.st.el).data('title');
+
+                $(magnificPopup.content).find('.title').text(title);
+                $(magnificPopup.content).find('#reserveform-model_id').val(id);
+            },
+            close: function() {
+                resetPage();
+            }
         }
     });
 
