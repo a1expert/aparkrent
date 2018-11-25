@@ -44,7 +44,7 @@ ReserveAsset::register($this);
         <label class="additional-parameters-switch">
             <input type="checkbox" name="" id="">
             <div class="check-block"></div>
-            <div class="text">Дополнительные параметры</div>
+            <div class="text">Дополнительные опции</div>
         </label>
 
         <div class="additional-parameters">
