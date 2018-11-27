@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use console\models\parcer\XmlRequestParcer;
 use frontend\forms\ReserveForm;
+use frontend\models\SoapReserve;
 use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\Response;
@@ -30,6 +31,10 @@ class ReserveController extends Controller
         ]);
     }
 
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionCreate()
     {
         $reserveForm = new ReserveForm();
@@ -37,9 +42,9 @@ class ReserveController extends Controller
             $reserveForm->scenario = ReserveForm::SCENARIO_NON_LOGGED;
         }
         if ($reserveForm->load(\Yii::$app->request->post()) && $reserveForm->validate() && $reserveForm->createReserve() && $reserveForm->sendMessage()) {
-            /*if (YII_ENV_PROD) {
-                $reserveForm->soapExport();
-            }*/
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode([
                 'status' => 'ok',
                 'message' => 'Ваша заявка принята и будет обработана в ближайшее время! Номер вашего заказа - ' . $reserveForm->reserve->id,
