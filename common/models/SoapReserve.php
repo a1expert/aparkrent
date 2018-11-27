@@ -7,13 +7,13 @@ use yii\base\Model;
 class SoapReserve extends Model
 {
     /**
-     * @param null $reserve_id
+     * @param $reserve_id
      * @param $delivery_type_id
      * @throws \yii\base\InvalidConfigException
      */
-    public function xmlExport($reserve_id = null, $delivery_type_id)
+    public function xmlExport($reserve_id, $delivery_type_id)
     {
-        $reserve = !empty($reserve_id) ? Reserve::findAll(['id' => $reserve_id]) : [new Reserve()] ;
+        $reserve = Reserve::findAll(['id' => $reserve_id]) ;
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
@@ -56,6 +56,8 @@ class SoapReserve extends Model
                     'ReturnDate' => \Yii::$app->formatter->asDatetime($item->return_date, 'YMMddHHiss'),
                     'Phone' => $item->client->phone,
                     'Price' => $item->invoice->price,
+                    'Status' => $this->getStatus($item->status),
+                    'Source' => $this->getSource($item->source),
                 ],
                 'elements' => [
                     [
@@ -88,6 +90,32 @@ class SoapReserve extends Model
             ];
         }
         return $arr;
+    }
+
+    /**
+     * @param $status
+     * @return string
+     */
+    private function getStatus($status) {
+        switch ($status) {
+            case Reserve::STATUS_NEW: $status = 'Новая заявка' ;
+                break;
+            case Reserve::STATUS_ACCEPTED: $status = 'Одобрено' ;
+                break;
+            case Reserve::STATUS_REJECTED: $status = 'Отказано' ;
+                break;
+            case Reserve::STATUS_DELETED: $status = 'Удалено' ;
+                break;
+        }
+        return $status;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function getSource($source) {
+        return $source == Reserve::SOURCE_SITE ? 'С сайта' : 'Добавил менеджер' ;
     }
 
     /**

@@ -11,12 +11,12 @@ use yii\base\Model;
 class SoapClient extends Model
 {
     /**
-     * @param null $client_id
+     * @param $client_id
      * @throws \yii\base\InvalidConfigException
      */
-    public function xmlExport($client_id = null)
+    public function xmlExport($client_id)
     {
-        $client = !empty($client_id) ? Client::findAll(['id' => $client_id]) : [new Client()] ;
+        $client = Client::findAll(['id' => $client_id]) ;
         $clientToXml = [
             [
                 'tag' => 'AllClients',
@@ -41,7 +41,9 @@ class SoapClient extends Model
                 'tag' => 'Client',
                 'attributes' => [
                     'Id' => $item->id,
-                    'Type' => $this->isType($item->type),
+                    'Type' => $this->getType($item->type),
+                    'Status' => $this->getStatus($item->status),
+                    'Source' => $this->getSource($item->source),
                 ],
                 'elements' => [
                     [
@@ -91,11 +93,37 @@ class SoapClient extends Model
     }
 
     /**
+     * @param $status
+     * @return string
+     */
+    private function getStatus($status) {
+        switch ($status) {
+            case Client::STATUS_NOT_VERIFIED: $status = 'Не подтвержденный' ;
+                break;
+            case Client::STATUS_VERIFIED: $status = 'Подтвержденный' ;
+                break;
+            case Client::STATUS_DELETED: $status = 'Удален' ;
+                break;
+            case Client::STATUS_DENIED: $status = 'Отказано' ;
+                break;
+        }
+        return $status;
+    }
+
+    /**
+     * @param $source
+     * @return string
+     */
+    private function getSource($source) {
+        return $source == Client::SOURCE_SITE ? 'С сайта' : 'Добавил менеджер' ;
+    }
+
+    /**
      * @param $item
      * @return string
      */
-    private function isType($item) {
-        return $item == Client::TYPE_INDIVIDUAL ? 'individual' : 'legal';
+    private function getType($item) {
+        return $item == Client::TYPE_INDIVIDUAL ? 'Физ. лицо' : 'Юр. лицо';
     }
 
     /**

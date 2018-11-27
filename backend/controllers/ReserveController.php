@@ -257,7 +257,8 @@ class ReserveController extends Controller
     {
         $reserve = Reserve::findOne($id);
         if ($reserve) {
-            (new SoapReserve())->xmlExport($reserve->id);
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($reserve->id, $delivery_type_id);
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }

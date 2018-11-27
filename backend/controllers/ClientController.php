@@ -139,12 +139,14 @@ class ClientController extends Controller
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
         $model->status = Client::STATUS_DELETED;
         $model->save(false);
+        (new SoapClient())->xmlExport($id);
         return $this->redirect(['index', 'ClientSearch[type]' => $model->type]);
     }
 
@@ -176,6 +178,10 @@ class ClientController extends Controller
         ]);
     }
 
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionStatusChange()
     {
         $id = Yii::$app->request->post('id');
@@ -189,6 +195,7 @@ class ClientController extends Controller
             $status = Yii::$app->request->post('status');
             $client->status = $status;
             if ($client->save()) {
+                (new SoapClient())->xmlExport($client->id);
                 return json_encode([
                     'status' => 'ok',
                 ]);
