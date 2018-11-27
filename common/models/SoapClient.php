@@ -16,11 +16,64 @@ class SoapClient extends Model
      */
     public function xmlExport($client_id)
     {
-        $client = Client::findAll(['id' => $client_id]) ;
+        $client = Client::findOne(['id' => $client_id]);
         $clientToXml = [
             [
                 'tag' => 'AllClients',
-                'elements' => $this->getClient($client)
+                'elements' => [
+                    [
+                        'tag' => 'Client',
+                        'attributes' => [
+                            'Id' => $client->id,
+                            'Type' => $this->getType($client->type),
+                            'Status' => $this->getStatus($client->status),
+                            'Source' => $this->getSource($client->source),
+                        ],
+                        'elements' => [
+                            [
+                                'tag' => 'GeneralInformation',
+                                'attributes' => [
+                                    'Surname' => $this->isEmpty($client->surname),
+                                    'Name' => $this->isEmpty($client->name),
+                                    'Patronymic' => $this->isEmpty($client->patronymic),
+                                    'Email' => $this->isEmpty($client->email),
+                                    'Phone' => $client->phone,
+                                ],
+                            ],
+                            [
+                                'tag' => 'AdditionalInformation',
+                                'attributes' => [
+                                    'Birthday' => $this->isEmpty($client->birthday,'date'),
+                                    'AdditionalPhone' => $this->isEmpty($client->additional_phone),
+                                    'RelativePhone' => $this->isEmpty($client->relative_phone),
+                                    'BonusBalance' => $this->isEmpty($client->bonus_balance),
+                                ],
+                                'elements' => [
+                                    [
+                                        'tag' => 'PassportInformation',
+                                        'attributes' => [
+                                            'PassportSeries' => $this->isEmpty($client->passport_series),
+                                            'PassportNumber' => $this->isEmpty($client->passport_number),
+                                            'PassportDateIssue' => $this->isEmpty($client->passport_date_issue,'date'),
+                                            'PassportPlaceIssue' => $this->isEmpty($client->passport_place_issue),
+                                            'RegistrationPlace' => $this->isEmpty($client->registration_place),
+                                            'ResidencePlace' => $this->isEmpty($client->residence_place),
+                                        ],
+                                    ],
+                                    [
+                                        'tag' => 'DriveLicenseInformation',
+                                        'attributes' => [
+                                            'DriveLicenseSeries' => $this->isEmpty($client->drive_license_series),
+                                            'DriveLicenseNumber' => $this->isEmpty($client->drive_license_number),
+                                            'DriveLicenseIssueDate' => $this->isEmpty($client->drive_license_issue_date,'date'),
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            $client->type == Client::TYPE_LEGAL ? $this->getCompanyInformation($client) : '',
+                        ],
+                    ],
+                ],
             ]
         ];
 
@@ -33,63 +86,38 @@ class SoapClient extends Model
      * @return array
      * @throws \yii\base\InvalidConfigException
      */
-    private function getClient($client)
-    {
-        $arr = [];
-        foreach ($client as $key => $item) {
-            $arr[$key] = [
-                'tag' => 'Client',
-                'attributes' => [
-                    'Id' => $item->id,
-                    'Type' => $this->getType($item->type),
-                    'Status' => $this->getStatus($item->status),
-                    'Source' => $this->getSource($item->source),
-                ],
-                'elements' => [
-                    [
-                        'tag' => 'GeneralInformation',
-                        'attributes' => [
-                            'Surname' => $this->isEmpty($item->surname),
-                            'Name' => $this->isEmpty($item->name),
-                            'Patronymic' => $this->isEmpty($item->patronymic),
-                            'Email' => $this->isEmpty($item->email),
-                            'Phone' => $item->phone,
-                        ],
-                    ],
-                    [
-                        'tag' => 'AdditionalInformation',
-                        'attributes' => [
-                            'Birthday' => $this->isEmpty($item->birthday,'date'),
-                            'AdditionalPhone' => $this->isEmpty($item->additional_phone),
-                            'RelativePhone' => $this->isEmpty($item->relative_phone),
-                            'BonusBalance' => $this->isEmpty($item->bonus_balance),
-                        ],
-                        'elements' => [
-                            [
-                                'tag' => 'PassportInformation',
-                                'attributes' => [
-                                    'PassportSeries' => $this->isEmpty($item->passport_series),
-                                    'PassportNumber' => $this->isEmpty($item->passport_number),
-                                    'PassportDateIssue' => $this->isEmpty($item->passport_date_issue,'date'),
-                                    'PassportPlaceIssue' => $this->isEmpty($item->passport_place_issue),
-                                    'RegistrationPlace' => $this->isEmpty($item->registration_place),
-                                    'ResidencePlace' => $this->isEmpty($item->residence_place),
-                                ],
-                            ],
-                            [
-                                'tag' => 'DriveLicenseInformation',
-                                'attributes' => [
-                                    'DriveLicenseSeries' => $this->isEmpty($item->drive_license_series),
-                                    'DriveLicenseNumber' => $this->isEmpty($item->drive_license_number),
-                                    'DriveLicenseIssueDate' => $this->isEmpty($item->drive_license_issue_date,'date'),
-                                ],
-                            ],
-                        ],
+    private function getCompanyInformation($client) {
+        return [
+            'tag' => 'CompanyInformation',
+            'attributes' => [
+                'CompanyName' => $this->isEmpty($client->company_name),
+                'CompanyResidence' => $this->isEmpty($client->company_residence),
+                'CompanyPhone' => $this->isEmpty($client->company_phone),
+                'CompanyEmail' => $this->isEmpty($client->company_email),
+            ],
+            'elements' => [
+                [
+                    'tag' => 'BillingInformation',
+                    'attributes' => [
+                        'INN' => $this->isEmpty($client->inn),
+                        'KPP' => $this->isEmpty($client->kpp),
+                        'OGRN' => $this->isEmpty($client->ogrn),
+                        'CheckingAccount' => $this->isEmpty($client->passport_place_issue),
+                        'BIK' => $this->isEmpty($client->bik),
+                        'Bank' => $this->isEmpty($client->bank),
+                        'CorrespondentAccount' => $this->isEmpty($client->account_number),
                     ],
                 ],
-            ];
-        }
-        return $arr;
+                [
+                    'tag' => 'OtherInformation',
+                    'attributes' => [
+                        'PostInCompany' => $this->isEmpty($client->post_in_company),
+                        'FioForPaper' => $this->isEmpty($client->fio_for_paper),
+                        'NameForSignature' => $this->isEmpty($client->name_for_signature),
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -119,11 +147,11 @@ class SoapClient extends Model
     }
 
     /**
-     * @param $item
+     * @param $type
      * @return string
      */
-    private function getType($item) {
-        return $item == Client::TYPE_INDIVIDUAL ? 'Физ. лицо' : 'Юр. лицо';
+    private function getType($type) {
+        return $type == Client::TYPE_INDIVIDUAL ? 'Физ. лицо' : 'Юр. лицо';
     }
 
     /**
