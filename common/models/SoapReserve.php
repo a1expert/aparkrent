@@ -7,17 +7,71 @@ use yii\base\Model;
 class SoapReserve extends Model
 {
     /**
-     * @param $reserve_id
+     * @param $reserve Reserve
      * @param $delivery_type_id
      * @throws \yii\base\InvalidConfigException
      */
-    public function xmlExport($reserve_id, $delivery_type_id)
+    public function xmlExport($reserve, $delivery_type_id)
     {
-        $reserve = Reserve::findAll(['id' => $reserve_id]);
+        for ($i = 0; $i < 13; $i++) {
+            $option[$i] = 'нет';
+        }
+        foreach (ReserveAdditionalService::findAll(['reserve_id' => $reserve->id]) as $value) {
+            for ($i = 1; $i < 14; $i++) {
+                if ($value->additional_service_id == $i) {
+                    $option[$i-1] = 'да';
+                }
+            }
+        }
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
-                'elements' => $this->getReserve($reserve, $delivery_type_id)
+                'elements' => [
+                    [
+                        'tag' => 'ReserveCar',
+                        'attributes' => [
+                            'ReserveId' => $reserve->id,
+                            'ModelCode' => $reserve->model->code,
+                            'ModelId' => $reserve->model->id,
+                            'Model' => $reserve->model->title,
+                            'DeliveryDate' => \Yii::$app->formatter->asDatetime($reserve->delivery_date,'YMMddHHiss'),
+                            'ReturnDate' => \Yii::$app->formatter->asDatetime($reserve->return_date, 'YMMddHHiss'),
+                            'Phone' => $reserve->client->phone,
+                            'Price' => $reserve->invoice->price,
+                            'Status' => $this->getStatus($reserve->status),
+                            'LeadStatus' => $this->getLeadStatus($reserve->status, $reserve->lead_status),
+                            'Source' => $this->getSource($reserve->source),
+                        ],
+                        'elements' => [
+                            [
+                                'tag' => 'AdditionalServices',
+                                'attributes' => [
+                                    'Region' => $this->getDeliveryRegion($delivery_type_id),
+                                    'Address' => $this->getDeliveryAddress($reserve->id, $delivery_type_id),
+                                    'Time' => $this->getDeliveryTime($reserve->id),
+                                ],
+                            ],
+                            [
+                                'tag' => 'OptionalEquipment',
+                                'attributes' => [
+                                    'AirportSurgut' => $option[0],
+                                    'RailwayStation' => $option[1],
+                                    'DeliveryCity' => $option[2],
+                                    'Nefteyugansk' => $option[3],
+                                    'KhantyMansiysk' => $option[4],
+                                    'Nizhnevartovsk' => $option[5],
+                                    'Noyabrsk' => $option[6],
+                                    'NovyUrengoy' => $option[7],
+                                    'FullCarWash' => $option[8],
+                                    'VideoRecorder' => $option[9],
+                                    'Navigator' => $option[10],
+                                    'BabySeat' => $option[11],
+                                    'ExpressWash' => $option[12],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
             ]
         ];
 
@@ -25,73 +79,6 @@ class SoapReserve extends Model
         file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
     }
 
-    /**
-     * @param $reserve
-     * @param $delivery_type_id
-     * @return array
-     * @throws \yii\base\InvalidConfigException
-     */
-    private function getReserve($reserve, $delivery_type_id)
-    {
-        $arr = [];
-        foreach ($reserve as $key => $item) {
-            for ($i = 0; $i < 13; $i++) {
-                $option[$i] = 'нет';
-            }
-            foreach (ReserveAdditionalService::findAll(['reserve_id' => $item->id]) as $value) {
-                for ($i = 1; $i < 14; $i++) {
-                    if ($value->additional_service_id == $i) {
-                        $option[$i-1] = 'да';
-                    }
-                }
-            }
-            $arr[$key] = [
-                'tag' => 'ReserveCar',
-                'attributes' => [
-                    'ReserveId' => $item->id,
-                    'ModelCode' => $item->model->code,
-                    'ModelId' => $item->model->id,
-                    'Model' => $item->model->title,
-                    'DeliveryDate' => \Yii::$app->formatter->asDatetime($item->delivery_date,'YMMddHHiss'),
-                    'ReturnDate' => \Yii::$app->formatter->asDatetime($item->return_date, 'YMMddHHiss'),
-                    'Phone' => $item->client->phone,
-                    'Price' => $item->invoice->price,
-                    'Status' => $this->getStatus($item->status),
-                    'LeadStatus' => $this->getLeadStatus($item->status, $item->lead_status),
-                    'Source' => $this->getSource($item->source),
-                ],
-                'elements' => [
-                    [
-                        'tag' => 'AdditionalServices',
-                        'attributes' => [
-                            'Region' => $this->getDeliveryRegion($delivery_type_id),
-                            'Address' => $this->getDeliveryAddress($item->id, $delivery_type_id),
-                            'Time' => $this->getDeliveryTime($item->id),
-                        ],
-                    ],
-                    [
-                        'tag' => 'OptionalEquipment',
-                        'attributes' => [
-                            'AirportSurgut' => $option[0],
-                            'RailwayStation' => $option[1],
-                            'DeliveryCity' => $option[2],
-                            'Nefteyugansk' => $option[3],
-                            'KhantyMansiysk' => $option[4],
-                            'Nizhnevartovsk' => $option[5],
-                            'Noyabrsk' => $option[6],
-                            'NovyUrengoy' => $option[7],
-                            'FullCarWash' => $option[8],
-                            'VideoRecorder' => $option[9],
-                            'Navigator' => $option[10],
-                            'BabySeat' => $option[11],
-                            'ExpressWash' => $option[12],
-                        ],
-                    ],
-                ],
-            ];
-        }
-        return $arr;
-    }
 
     /**
      * @param $status

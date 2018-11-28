@@ -116,7 +116,7 @@ class ReserveController extends Controller
         $model->reserve = new Reserve();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            (new SoapReserve())->xmlExport($model->reserve->id, '');
+            (new SoapReserve())->xmlExport($model->reserve, '');
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }
@@ -141,7 +141,7 @@ class ReserveController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $delivery_type_id = $this->findRegion($id);
-            (new SoapReserve())->xmlExport($id, $delivery_type_id);
+            (new SoapReserve())->xmlExport($this->findModel($id), $delivery_type_id);
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }
@@ -157,12 +157,18 @@ class ReserveController extends Controller
      * @param $id
      * @return \yii\web\Response
      * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
         $model->status = Reserve::STATUS_DELETED;
         $model->save();
+        $delivery_type_id = $this->findRegion($id);
+        (new SoapReserve())->xmlExport($model, $delivery_type_id);
+        if (YII_ENV_PROD) {
+            (new SoapReserve())->soapExport();
+        }
         if ($model->lead_status != null) {
             return $this->redirect(['lead']);
         } else {
@@ -174,13 +180,14 @@ class ReserveController extends Controller
      * @param $id
      * @return string
      * @throws \yii\base\InvalidConfigException
+     * @throws NotFoundHttpException
      */
     public function actionAddService($id)
     {
         $service = new AdditionalReserveForm();
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
             $delivery_type_id = $this->findRegion($id);
-            (new SoapReserve())->xmlExport($id, $delivery_type_id);
+            (new SoapReserve())->xmlExport($this->findModel($id), $delivery_type_id);
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }
@@ -217,10 +224,9 @@ class ReserveController extends Controller
     public function actionDeleteService($id)
     {
         $service = ReserveAdditionalService::findOne($id);
-        $reserve_id = $service->reserve_id;
         if ($service && $service->delete()) {
             $delivery_type_id = $this->findRegion($id);
-            (new SoapReserve())->xmlExport($reserve_id, $delivery_type_id);
+            (new SoapReserve())->xmlExport($this->findModel($id), $delivery_type_id);
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }
@@ -258,7 +264,7 @@ class ReserveController extends Controller
         $reserve = Reserve::findOne($id);
         if ($reserve) {
             $delivery_type_id = $this->findRegion($id);
-            (new SoapReserve())->xmlExport($reserve->id, $delivery_type_id);
+            (new SoapReserve())->xmlExport($reserve, $delivery_type_id);
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }
@@ -290,7 +296,7 @@ class ReserveController extends Controller
             $reserve->status = $status;
             if ($reserve->save()) {
                 $delivery_type_id = $this->findRegion($id);
-                (new SoapReserve())->xmlExport($reserve->id, $delivery_type_id);
+                (new SoapReserve())->xmlExport($reserve, $delivery_type_id);
                 if (YII_ENV_PROD) {
                     (new SoapReserve())->soapExport();
                 }
@@ -351,7 +357,7 @@ class ReserveController extends Controller
             $reserve->lead_status = $lead_status;
             if ($reserve->save()) {
                 $delivery_type_id = $this->findRegion($id);
-                (new SoapReserve())->xmlExport($reserve->id, $delivery_type_id);
+                (new SoapReserve())->xmlExport($reserve, $delivery_type_id);
                 if (YII_ENV_PROD) {
                     (new SoapReserve())->soapExport();
                 }

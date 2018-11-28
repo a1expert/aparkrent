@@ -333,7 +333,7 @@ class ReserveForm extends Model
                 $fileToBase->client_id = $client->id;
                 $fileToBase->save();
             }
-            (new SoapReserve)->xmlExport($this->reserve->id, $this->delivery_type);
+            (new SoapReserve)->xmlExport($this->reserve, $this->delivery_type);
             return true;
         }
         return false;
