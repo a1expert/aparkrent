@@ -13,7 +13,7 @@ class SoapReserve extends Model
      */
     public function xmlExport($reserve_id, $delivery_type_id)
     {
-        $reserve = Reserve::findAll(['id' => $reserve_id]) ;
+        $reserve = Reserve::findAll(['id' => $reserve_id]);
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
@@ -57,6 +57,7 @@ class SoapReserve extends Model
                     'Phone' => $item->client->phone,
                     'Price' => $item->invoice->price,
                     'Status' => $this->getStatus($item->status),
+                    'LeadStatus' => $this->getLeadStatus($item->status, $item->lead_status),
                     'Source' => $this->getSource($item->source),
                 ],
                 'elements' => [
@@ -94,17 +95,29 @@ class SoapReserve extends Model
 
     /**
      * @param $status
+     * @param $lead_status
+     * @return string
+     */
+    private function getLeadStatus($status, $lead_status) {
+        if ($status == Reserve::STATUS_ACCEPTED) {
+            return $lead_status == Reserve::LEAD_STATUS_OPEN ? 'Открыта' : 'Закрыта';
+        }
+        return '';
+    }
+
+    /**
+     * @param $status
      * @return string
      */
     private function getStatus($status) {
         switch ($status) {
-            case Reserve::STATUS_NEW: $status = 'Новая заявка' ;
+            case Reserve::STATUS_NEW: $status = 'Новая заявка';
                 break;
-            case Reserve::STATUS_ACCEPTED: $status = 'Одобрено' ;
+            case Reserve::STATUS_ACCEPTED: $status = 'Одобрено';
                 break;
-            case Reserve::STATUS_REJECTED: $status = 'Отказано' ;
+            case Reserve::STATUS_REJECTED: $status = 'Отказано';
                 break;
-            case Reserve::STATUS_DELETED: $status = 'Удалено' ;
+            case Reserve::STATUS_DELETED: $status = 'Удалено';
                 break;
         }
         return $status;
@@ -115,7 +128,7 @@ class SoapReserve extends Model
      * @return string
      */
     private function getSource($source) {
-        return $source == Reserve::SOURCE_SITE ? 'С сайта' : 'Добавил менеджер' ;
+        return $source == Reserve::SOURCE_SITE ? 'С сайта' : 'Добавил менеджер';
     }
 
     /**
