@@ -25,10 +25,36 @@ class AdditionalService extends ActiveRecord
     const TYPE_WASH = 2;
     const TYPE_RENT = 3;
 
+    const REGION_AIRPORT = 1;
+    const REGION_RAILWAY_STATION = 2;
+    const REGION_CITY = 3;
+    const REGION_NEFTEYUGANSK = 4;
+    const REGION_KNATYMANSIYSK = 5;
+    const REGION_NIZHNEVARTOVSK = 6;
+    const REGION_NOYABRSK = 7;
+    const REGION_NOVYURENGOY = 8;
+
+    const SERVICE_FULL_CAR_WASH = 9;
+    const SERVICE_VIDEO_RECORDER = 10;
+    const SERVICE_NAVIGATOR = 11;
+    const SERVICE_BABY_SEAT = 12;
+    const SERVICE_EXPRESS_CAR_WASH = 13;
+
     public static $types =[
         self::TYPE_DELIVERY => 'Транспортировка',
         self::TYPE_WASH => 'Мойка',
         self::TYPE_RENT => 'Доп. оборудование',
+    ];
+
+    public static $regions =[
+        self::REGION_AIRPORT,
+        self::REGION_RAILWAY_STATION,
+        self::REGION_CITY,
+        self::REGION_NEFTEYUGANSK,
+        self::REGION_KNATYMANSIYSK,
+        self::REGION_NIZHNEVARTOVSK,
+        self::REGION_NOYABRSK,
+        self::REGION_NOVYURENGOY,
     ];
 
     /**

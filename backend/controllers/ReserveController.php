@@ -97,7 +97,7 @@ class ReserveController extends Controller
         $reserveAdditionalService = ReserveAdditionalService::findAll(['reserve_id' => $id]);
         if (!empty($reserveAdditionalService)) {
             foreach ($reserveAdditionalService as $value) {
-                foreach ([1, 2, 3, 4, 5, 6, 7, 8] as $item) {
+                foreach (AdditionalService::$regions as $item) {
                     if ($value->additional_service_id == $item)
                         return $value->additional_service_id;
                 }
@@ -225,8 +225,8 @@ class ReserveController extends Controller
     {
         $service = ReserveAdditionalService::findOne($id);
         if ($service && $service->delete()) {
-            $delivery_type_id = $this->findRegion($id);
-            (new SoapReserve())->xmlExport($this->findModel($id), $delivery_type_id);
+            $delivery_type_id = $this->findRegion($service->reserve_id);
+            (new SoapReserve())->xmlExport($this->findModel($service->reserve_id), $delivery_type_id);
             if (YII_ENV_PROD) {
                 (new SoapReserve())->soapExport();
             }

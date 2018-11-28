@@ -13,16 +13,7 @@ class SoapReserve extends Model
      */
     public function xmlExport($reserve, $delivery_type_id)
     {
-        for ($i = 0; $i < 13; $i++) {
-            $option[$i] = 'нет';
-        }
-        foreach (ReserveAdditionalService::findAll(['reserve_id' => $reserve->id]) as $value) {
-            for ($i = 1; $i < 14; $i++) {
-                if ($value->additional_service_id == $i) {
-                    $option[$i-1] = 'да';
-                }
-            }
-        }
+        $reserveAdditionalService = ReserveAdditionalService::findAll(['reserve_id' => $reserve->id]);
         $reserveToXml = [
             [
                 'tag' => 'AllReserve',
@@ -54,19 +45,19 @@ class SoapReserve extends Model
                             [
                                 'tag' => 'OptionalEquipment',
                                 'attributes' => [
-                                    'AirportSurgut' => $option[0],
-                                    'RailwayStation' => $option[1],
-                                    'DeliveryCity' => $option[2],
-                                    'Nefteyugansk' => $option[3],
-                                    'KhantyMansiysk' => $option[4],
-                                    'Nizhnevartovsk' => $option[5],
-                                    'Noyabrsk' => $option[6],
-                                    'NovyUrengoy' => $option[7],
-                                    'FullCarWash' => $option[8],
-                                    'VideoRecorder' => $option[9],
-                                    'Navigator' => $option[10],
-                                    'BabySeat' => $option[11],
-                                    'ExpressWash' => $option[12],
+                                    'AirportSurgut' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_AIRPORT),
+                                    'RailwayStation' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_RAILWAY_STATION),
+                                    'DeliveryCity' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_CITY),
+                                    'Nefteyugansk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NEFTEYUGANSK),
+                                    'KhantyMansiysk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_KNATYMANSIYSK),
+                                    'Nizhnevartovsk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NIZHNEVARTOVSK),
+                                    'Noyabrsk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NOYABRSK),
+                                    'NovyUrengoy' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NOVYURENGOY),
+                                    'FullCarWash' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_FULL_CAR_WASH),
+                                    'VideoRecorder' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_VIDEO_RECORDER),
+                                    'Navigator' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_NAVIGATOR),
+                                    'BabySeat' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_BABY_SEAT),
+                                    'ExpressWash' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_EXPRESS_CAR_WASH),
                                 ],
                             ],
                         ],
@@ -79,6 +70,19 @@ class SoapReserve extends Model
         file_put_contents(\Yii::getAlias('@console/data/reserve.xml'), $request . PHP_EOL, FILE_NO_DEFAULT_CONTEXT);
     }
 
+    /**
+     * @param $reserveAdditionalService
+     * @param $option_id
+     * @return string
+     */
+    private function getOption($reserveAdditionalService, $option_id) {
+        foreach ($reserveAdditionalService as $value) {
+            if ($value->additional_service_id == $option_id) {
+                return 'да';
+            }
+        }
+        return 'нет';
+    }
 
     /**
      * @param $status
