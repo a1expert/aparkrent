@@ -19,7 +19,7 @@ $(document).ready(function () {
     function countPrice() {
         $.ajax({
             url: '/reserve/count-price',
-            data: $('form.reserve-page').serializeArray(),
+            data: $('form.reserve-page:first').serializeArray(),
             dataType: 'json',
             method: 'post',
             beforeSend: function (request) {
