@@ -45,14 +45,6 @@ class SoapReserve extends Model
                             [
                                 'tag' => 'OptionalEquipment',
                                 'attributes' => [
-                                    'AirportSurgut' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_AIRPORT),
-                                    'RailwayStation' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_RAILWAY_STATION),
-                                    'DeliveryCity' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_CITY),
-                                    'Nefteyugansk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NEFTEYUGANSK),
-                                    'KhantyMansiysk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_KNATYMANSIYSK),
-                                    'Nizhnevartovsk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NIZHNEVARTOVSK),
-                                    'Noyabrsk' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NOYABRSK),
-                                    'NovyUrengoy' => $this->getOption($reserveAdditionalService, AdditionalService::REGION_NOVYURENGOY),
                                     'FullCarWash' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_FULL_CAR_WASH),
                                     'VideoRecorder' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_VIDEO_RECORDER),
                                     'Navigator' => $this->getOption($reserveAdditionalService, AdditionalService::SERVICE_NAVIGATOR),
@@ -147,9 +139,8 @@ class SoapReserve extends Model
      * @return string
      */
     private function getDeliveryAddress($id, $delivery_type_id) {
-        $item = ReserveAdditionalService::findOne(['reserve_id' => $id]);
+        $item = ReserveAdditionalService::find()->where(['reserve_id' => $id])->andWhere(['additional_service_id' => $delivery_type_id])->one();
         return !empty($item->address) ? $item->address : ($delivery_type_id == '' ? 'Югорский тракт 1 к.1' : '');
-
     }
 
     public function soapExport()
