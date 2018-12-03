@@ -1,0 +1,8 @@
+diff a/frontend/web/.htaccess b/frontend/web/.htaccess	(rejected hunks)
+@@ -11,4 +11,5 @@
+ 
+ Redirect 301 http://www.aparkrent.ru/ http://aparkrent.ru/
+ Redirect 301  /index.htm http://aparkrent.ru/
++Redirect 301  /index.html http://aparkrent.ru/
+ Redirect 301  /site/ http://aparkrent.ru/
+\ No newline at end of file

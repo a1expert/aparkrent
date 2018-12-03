@@ -19,7 +19,7 @@ $(document).ready(function () {
     function countPrice() {
         $.ajax({
             url: '/reserve/count-price',
-            data: $('form.reserve-page:first').serializeArray(),
+            data: $('form.reserve-page').serializeArray(),
             dataType: 'json',
             method: 'post',
             beforeSend: function (request) {
@@ -46,14 +46,7 @@ $(document).ready(function () {
         $('.check-other-job').removeClass('active');
         $('input[name="ReserveForm[type]"]').val(1);
         $('.js-radio-target').attr('placeholder', 'ФИО');
-
-        if(dropzone !== undefined) {
-            dropzone.removeAllFiles();
-        }
-
-        $('.additional-parameters').css({'display':'none'});
-        $('.additional-parameters-switch').find("input").prop("checked", false);
-
+        dropzone.removeAllFiles();
         filesToSend = [];
     }
 
@@ -61,7 +54,7 @@ $(document).ready(function () {
         countPrice();
     });
 
-    $(document).on('keyup', '.js-input-delivery-time', function () {
+    $(document).on('change', '.js-input-delivery-time', function () {
         countPrice();
     });
 
@@ -193,7 +186,7 @@ $(document).ready(function () {
 
     $('.datetimepicker').datetimepicker({
         minDate: 0,
-        format: 'Y-m-d',
+        format: 'd-m-Y',
         dayOfWeekStart: 1,
         timepicker: false,
         scrollMonth: false,
@@ -201,54 +194,5 @@ $(document).ready(function () {
     });
 
     countPrice();
-
-    $('#redirect-to-main').click(function(){
-        if(!device.mobile()) {
-            window.location.href = '/';
-        }
-    });
-
-    $('.js-date-range-picker').dateRangePicker({
-        singleMonth: true,
-        showShortcuts: false,
-        showTopbar: false,
-        language: 'ru',
-        startDate: moment().endOf('day').format('YYYY-MM-DD'),
-        separator: ' до ',
-    }).bind('datepicker-closed', function(){
-        countPrice();
-    });
-
-    // Подключение Magnific Modal
-    $('.popup-reserve').magnificPopup({
-        type: 'inline',
-
-        fixedContentPos: false,
-        fixedBgPos: true,
-
-        overflowY: 'auto',
-
-        closeBtnInside: true,
-        preloader: false,
-
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'my-mfp-zoom-in',
-
-        callbacks: {
-            open: function(data) {
-                var magnificPopup = $.magnificPopup.instance;
-
-                var id = $(magnificPopup.st.el).data('id');
-                var title = $(magnificPopup.st.el).data('title');
-
-                $(magnificPopup.content).find('.title').text(title);
-                $(magnificPopup.content).find('#reserveform-model_id').val(id);
-            },
-            close: function() {
-                resetPage();
-            }
-        }
-    });
 
 });

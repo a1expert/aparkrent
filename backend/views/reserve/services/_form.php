@@ -33,8 +33,8 @@ $form = ActiveForm::begin([
 
 <?= $form->field($service, 'additional_service_id',[
     'options' => [
-        'class' => 'form-group js-type-target js-type-' . AdditionalService::TYPE_DELIVERY . ' js-type-' . AdditionalService::TYPE_RENT . ' js-type-' . AdditionalService::TYPE_WASH,
-        'style' => !in_array($service->type, [null, AdditionalService::TYPE_DELIVERY, AdditionalService::TYPE_RENT, AdditionalService::TYPE_WASH]) ? 'display: none' : '',
+        'class' => 'form-group js-type-target js-type-' . AdditionalService::TYPE_DELIVERY . ' js-type-' . AdditionalService::TYPE_RENT,
+        'style' => !in_array($service->type, [null, AdditionalService::TYPE_DELIVERY, AdditionalService::TYPE_RENT]) ? 'display: none' : '',
     ],
 ])->dropDownList(ArrayHelper::map(AdditionalService::find()->where(['type' => AdditionalService::TYPE_DELIVERY])->all(), 'id', 'title'), ['class' => 'form-control js-service-list'])->label(false) ?>
 

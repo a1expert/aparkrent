@@ -50,7 +50,7 @@ class Reserve extends \common\models\Reserve
     {
         return [
             [['delivery_date', 'return_date'], 'required'],
-            [['model_id', 'delivery_date', 'return_date', 'status', 'client_id', 'source', 'created_at'], 'integer'],
+            [['model_id', 'delivery_date', 'return_date', 'status', 'client_id', 'source'], 'integer'],
             [['model_id'], 'exist', 'skipOnError' => true, 'targetClass' => AutoModel::className(), 'targetAttribute' => ['model_id' => 'id']],
         ];
     }

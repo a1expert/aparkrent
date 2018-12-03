@@ -19,8 +19,6 @@ class AppAsset extends AssetBundle
         'css/libs.min.css',
         'css/tooltipster.bundle.css',
         'css/main.css',
-        'vendor/fancybox/jquery.fancybox.min.css',
-        'vendor/daterangepicker/daterangepicker.min.css',
     ];
     public $js = [
 
@@ -31,10 +29,6 @@ class AppAsset extends AssetBundle
         'js/main.js',
         '//maps.googleapis.com/maps/api/js?key=AIzaSyDu93I0n3wQBYWgLMiQa8D1mvXmAJ6EzM0',
         'js/map.js',
-        'js/device.js',
-        'vendor/fancybox/jquery.fancybox.min.js',
-        'vendor/daterangepicker/moment.js',
-        'vendor/daterangepicker/jquery.daterangepicker.min.js',
     ];
     public $depends = [
         YiiAsset::class,

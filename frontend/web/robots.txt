@@ -9,8 +9,6 @@ Allow: /images/
 Allow: /sitemap.xml
 Allow: /*.js
 Allow: /*.css
-Allow: /*.jpg
-Allow: /*.gif
-Allow: /*.png
 Disallow: /
-Sitemap: https://aparkrent.ru/sitemap.xml
+Host: http://aparkrent.ru/
+Sitemap: http://aparkrent.ru/sitemap.xml

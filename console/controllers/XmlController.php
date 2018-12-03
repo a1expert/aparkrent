@@ -10,7 +10,6 @@ namespace console\controllers;
 
 
 use console\models\parcer\XmlParcer;
-use console\models\parcer\XmlRequestParcer;
 use yii\console\Controller;
 
 class XmlController extends Controller
@@ -23,17 +22,6 @@ class XmlController extends Controller
         $parcer = new XmlParcer();
         $parcer->importCatalog();
 
-
-        echo microtime(true) - $time;
-        return true;
-    }
-
-    public function actionImportRequest()
-    {
-        $time = microtime(true);
-
-        $parcer = new XmlRequestParcer();
-        $parcer->importSoapRequest();
 
         echo microtime(true) - $time;
         return true;

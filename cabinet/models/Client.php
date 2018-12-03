@@ -18,7 +18,7 @@ class Client extends \common\models\Client
     {
         return [
             [['type', 'birthday', 'passport_date_issue', 'drive_license_issue_date', 'status', 'source'], 'integer'],
-            [['passport_place_issue', 'registration_place', 'residence_place'], 'string'],
+            [['passport_place_issue', 'registration_place', 'residence_place', 'director_name'], 'string'],
             [['surname', 'name', 'email', 'patronymic', 'passport_series', 'passport_number', 'additional_phone', 'relative_phone', 'drive_license_series', 'drive_license_number', 'company_name', 'inn', 'kpp', 'ogrn', 'company_residence', 'post_in_company', 'fio_for_paper', 'account_number', 'bik', 'bank', 'correspondent_account', 'company_phone', 'company_email'], 'string', 'max' => 255],
             [['phone'], 'unique'],
             [['bonus_balance'], 'number'],
@@ -66,6 +66,7 @@ class Client extends \common\models\Client
             'status' => 'Статус',
             'source' => 'Источник',
             'bonus_balance' => 'Бонусный баланс',
+            'director_name' => 'Имя генерального директора',
         ];
     }
 

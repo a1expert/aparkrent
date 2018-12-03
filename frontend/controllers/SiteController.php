@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use frontend\models\AdditionalService;
 use frontend\models\AutoClass;
 use frontend\models\AutoMark;
 use frontend\models\AutoModel;
@@ -87,15 +86,7 @@ class SiteController extends Controller
 
     public function actionJobs()
     {
-        $deliveryType = AdditionalService::find()->where(['type' => AdditionalService::TYPE_DELIVERY])->all();
-        $wash = AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->all();
-        $rentType = AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all();
-        return $this->render('jobs', [
-            'deliveryType' => $deliveryType,
-            'wash' => $wash[0],
-            'expressWash' => $wash[1],
-            'rentType' => $rentType,
-        ]);
+        return $this->render('jobs');
     }
 
     public function actionConditions()

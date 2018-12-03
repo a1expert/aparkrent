@@ -26,8 +26,7 @@
         "kartik-v/yii2-widget-datetimepicker": "*",
         "yiisoft/yii2-jui": "^2.0",
         "bower-asset/jquery-ui": "1.11.*",
-        "npm-asset/select2": "*",
-        "bupy7/xml-constructor": "^1.2"
+        "npm-asset/select2": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

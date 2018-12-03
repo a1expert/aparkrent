@@ -51,59 +51,5 @@ $reserves = $client->getReservesByStatus($status);
                 </tr>
             <?php endforeach; ?>
         </table>
-        <!-- TODO -->
-        <div class="mobile-substitute-table-wrap">
-            <div class="block">
-                <div class="block__head">Заказ №12</div>
-                <div class="block__body">
-                    <div class="row-wrap">
-                        <b>Описание:</b>
-                        <p>Продление аренды автомобиля KIA RIO 2017 на 4 дня</p>
-                    </div>
-                    <div class="row-wrap">
-                        <b>Описание:</b>
-                        <p>Продление аренды автомобиля KIA RIO 2017 на 4 дня</p>
-                    </div>
-                    <div class="buttons-wrap">
-                        <div class="button">Перейти к оплате</div>
-                        <div class="button">Скачать счет</div>
-                    </div>
-                </div>
-            </div>
-            <div class="block">
-                <div class="block__head">Заказ №13</div>
-                <div class="block__body">
-                    <div class="row-wrap">
-                        <b>Описание:</b>
-                        <p>Продление аренды автомобиля KIA RIO 2017 на 4 дня</p>
-                    </div>
-                    <div class="row-wrap">
-                        <b>Описание:</b>
-                        <p>Продление аренды автомобиля KIA RIO 2017 на 4 дня</p>
-                    </div>
-                    <div class="buttons-wrap">
-                        <div class="button">Перейти к оплате</div>
-                        <div class="button">Скачать счет</div>
-                    </div>
-                </div>
-            </div>
-            <div class="block">
-                <div class="block__head">Заказ №14</div>
-                <div class="block__body">
-                    <div class="row-wrap">
-                        <b>Описание:</b>
-                        <p>Продление аренды автомобиля KIA RIO 2017 на 4 дня</p>
-                    </div>
-                    <div class="row-wrap">
-                        <b>Описание:</b>
-                        <p>Продление аренды автомобиля KIA RIO 2017 на 4 дня</p>
-                    </div>
-                    <div class="buttons-wrap">
-                        <div class="button">Перейти к оплате</div>
-                        <div class="button">Скачать счет</div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

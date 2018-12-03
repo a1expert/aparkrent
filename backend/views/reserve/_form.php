@@ -50,8 +50,7 @@ use yii\widgets\ActiveForm;
             'format' => 'dd-M-yyyy H:mm',
             'startDate' => \Yii::$app->formatter->asDateTime('NOW', 'dd-M-yyyy HH:mm'),
             'todayHighlight' => true,
-        ],
-        'options' => ['autocomplete' => 'off']
+        ]
     ]) ?>
 
     <?= $form->field($model, 'date_to')->widget(DateTimePicker::className(), [
@@ -61,8 +60,7 @@ use yii\widgets\ActiveForm;
             'format' => 'dd-M-yyyy H:mm',
             'startDate' => \Yii::$app->formatter->asDateTime('NOW', 'dd-M-yyyy HH:mm'),
             'todayHighlight' => true,
-        ],
-        'options' => ['autocomplete' => 'off']
+        ]
     ]) ?>
 
     <?= $form->field($model, 'car_id')->dropDownList(ArrayHelper::map(Car::find()->filterWhere(['model_id' => $model->model_id])->all(), 'id', 'number'), ['prompt' => 'Не назначена']) ?>

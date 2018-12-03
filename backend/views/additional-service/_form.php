@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'type')->dropDownList([\backend\models\AdditionalService::$types]) ?>
+    <?= $form->field($model, 'type')->dropDownList([\backend\models\AdditionalService::TYPE_DELIVERY => 'Транспортировка', \backend\models\AdditionalService::TYPE_RENT => 'Доп. оборудование']) ?>
 
     <?= $form->field($model, 'address')->textInput() ?>
 

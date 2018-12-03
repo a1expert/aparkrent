@@ -84,13 +84,13 @@ $client = Yii::$app->user->identity->client;
                     <?php if ($reserve->deliveryNotInWorkTime): ?>
                         <div class="text-group">
                             <div class="name">Доставка в нерабочее время</div>
-                            <div class="text">0 ₽</div>
+                            <div class="text">500 ₽</div>
                         </div>
                     <?php endif; ?>
                     <?php if ($reserve->returnNotInWorkTime): ?>
                         <div class="text-group">
                             <div class="name">Возврат в нерабочее время</div>
-                            <div class="text">0 ₽</div>
+                            <div class="text">500 ₽</div>
                         </div>
                     <?php endif; ?>
                     <?php if ($reserve->getAdditionalHours()): ; ?>

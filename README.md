@@ -28,7 +28,6 @@ common
 console
     config/              contains console configurations
     controllers/         contains console controllers (commands)
-    data/                contains console data
     migrations/          contains database migrations
     models/              contains console-specific model classes
     runtime/             contains files generated during runtime
