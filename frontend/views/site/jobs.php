@@ -7,6 +7,11 @@ $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Условия по прокату авто в Сургуте и ХМАО: возраст и стаж арендатора, необходимые документы. Все авто застрахованы по договорам ОСАГО и КАСКО.'
 ]);
+/**
+ * @var AdditionalService[] $wash
+ * @var AdditionalService[] $expressWash
+ * @var AdditionalService[] $rentType
+ */
 ?>
 <main>
  <!-- 	<section class="page-banner jobs-banner">
@@ -23,11 +28,13 @@ $this->registerMetaTag([
 							<i class="ic25"></i>
 						</div>
 						<div class="title">доставка автомобиля</div>
-						<div class="locations">
-                            <?php foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_DELIVERY])->all() as $delivery):?>
-                                <div class="location"><span><?= $delivery->title ?></span><span class="price"><?= number_format($delivery->price, 0, '.', ' ') ?> ₽</span></div>
-                            <?php endforeach; ?>
-						</div>
+                        <?php if(!empty($deliveryType)) : ?>
+                            <div class="locations">
+                                <?php foreach ($deliveryType as $delivery):?>
+                                    <div class="location"><span><?= $delivery->title ?></span><span class="price"><?= number_format($delivery->price, 0, '.', ' ') ?> ₽</span></div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 					</div>
 				</div>
 				<div class="block-wrapper">
@@ -35,21 +42,31 @@ $this->registerMetaTag([
 						<div class="image">
 							<i class="ic26"></i>
 						</div>
-						<div class="title">МОЙКА АВТОМОБИЛЯ</div>
-						<div class="locations">
-							<div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format(AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->one()->price, 0, '.', ' ') ?> ₽</span></div>
-						</div>
+                        <?php if (!empty($wash)) : ?>
+                            <div class="title"><?= $wash->title ?></div>
+                            <div class="locations">
+                                <div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format($wash->price, 0, '.', ' ') ?> ₽</span></div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($expressWash)) : ?>
+                            <div class="title"><?= $expressWash->title ?></div>
+                            <div class="locations">
+                                <div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format($expressWash->price, 0, '.', ' ') ?> ₽</span></div>
+                            </div>
+                        <?php endif; ?>
 					</div>
 					<div class="block">
 						<div class="image">
 							<i class="ic27"></i>
 						</div>
 						<div class="title">АРЕНДА ДОП. ОБОРУДОВАНИЯ</div>
-						<div class="locations">
-                            <?php foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all() as $rent):?>
-                                <div class="location"><span><?= $rent->title ?></span><span class="price"><?= number_format($rent->price, 0, '.', ' ') ?> ₽ / сутки</span></div>
-                            <?php endforeach; ?>
-						</div>
+                        <?php if (!empty($rentType)) : ?>
+                            <div class="locations">
+                                <?php foreach ($rentType as $rent):?>
+                                    <div class="location"><span><?= $rent->title ?></span><span class="price"><?= number_format($rent->price, 0, '.', ' ') ?> ₽ / сутки</span></div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 					</div>
 				</div>
 			</div>

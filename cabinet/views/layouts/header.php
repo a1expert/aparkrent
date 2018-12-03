@@ -14,24 +14,19 @@
 		</div>
 	</section>
 	<div class="content">
-		<a href="<?= Yii::$app->params['frontend'] ?>" class="logo"></a>
+		<a href="<?= \yii\helpers\Url::to(['/']) ?>" class="logo"></a>
 		<nav>
-			<a href="<?= Yii::$app->params['frontend'] . '/site/catalog' ?>">Каталог</a>
-			<a href="<?= Yii::$app->params['frontend'] . '/site/jobs' ?>">Услуги</a>
-			<a href="<?= Yii::$app->params['frontend'] . '/site/conditions' ?>">Условия</a>
-			<a href="<?= Yii::$app->params['frontend'] . '/site/contacts' ?>">Контакты</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/catalog']) ?>">Автомобили</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/jobs']) ?>">Услуги</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/conditions']) ?>">Условия</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/contacts']) ?>">Контакты</a>
 		</nav>
 		<div class="right">
-			<div class="social">
-				<a href="" class="wa"></a>
-				<a href="" class="viber"></a>
-				<a href="" class="vk"></a>
-			</div>
-			<a href="tel:88005506041" class="phone"><i></i>+7 (3462) 96-10-41</a>
-			<div class="hamburger hamburger--boring">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
+			<a href="tel: 83462961041" class="phone"><i></i>+7 (3462) 96-10-41</a>
+		</div>
+		<div class="hamburger hamburger--boring">
+			<div class="hamburger-box">
+				<div class="hamburger-inner"></div>
 			</div>
 		</div>
 	</div>
@@ -45,12 +40,27 @@
 	</div>
 	<div class="wrapper">
 		<nav>
-			<a href="<?= Yii::$app->params['frontend'] ?>">Главная</a>
-            <a href="<?= Yii::$app->params['frontend'] . '/site/catalog' ?>">Каталог</a>
-            <a href="<?= Yii::$app->params['frontend'] . '/site/jobs' ?>">Услуги</a>
-            <a href="<?= Yii::$app->params['frontend'] . '/site/conditions' ?>">Условия</a>
-            <a href="<?= Yii::$app->params['frontend'] . '/site/contacts' ?>">Контакты</a>
+			<div class="head">Личный кабинет</div>
+			<a href="<?= \yii\helpers\Url::to(['/site/index']) ?>">МОЙ ПРОФИЛЬ</a>
+    		<a href="<?= \yii\helpers\Url::to(['/reserve/index']) ?>">Мои заказы</a>
+    		<a href="<?= \yii\helpers\Url::to(['/invoice/index']) ?>">Мои счета</a>
+			<a href="<?= \yii\helpers\Url::to(['/fine/index']) ?>">Штрафы ПДД</a>
+			<a href="<?= \yii\helpers\Url::to(['/setting/personal']) ?>">Личные настройки</a>
+			<a href="<?= \yii\helpers\Url::to(['/setting/private']) ?>">Приватные настройки</a>
+			<hr>
+
+			<div class="head">меню сайта</div>
+			<a href="<?= \yii\helpers\Url::to(['/']) ?>">Главная</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/catalog']) ?>">Автомобили</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/jobs']) ?>">Услуги</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/conditions']) ?>">Условия</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/contacts']) ?>">Контакты</a>
 		</nav>
-		<a href="tel:88005506041" class="phone"><i></i>+7 (3462) 96-10-41</a>
+		<a href="tel:83462961041" class="phone"><i></i>+7 (3462) 96-10-41</a>
+		<div class="social">
+			<a title="WhatsApp" href="whatsapp://send?phone=+79224165611"  class="wa"></a>
+			<a title="Viber" href="viber://chat?number=+79224165611"  class="viber"></a>
+			<a href="https://vk.com/aparkrent" target="_blank" class="vk"></a>
+		</div>
 	</div>
 </menu>

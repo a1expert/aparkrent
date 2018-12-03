@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<FreeModels Date="20181024155051">
+<FreeModels Date="20181203140536">
 	<Model Name="Kia Rio 2018" Code="5" CountFree="0" CountTotal="1"/>
-	<Model Name="Kia Picanto GT-Line 2018" Code="7" CountFree="0" CountTotal="1"/>
-	<Model Name="Kia Rio 2017" Code="4" CountFree="0" CountTotal="8"/>
-	<Model Name="Kia Soul" Code="8" CountFree="0" CountTotal="1"/>
+	<Model Name="Kia Picanto GT-Line 2018" Code="7" CountFree="1" CountTotal="1"/>
+	<Model Name="Kia Rio 2017" Code="4" CountFree="8" CountTotal="9"/>
+	<Model Name="Kia Stinger 2018" Code="13" CountFree="1" CountTotal="1"/>
 </FreeModels>

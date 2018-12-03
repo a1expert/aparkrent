@@ -9,6 +9,7 @@ use backend\models\Client;
 use backend\models\Reserve;
 use backend\models\ReserveAdditionalService;
 use backend\models\search\ReserveSearch;
+use backend\models\SoapReserve;
 use backend\services\CountReservePriceService;
 use Yii;
 use yii\filters\AccessControl;
@@ -63,6 +64,7 @@ class ReserveController extends Controller
     /**
      * @param $id
      * @return string
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -87,7 +89,26 @@ class ReserveController extends Controller
     }
 
     /**
+     * @param $id
+     * @return string
+     */
+    protected function findRegion($id)
+    {
+        $reserveAdditionalService = ReserveAdditionalService::findAll(['reserve_id' => $id]);
+        if (!empty($reserveAdditionalService)) {
+            foreach ($reserveAdditionalService as $value) {
+                foreach (AdditionalService::$regions as $item) {
+                    if ($value->additional_service_id == $item)
+                        return $value->additional_service_id;
+                }
+            }
+        }
+        return '';
+    }
+
+    /**
      * @return string|\yii\web\Response
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionCreate()
     {
@@ -95,6 +116,10 @@ class ReserveController extends Controller
         $model->reserve = new Reserve();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            (new SoapReserve())->xmlExport($model->reserve, '');
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('create', [
@@ -106,6 +131,8 @@ class ReserveController extends Controller
     /**
      * @param $id
      * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionUpdate($id)
     {
@@ -113,6 +140,11 @@ class ReserveController extends Controller
         $model->setReserve($this->findModel($id));
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($this->findModel($id), $delivery_type_id);
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return $this->redirect(['view', 'id' => $model->reserve->id]);
         } else {
             return $this->render('update', [
@@ -124,12 +156,19 @@ class ReserveController extends Controller
     /**
      * @param $id
      * @return \yii\web\Response
+     * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
         $model->status = Reserve::STATUS_DELETED;
         $model->save();
+        $delivery_type_id = $this->findRegion($id);
+        (new SoapReserve())->xmlExport($model, $delivery_type_id);
+        if (YII_ENV_PROD) {
+            (new SoapReserve())->soapExport();
+        }
         if ($model->lead_status != null) {
             return $this->redirect(['lead']);
         } else {
@@ -137,10 +176,21 @@ class ReserveController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     * @throws NotFoundHttpException
+     */
     public function actionAddService($id)
     {
         $service = new AdditionalReserveForm();
         if ($service->load(Yii::$app->request->post()) && $service->save()) {
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($this->findModel($id), $delivery_type_id);
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode([
                 'status' => 'ok',
                 'loaded' => 'true',
@@ -164,10 +214,22 @@ class ReserveController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \Throwable
+     * @throws \yii\base\InvalidConfigException
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionDeleteService($id)
     {
         $service = ReserveAdditionalService::findOne($id);
         if ($service && $service->delete()) {
+            $delivery_type_id = $this->findRegion($service->reserve_id);
+            (new SoapReserve())->xmlExport($this->findModel($service->reserve_id), $delivery_type_id);
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode([
                 'status' => 'ok',
             ]);
@@ -192,14 +254,28 @@ class ReserveController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionCountPrice($id)
     {
         $reserve = Reserve::findOne($id);
         if ($reserve) {
+            $delivery_type_id = $this->findRegion($id);
+            (new SoapReserve())->xmlExport($reserve, $delivery_type_id);
+            if (YII_ENV_PROD) {
+                (new SoapReserve())->soapExport();
+            }
             return json_encode(CountReservePriceService::countPrice($reserve));
         }
     }
 
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionStatusChange()
     {
         $id = Yii::$app->request->post('id');
@@ -219,6 +295,11 @@ class ReserveController extends Controller
             $status = Yii::$app->request->post('status');
             $reserve->status = $status;
             if ($reserve->save()) {
+                $delivery_type_id = $this->findRegion($id);
+                (new SoapReserve())->xmlExport($reserve, $delivery_type_id);
+                if (YII_ENV_PROD) {
+                    (new SoapReserve())->soapExport();
+                }
                 return json_encode([
                     'status' => 'ok',
                 ]);
@@ -258,6 +339,10 @@ class ReserveController extends Controller
         }
     }
 
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionLeadStatusChange()
     {
         $id = Yii::$app->request->post('id');
@@ -271,6 +356,11 @@ class ReserveController extends Controller
             $lead_status = Yii::$app->request->post('status');
             $reserve->lead_status = $lead_status;
             if ($reserve->save()) {
+                $delivery_type_id = $this->findRegion($id);
+                (new SoapReserve())->xmlExport($reserve, $delivery_type_id);
+                if (YII_ENV_PROD) {
+                    (new SoapReserve())->soapExport();
+                }
                 return json_encode([
                     'status' => 'ok',
                 ]);

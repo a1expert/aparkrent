@@ -1,19 +1,15 @@
-Options +FollowSymLinks
-IndexIgnore */*
-RewriteEngine on
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteBase /
-
-
-# if a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
 
-# otherwise forward it to index.php
-RewriteRule . index.php
 
 # редирект с www на без www
 RewriteCond %{HTTP_HOST} ^www.aparkrent.ru$ [NC]
-RewriteRule ^(.*)$ http://aparkrent.ru/$1 [R=301,L]
+RewriteRule ^(.*)$ https://aparkrent.ru/$1 [R=301,L]
 
 # редирект с index.php на без index.php (не пашет, проблемы с директорией?)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(php|html|htm)\ HTTP/ 
@@ -29,32 +25,32 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml appl
 
 
 # кеш браузера
-#<ifModule mod_expires.c>
-#ExpiresActive On
+<ifModule mod_expires.c>
+ExpiresActive On
  
 # кеш по умолчанию
-#ExpiresDefault "access plus 1 days"
+ExpiresDefault "access plus 1 days"
  
 # Включаем кэширование изображений и флэш на месяц
-#ExpiresByType image/x-icon "access plus 1 month"
-#ExpiresByType image/jpeg "access plus 4 weeks"
-#ExpiresByType image/png "access plus 30 days"
-#ExpiresByType image/gif "access plus 43829 minutes"
-#ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+ExpiresByType image/x-icon "access plus 1 month"
+ExpiresByType image/jpeg "access plus 4 weeks"
+ExpiresByType image/png "access plus 30 days"
+ExpiresByType image/gif "access plus 43829 minutes"
+ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
  
 # Включаем кэширование css, javascript и текстовых файлоф на одну неделю
-#ExpiresByType text/css "access plus 604800 seconds"
-#ExpiresByType text/javascript "access plus 604800 seconds"
-#ExpiresByType application/javascript "access plus 604800 seconds"
-#ExpiresByType application/x-javascript "access plus 604800 seconds"
+ExpiresByType text/css "access plus 604800 seconds"
+ExpiresByType text/javascript "access plus 604800 seconds"
+ExpiresByType application/javascript "access plus 604800 seconds"
+ExpiresByType application/x-javascript "access plus 604800 seconds"
  
 # Включаем кэширование html и htm файлов на один день
-#ExpiresByType text/html "access plus 43200 seconds"
+ExpiresByType text/html "access plus 43200 seconds"
  
 # Включаем кэширование xml файлов на десять минут
-#ExpiresByType application/xhtml+xml "access plus 600 seconds"
+ExpiresByType application/xhtml+xml "access plus 600 seconds"
  
-#</ifModule>
+</ifModule>
 
 
 

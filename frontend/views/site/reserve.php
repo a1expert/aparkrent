@@ -33,7 +33,7 @@ ReserveAsset::register($this);
                             <div class="logo"></div>
                             <div class="info">
                                 <div class="image">
-                                    <img src="<?= \common\components\FileHelper::getImageThumb($model->image, 172, 100) ?>" alt="Прокат авто <?= $model->mark->title . ' ' . $model->title ?> в Сургуте">
+                                    <img id="redirect-to-main" src="<?= \common\components\FileHelper::getImageThumb($model->image, 172, 100) ?>" alt="Прокат авто <?= $model->mark->title . ' ' . $model->title ?> в Сургуте">
                                 </div>
                                 <div class="title"><?= $model->mark->title . ' ' . $model->title ?></div>
                             </div>
@@ -85,7 +85,7 @@ ReserveAsset::register($this);
                                             </div>-->
                                             <div class="form-group">
                                                 <label>Адрес получения автомобиля</label>
-                                                <input name="ReserveForm[delivery_address]" class="delivery" type="text" value="Югорский тракт 1 к.1">
+                                                <input name="ReserveForm[delivery_address]" class="delivery" type="text" value="">
                                             </div>
                                             <div class="form-group js-delivery-time">
                                                 <label>Время получения автомобиля</label>

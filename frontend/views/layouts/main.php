@@ -12,6 +12,36 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
     <head>
+        <?php if (YII_ENV_PROD) : ?>
+        <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter50244085 = new Ya.Metrika2({
+                    id:50244085,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks2");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/50244085" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
         <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -19,6 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TMNN3RJ');</script>
 <!-- End Google Tag Manager -->
+        <?php endif; ?>
         <meta charset="<?= Yii::$app->charset ?>">
         <!--[if lt IE 10]>
             <link rel="stylesheet" href="/reject/reject.css" media="all" />
@@ -48,8 +79,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            
 
         <?php $this->endBody() ?>
-        <link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
-<script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=a19293a448b78babee4efd9ac65acb22" charset="UTF-8" async></script>
+        <?php if (YII_ENV_PROD) : ?>
+            <link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+            <script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=a19293a448b78babee4efd9ac65acb22" charset="UTF-8" async></script>
+        <?php endif; ?>
     </body>
 </html>
-<?php $this->endPage() ?>
+<?php
+$this->endPage() ?>

@@ -8,6 +8,7 @@ namespace backend\controllers;
 
 use backend\models\Client;
 use backend\models\ClientChange;
+use backend\models\SoapClient;
 use yii\base\Controller;
 
 class ClientChangeController extends Controller
@@ -25,6 +26,11 @@ class ClientChangeController extends Controller
         ]);
     }
 
+    /**
+     * @return string
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionAccept()
     {
         $id = \Yii::$app->request->get('id');
@@ -33,6 +39,7 @@ class ClientChangeController extends Controller
             $attribute = $change->attribute;
             $change->client->$attribute = $change->new_value;
             if ($change->client->save() && $change->delete()) {
+                (new SoapClient())->xmlExport($change->id);
                 return json_encode([
                     'status' => 'ok',
                 ]);
@@ -43,6 +50,11 @@ class ClientChangeController extends Controller
         ]);
     }
 
+    /**
+     * @return string
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionReject()
     {
         $id = \Yii::$app->request->get('id');
