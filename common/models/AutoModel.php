@@ -30,6 +30,7 @@ use yii\db\ActiveRecord;
  * @property integer $count_free
  * @property integer $count_total
  * @property integer $code
+ * @property integer $drive_unit
  */
 
 class AutoModel extends ActiveRecord
@@ -84,6 +85,7 @@ class AutoModel extends ActiveRecord
             'count_free' => 'Свободно автомобилей',
             'count_total' => 'Всего автомобилей',
             'code' => 'Код автомобиля',
+            'drive_unit' => 'Привод(4WD)',
         ];
     }
 

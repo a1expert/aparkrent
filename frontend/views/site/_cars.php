@@ -97,6 +97,14 @@ use frontend\models\AutoModel;
                                 <div class="option-desc"><?= $model->engine ?></div>
                             </div>
                         <?php endif; ?>
+                        <?php /*if (!empty($model->drive_unit)) : */?><!--
+                            <div class="option" title="4WD">
+                                <div class="option-icon">
+                                    <img src="/images/4wd.png" alt="4WD">
+                                </div>
+                                <div class="option-desc"></div>
+                            </div>
+                        --><?php /*endif; */?>
                     </div>
                 <?php endif; ?>
 

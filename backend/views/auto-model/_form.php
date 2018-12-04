@@ -82,6 +82,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'heating')->checkbox() ?>
 
+    <?= $form->field($model, 'drive_unit')->checkbox() ?>
+
     <?= $form->field($model, 'transmission')->dropDownList(AutoModel::$transmissions, ['prompt' => 'Не задано']) ?>
 
     <?= $form->field($model, 'audio')->textInput(['maxlength' => true]) ?>

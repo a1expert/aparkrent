@@ -16,7 +16,7 @@ class AutoModel extends \common\models\AutoModel
     {
         return [
             [['description'], 'string'],
-            [['mark_id', 'class_id', 'status', 'conditioner', 'sort', 'visibility', 'transmission', 'climate_control', 'heating', 'count_free', 'count_total', 'code'], 'integer'],
+            [['mark_id', 'class_id', 'status', 'conditioner', 'sort', 'visibility', 'transmission', 'climate_control', 'heating', 'count_free', 'count_total', 'code', 'drive_unit'], 'integer'],
             [['title', 'image', 'equipment', 'engine', 'audio'], 'string', 'max' => 255],
             [['class_id'], 'exist', 'skipOnError' => true, 'targetClass' => AutoClass::className(), 'targetAttribute' => ['class_id' => 'id']],
             [['mark_id'], 'exist', 'skipOnError' => true, 'targetClass' => AutoMark::className(), 'targetAttribute' => ['mark_id' => 'id']],
@@ -48,6 +48,7 @@ class AutoModel extends \common\models\AutoModel
             'count_free' => 'Свободно автомобилей',
             'count_total' => 'Всего автомобилей',
             'code' => 'Код автомобиля',
+            'drive_unit' => 'Привод(4WD)',
         ];
     }
 
