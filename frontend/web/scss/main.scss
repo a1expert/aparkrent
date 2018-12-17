@@ -530,9 +530,8 @@ header {
 section.index-banner {
     margin-bottom: 100px;
     .index-banner-slider {
-        .slide1 {
-            background: url(../images/bg/bg.jpg) center center no-repeat;
-            background-size: cover;
+        .slide {
+            background-size: cover !important;
             .content {
                 max-width: 1230px;
                 height: 600px;
@@ -590,18 +589,6 @@ section.index-banner {
                     }
                 }
             }
-        }
-        .slide2 {
-            @extend .slide1;
-            background: url(../images/bg/slider_bg2.jpg) center center no-repeat;
-        }
-        .slide3 {
-            @extend .slide1;
-            background: url(../images/bg/slider_bg3.jpg) center center no-repeat;
-        }
-        .slide4 {
-            @extend .slide1;
-            background: url(../images/bg/slider_bg4.jpg) center center no-repeat;
         }
     }
 
