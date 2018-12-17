@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Banner;
 use frontend\models\AdditionalService;
 use frontend\models\AutoClass;
 use frontend\models\AutoMark;
@@ -41,8 +42,11 @@ class SiteController extends Controller
             ->andWhere(['visibility' => AutoModel::VISIBILITY_VISIBLE])
             ->orderBy('sort ASC')
             ->all();
+
+        $banner = Banner::find()->all();
         return $this->render('index', [
             'models' => $models,
+            'banner' => $banner,
             'classes' => $classes,
             'searchForm' => $searchForm,
         ]);

@@ -2,6 +2,7 @@
 use frontend\models\AutoClass;
 use frontend\models\AutoMark;
 use frontend\models\AutoModel;
+use frontend\models\Banner;
 
 $this->title = 'Прокат авто в Сургуте - аренда машины без водителя - «Автопарк»';
 $this->registerMetaTag([
@@ -12,27 +13,44 @@ $this->registerMetaTag([
  * @var AutoMark[] $marks
  * @var AutoModel[] $models
  * @var AutoClass[] $classes
+ * @var Banner[] $banner
  */
 
 ?>
     <main>
         <section class="index-banner">
             <div class="index-banner-slider">
-            <style>
-                section.index-banner .index-banner-slider .slide4 {
-                    background: url(../images/bg/slider_bg5.png);
-                    background-size: cover;
-                }
-            </style>
-                <div class="slide slide4">
-                    <div class="content">
-                        <div class="text">
-                            <div class='h2'>Скорость или выносливость</div>
-                            <div class='h3'>Выбирать тебе</div>
+                <?php /*if (!empty($banner)) : */?><!--
+                    <?php /*foreach ($banner as $item) : */?>
+                    <style>
+                        section.index-banner .index-banner-slider .slide<?/*= $item->id */?> {
+                            background: url('<?/*= $item->image */?>');
+                            background-size: cover;
+                        }
+                    </style>
+                    <div class="slide slide<?/*= $item->id */?>">
+                        <div class="content">
+                            <div class="text">
+                                <div class='h2'><?/*= $item->title_1 */?></div>
+                                <div class='h3'><?/*= $item->title_2 */?></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide slide1">
+                    <?php /*endforeach; */?>
+                --><?php /*endif;*/?>
+                <?php if (!empty($banner)) : ?>
+                    <?php foreach ($banner as $item) : ?>
+                        <div class="slide" style="background: url('<?= $item->image ?>'); background-size: cover;">
+                            <div class="content">
+                                <div class="text">
+                                    <div class='h2'><?= $item->title_1 ?></div>
+                                    <div class='h3'><?= $item->title_2 ?></div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif;?>
+                <!--<div class="slide slide1">
                     <div class="content">
                         <div class="text">
                             <div class='h2'>ПОДАРИМ</div>
@@ -45,7 +63,7 @@ $this->registerMetaTag([
                         <div class="text">
                             <div class='h2'>АВТОПАРК</div>
                             <div class='h3'>ПРОКАТ АВТО В СУРГУТЕ</div>
-                            <a href="<?= \yii\helpers\Url::to(['/site/catalog']) ?>" class="button">ПОДРОБНЕЕ</a>
+                            <a href="<?/*= \yii\helpers\Url::to(['/site/catalog']) */?>" class="button">ПОДРОБНЕЕ</a>
                         </div>
                     </div>
                 </div>
@@ -54,10 +72,10 @@ $this->registerMetaTag([
                         <div class="text">
                             <div class='h2'>ДОСТАВИМ</div>
                             <div class='h3'>АВТО В АЭРОПОРТ Г. СУРГУТА</div>
-                            <a href="<?= \yii\helpers\Url::to(['/site/jobs']) ?>" class="button">ПОДРОБНЕЕ</a>
+                            <a href="<?/*= \yii\helpers\Url::to(['/site/jobs']) */?>" class="button">ПОДРОБНЕЕ</a>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 			<!--noindex-->
             <div class="find-module">

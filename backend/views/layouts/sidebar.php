@@ -75,6 +75,11 @@ NavAsset::register($this);
                         FAQ
                     </a>
                 </li>
+                <li>
+                    <a href="<?= yii\helpers\Url::to(['/banner/index']); ?>">
+                        Баннер
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="<?= Yii::$app->controller->id == 'archive' ? 'open-list' : ''?>">
