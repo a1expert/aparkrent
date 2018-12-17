@@ -2,37 +2,30 @@
 
 namespace backend\models;
 
-use common\components\UploadedFile;
 use Yii;
-use yii\helpers\ArrayHelper;
 
 class Banner extends \common\models\Banner
 {
-    /**
-     * @var UploadedFile $file
-     */
-    public $file;
+    const IMAGE_WIDTH = 1920;
+    const IMAGE_HEIGHT = 600;
 
     /**
      * @inheritdoc
      */
     public function rules()
     {
-        return ArrayHelper::merge(parent::rules(), [
-            [['file'], 'safe'],
-        ]);
+        return [
+            [['image'], 'string'],
+            [['title_1', 'title_2'], 'string', 'max' => 255],
+        ];
     }
 
-    /**
-     * @return bool
-     * @throws \yii\web\ForbiddenHttpException
-     */
-    public function upload()
+    public function getImageFrontEnd()
     {
-        if ($this->file->saveImageAs(Yii::getAlias('@frontend/web'), '/images/uploads/banner/')) {
-            $this->image = $this->file->getRelativeUrl();
-            return true;
+        if ($this->image == '') {
+            return '/images/no_photo.png';
         }
-        return false;
+
+        return Yii::getAlias('@frontend/web') . $this->image;
     }
 }

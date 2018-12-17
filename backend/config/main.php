@@ -49,6 +49,13 @@ return [
 
             ],
         ],
+        'urlManagerFrontEnd' => [
+            'class' => 'yii\web\UrlManager',
+            'baseUrl' => '',
+            'hostInfo' => YII_ENV_DEV ? 'http://aparkrent.gc' : 'https://aparkrent.ru',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
     ],
     'params' => $params,
 ];

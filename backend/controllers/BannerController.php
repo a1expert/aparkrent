@@ -72,21 +72,15 @@ class BannerController extends Controller
      * Creates a new Banner model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
-     * @throws \yii\web\ForbiddenHttpException
      */
     public function actionCreate()
     {
         $model = new Banner();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-            if ($model->upload() && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->render('create', ['model' => $model,]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', ['model' => $model,]);
+            return $this->render('create', ['model' => $model]);
         }
     }
 
@@ -96,23 +90,13 @@ class BannerController extends Controller
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException
-     * @throws \yii\web\ForbiddenHttpException
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $upload_image = UploadedFile::getInstance($model, 'file');
-            if (!empty($upload_image)) {
-                $model->file = $upload_image;
-                $model->upload();
-                if ($model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
-            } else {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+            return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
             'model' => $model,

@@ -20,24 +20,6 @@ $this->registerMetaTag([
     <main>
         <section class="index-banner">
             <div class="index-banner-slider">
-                <?php /*if (!empty($banner)) : */?><!--
-                    <?php /*foreach ($banner as $item) : */?>
-                    <style>
-                        section.index-banner .index-banner-slider .slide<?/*= $item->id */?> {
-                            background: url('<?/*= $item->image */?>');
-                            background-size: cover;
-                        }
-                    </style>
-                    <div class="slide slide<?/*= $item->id */?>">
-                        <div class="content">
-                            <div class="text">
-                                <div class='h2'><?/*= $item->title_1 */?></div>
-                                <div class='h3'><?/*= $item->title_2 */?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php /*endforeach; */?>
-                --><?php /*endif;*/?>
                 <?php if (!empty($banner)) : ?>
                     <?php foreach ($banner as $item) : ?>
                         <div class="slide" style="background: url('<?= $item->image ?>'); background-size: cover;">
@@ -50,32 +32,6 @@ $this->registerMetaTag([
                         </div>
                     <?php endforeach; ?>
                 <?php endif;?>
-                <!--<div class="slide slide1">
-                    <div class="content">
-                        <div class="text">
-                            <div class='h2'>ПОДАРИМ</div>
-                            <div class='h3'>Бонусы за аренду автомобиля</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide slide2">
-                    <div class="content">
-                        <div class="text">
-                            <div class='h2'>АВТОПАРК</div>
-                            <div class='h3'>ПРОКАТ АВТО В СУРГУТЕ</div>
-                            <a href="<?/*= \yii\helpers\Url::to(['/site/catalog']) */?>" class="button">ПОДРОБНЕЕ</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide slide3">
-                    <div class="content">
-                        <div class="text">
-                            <div class='h2'>ДОСТАВИМ</div>
-                            <div class='h3'>АВТО В АЭРОПОРТ Г. СУРГУТА</div>
-                            <a href="<?/*= \yii\helpers\Url::to(['/site/jobs']) */?>" class="button">ПОДРОБНЕЕ</a>
-                        </div>
-                    </div>
-                </div>-->
             </div>
 			<!--noindex-->
             <div class="find-module">
