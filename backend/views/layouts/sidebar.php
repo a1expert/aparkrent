@@ -77,7 +77,7 @@ NavAsset::register($this);
                 </li>
                 <li>
                     <a href="<?= yii\helpers\Url::to(['/banner/index']); ?>">
-                        Баннер
+                        Баннеры
                     </a>
                 </li>
             </ul>
