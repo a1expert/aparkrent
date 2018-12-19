@@ -214,8 +214,11 @@ class ReserveForm extends Model
         }
         if (!empty($this->delivery_time) && (\Yii::$app->formatter->asDatetime($this->delivery_time, 'H') >= 20 || \Yii::$app->formatter->asDatetime($this->delivery_time, 'H') < 8)) {
             $timeInfo = 1;
-            $message .= '<p>Выдача автомобиля в нерабочее время +500руб</p>';
-            $price += 500;
+            $delivery_price = AdditionalService::findOne(['id' => 13])->price;
+            if (!empty($delivery_price)) {
+                $message .= '<p>Выдача автомобиля в нерабочее время +' . $delivery_price . 'руб</p>';
+                $price += $delivery_price;
+            }
         }
         if (\Yii::$app->formatter->asDatetime($this->date_to, 'H') >= 20 || \Yii::$app->formatter->asDatetime($this->date_to, 'H') < 8) {
 //            if (!$timeInfo) {

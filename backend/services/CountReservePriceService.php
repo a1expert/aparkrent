@@ -80,7 +80,7 @@ class CountReservePriceService
         Yii::$app->formatter->asTime($reserve->delivery_date, 'H');
         if (!empty($reserve->reserveAdditionalServices[0]->time)) {
             if (Yii::$app->formatter->asTime($reserve->reserveAdditionalServices[0]->time, 'H') >= 20 || Yii::$app->formatter->asTime($reserve->reserveAdditionalServices[0]->time, 'H') < 8) {
-                $price += 500;
+                $price += AdditionalService::findOne(['id' => 13])->price;
             }
         }
         if (Yii::$app->formatter->asTime($reserve->return_date, 'H') >= 20 || Yii::$app->formatter->asTime($reserve->return_date, 'H') < 8) {
