@@ -116,9 +116,51 @@ use frontend\models\AutoModel;
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
+				
+				<?php if($model->id == 3) : ?>
+                    <div class="car-gallery">
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/3/foto-speredi.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/3/foto-speredi.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/3/foto-s-boku.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/3/foto-s-boku.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/3/foto-salona.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/3/foto-salona.jpg');"></div>
+                        </a>
+                    </div>
+                <?php endif; ?>
+				
+                <?php if($model->id == 6) : ?>
+                    <div class="car-gallery">
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/6/foto-speredi.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/6/foto-speredi.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/6/foto-s-boku.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/6/foto-s-boku.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/6/foto-salona.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/6/foto-salona.jpg');"></div>
+                        </a>
+                    </div>
+                <?php endif; ?>
+				
+				<?php if($model->id == 10) : ?>
+                    <div class="car-gallery">
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/10/foto-speredi.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/10/foto-speredi.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/10/foto-s-boku.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/10/foto-s-boku.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/10/foto-salona.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/10/foto-salona.jpg');"></div>
+                        </a>
+                    </div>
+                <?php endif; ?>
 
                 <?php if($model->id == 9) : ?>
-                    <!-- <div class="car-gallery">
+                    <div class="car-gallery">
                         <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-speredi.jpg">
                             <div class="item" style="background-image: url('/images/cars-main/9/foto-speredi.jpg');"></div>
                         </a>
@@ -128,13 +170,21 @@ use frontend\models\AutoModel;
                         <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-salona.jpg">
                             <div class="item" style="background-image: url('/images/cars-main/9/foto-salona.jpg');"></div>
                         </a>
-                    </div> -->
-                <?php else : ?>
-                    <!-- <div class="car-gallery">
-                        <div class="item item-empty">фото с переди</div>
-                        <div class="item item-empty">фото с боку</div>
-                        <div class="item item-empty">фото сзади</div>
-                    </div> -->
+                    </div>
+                <?php endif; ?>
+				
+				<?php if($model->id == 11) : ?>
+                    <div class="car-gallery">
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/11/foto-speredi.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/11/foto-speredi.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/11/foto-s-boku.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/11/foto-s-boku.jpg');"></div>
+                        </a>
+                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/11/foto-salona.jpg">
+                            <div class="item" style="background-image: url('/images/cars-main/11/foto-salona.jpg');"></div>
+                        </a>
+                    </div>
                 <?php endif; ?>
 
                 <div class="mobile-panel">

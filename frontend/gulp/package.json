@@ -17,7 +17,7 @@
         "gulp-cache": "^0.4.6",
         "gulp-concat": "^2.6.1",
         "gulp-rename": "^1.2.2",
-        "gulp-sass": "",
+        "gulp-sass": "^3.1.0",
         "gulp-sourcemaps": "^2.6.1",
         "gulp.spritesmith": "^3.8.2",
         "merge-stream": "^1.0.1",
