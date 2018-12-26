@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\ModelGallery;
 use common\components\UploadedFile;
 use Yii;
 use backend\models\AutoModel;
@@ -60,6 +61,7 @@ class AutoModelController extends Controller
      * Displays a single AutoModel model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -76,17 +78,22 @@ class AutoModelController extends Controller
     public function actionCreate()
     {
         $model = new AutoModel();
+        $existing_gallery = null;
 
         if ($model->load(Yii::$app->request->post())) {
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->upload() && $model->save()) {
                 $model->crop();
+                ModelGallery::saveGallery(Yii::$app->request->post('ModelGallery')['arrayImages'], $model->id);
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
-                return $this->render('create', ['model' => $model,]);
+                return $this->render('create', ['model' => $model]);
             }
         } else {
-            return $this->render('create', ['model' => $model,]);
+            return $this->render('create', [
+                'model' => $model,
+                'existing_gallery' => $existing_gallery,
+            ]);
         }
     }
 
@@ -95,13 +102,16 @@ class AutoModelController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $existing_gallery = $model->modelGallery;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $upload_image = UploadedFile::getInstance($model, 'file');
+            ModelGallery::saveGallery(Yii::$app->request->post('ModelGallery')['arrayImages'], $model->id);
             if (!empty($upload_image)) {
                 $model->file = $upload_image;
                 $model->upload();
@@ -115,6 +125,7 @@ class AutoModelController extends Controller
         }
         return $this->render('update', [
             'model' => $model,
+            'existing_gallery' => $existing_gallery,
         ]);
     }
 
@@ -123,6 +134,9 @@ class AutoModelController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {

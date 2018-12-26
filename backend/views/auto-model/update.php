@@ -13,6 +13,7 @@ $this->title = 'Редактировать модель: ' . $model->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'existing_gallery' => $existing_gallery,
     ]) ?>
 
 </div>

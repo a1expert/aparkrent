@@ -11,7 +11,25 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\AutoModel */
 /* @var $form yii\widgets\ActiveForm */
-\backend\assets\vendor\CropperAsset::register($this);
+\backend\assets\ModelAsset::register($this);
+$this->registerJs(
+    '
+params = {
+imageWidth: ' . AutoModel::IMAGE_WIDTH . ',
+imageHeight: ' . AutoModel::IMAGE_HEIGHT . ',
+url: "' . \yii\helpers\Url::to(['/site/crop']) . '",
+imageHolder: $("#savingImage"),
+imageLinkHolder: $("#savingImageLink"),
+originalImageLinkHolder: $("#originalImageLink"),
+cropperImageHolder: $("#imageCrop"),
+cropperImagePreviewHolder: $("#imagePreview"),
+uploadInput: $("#inputImage"),
+saveButton: $("#saveImage"),
+imageContainer: $("#cropped-image-container")
+};
+cropperInit(params);
+', \yii\web\View::POS_END);
+?>
 ?>
 <style>
     img {
@@ -59,6 +77,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'cropY')->hiddenInput(['id' => 'cropY'])->label(false) ?>
     <?= $form->field($model, 'cropWidth')->hiddenInput(['id' => 'cropWidth'])->label(false) ?>
     <?= $form->field($model, 'cropHeight')->hiddenInput(['id' => 'cropHeight'])->label(false) ?>
+
+    <?= $this->render('_form_gallery', [
+        'existing_gallery' => $existing_gallery,
+    ]); ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

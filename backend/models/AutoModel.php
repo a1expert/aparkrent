@@ -15,6 +15,9 @@ use Yii;
  */
 class AutoModel extends \common\models\AutoModel
 {
+    const IMAGE_WIDTH = 1920;
+    const IMAGE_HEIGHT = 1280;
+
     public $file;
     public $cropX;
     public $cropY;

@@ -31,6 +31,8 @@ use yii\db\ActiveRecord;
  * @property integer $count_total
  * @property integer $code
  * @property integer $drive_unit
+ *
+ * @property ModelGallery[] $modelGallery
  */
 
 class AutoModel extends ActiveRecord
@@ -95,5 +97,13 @@ class AutoModel extends ActiveRecord
     public static function tableName()
     {
         return 'auto_model';
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModelGallery()
+    {
+        return $this->hasMany(ModelGallery::className(), ['model_id' => 'id']);
     }
 }

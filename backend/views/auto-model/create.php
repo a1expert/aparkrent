@@ -14,6 +14,7 @@ $this->title = 'Создать модель';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'existing_gallery' => $existing_gallery,
     ]) ?>
 
 </div>
