@@ -19,7 +19,9 @@ use frontend\models\AutoModel;
             <div class="logo"></div>
             <div class="image" style="position: relative">
                 <img src="<?= \common\components\FileHelper::getImageThumb($model->image, 469, 272) ?>" alt="Прокат авто <?= $model->mark->title . ' ' . $model->title ?> в Сургуте">
-                <?= Html::a('Узнать подробнее', ['/site/reserve', 'id' => $model->id], ['class' => 'button']); ?></p>
+                <?php if($model->getCountFree()) : ?>
+                    <?= Html::a('Узнать подробнее', ['/site/reserve', 'id' => $model->id], ['class' => 'button']); ?>
+                <?php endif; ?>
             </div>
             <div class="common">
                 <div class="car-name"><?= $model->mark->title . ' ' . $model->title ?></div>
