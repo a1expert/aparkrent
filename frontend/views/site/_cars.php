@@ -106,14 +106,31 @@ use frontend\models\AutoModel;
                 <?php endif; ?>
 
                 <?php if (!empty($model->tariffs)): ?>
-                    <div class="car-tariffs">
-                        <?php foreach ($model->tariffs as $tariff) :?>
-                            <div class="tariff">
-                                <div class="days"><?= $tariff->time ?></div>
-                                <div class="price"><?= $tariff->price_for_day ?></div>
-                                <div class="price-desc">руб./сутки</div>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="car-tariffs-wrap">
+                        <div class="car-tariffs__head">
+                            <label>
+                                <!-- В нейм вставить id  -->
+                                <input type="radio" checked name="toggle-price"> 
+                                <div class="text">
+                                    Оплата по часам
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="toggle-price"> 
+                                <div class="text">
+                                    Оплата по дням
+                                </div>
+                            </label>
+                        </div>
+                        <div class="car-tariffs">
+                            <?php foreach ($model->tariffs as $tariff) :?>
+                                <div class="tariff">
+                                    <div class="days"><?= $tariff->time ?></div>
+                                    <div class="price"><?= $tariff->price_for_day ?></div>
+                                    <div class="price-desc">руб./сутки</div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 <?php endif; ?>
 				

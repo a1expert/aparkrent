@@ -14,6 +14,12 @@ $('.hamburger').click(function(){
 	
 });
 
+	$("input[name='car-view-radio']").change(function() {
+		var articleName = $(this).val();
+		$(".js-toggle-info-body article").removeClass("active");
+		$(".js-toggle-info-body" + " ." + articleName).addClass("active");
+    });
+
 document.ontouchmove = function(event){
 	if ($('body').hasClass('scrolldisable')) {
 		event.preventDefault();
@@ -108,6 +114,14 @@ $('.index-banner-slider').slick({
 	// }
  //  ]
 });
+$('.js-car-view-gallery').slick({
+	dots: false,
+	arrows: true,
+	infinite: true,
+	slidesToShow: 3,
+	slidesToScroll: 1,
+});
+
 // 
 
 // Подключение Magnific Gallery
@@ -287,12 +301,12 @@ $('.avto').click(function(){
 $('.faq-head').click(function(){
 	if ($(this).parent().hasClass('open')) {
 		$(this).parent().removeClass('open');
-		$(this).next().slideUp(600);
+		$(this).next().slideUp(400);
 	} else {
 		$('.faq-head').not(this).parent().removeClass('open');
-		$('.faq-head').not(this).next().slideUp(600);
+		$('.faq-head').not(this).next().slideUp(400);
 		$(this).parent().addClass('open');
-		$(this).next().slideDown(600);
+		$(this).next().slideDown(400);
 	}
 });
 

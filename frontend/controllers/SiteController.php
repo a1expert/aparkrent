@@ -89,6 +89,11 @@ class SiteController extends Controller
         return $this->render('contacts');
     }
 
+    public function actionAboutCompany()
+    {
+        return $this->render('about-company');
+    }
+
     public function actionJobs()
     {
         $deliveryType = AdditionalService::find()->where(['type' => AdditionalService::TYPE_DELIVERY])->all();
@@ -105,6 +110,10 @@ class SiteController extends Controller
     public function actionConditions()
     {
         return $this->render('conditions');
+    }
+    public function actionCarView()
+    {
+        return $this->render('car-view');
     }
 
     public function actionReserve($id)
