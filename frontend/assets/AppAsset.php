@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
         'vendor/daterangepicker/daterangepicker.min.css',
     ];
     public $js = [
-
         'js/libs.min.js',
         'js/jquery.inputmask.bundle.js',
         'js/tooltipster.bundle.min.js',

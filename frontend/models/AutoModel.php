@@ -2,6 +2,8 @@
 
 namespace frontend\models;
 
+use yii\helpers\ArrayHelper;
+
 /**
  * @property AutoClass $class
  * @property AutoMark $mark
@@ -109,7 +111,12 @@ class AutoModel extends \common\models\AutoModel
 
     public function getTransmissionTitle()
     {
-        return self::$transmissions[$this->transmission];
+        return ArrayHelper::getValue(self::$transmissions, $this->transmission, '');
+    }
+
+    public function getDriveUnit()
+    {
+        return ArrayHelper::getValue(self::$drive_units, $this->drive_unit, '');
     }
 
     public function getTransmissionType()

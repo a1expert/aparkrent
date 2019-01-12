@@ -111,10 +111,6 @@ class SiteController extends Controller
     {
         return $this->render('conditions');
     }
-    public function actionCarView()
-    {
-        return $this->render('car-view');
-    }
 
     public function actionReserve($id)
     {
@@ -122,7 +118,7 @@ class SiteController extends Controller
         if (!$model) {
             throw new NotFoundHttpException();
         }
-        return $this->render('reserve', [
+        return $this->render('car-view', [
             'model' => $model,
         ]);
     }

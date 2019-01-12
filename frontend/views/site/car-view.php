@@ -1,35 +1,72 @@
 <?php
-use frontend\assets\MapAsset;
 
-$this->title = 'Контакты - Автопарк';
-$this->registerMetaTag([
-    'name' => 'description',
-    'content' => 'Контактные данные проката авто в Автопарке по Сургуту и ХМАО. Позвонить по номеру: +7 (3462) 96-10-41'
-]);
+use common\components\FileHelper;
+use frontend\assets\ReserveAsset;
+use frontend\forms\ReserveForm;
+use frontend\helpers\SeoHelper;
+use frontend\models\AdditionalService;
+use yii\widgets\ActiveForm;
+
+$reserve = new ReserveForm();
+
+$seo = SeoHelper::getTitleMetaForAutoById($model);
+$this->title = $seo[SeoHelper::TITLE];
+$this->registerMetaTag(['name' => 'description', 'content' => $seo[SeoHelper::META_TAG]]);
+ReserveAsset::register($this);
+
+/** @var \frontend\models\AutoModel $model */
 ?>
 
 <main class="car-view">
 	<section class="car-view">
-		<div class="section-title">Прокат KIA RIO 2017 в Сургуте</div>
+		<div class="section-title">Прокат <?= $model->mark->title ?> <?= $model->title ?> в Сургуте</div>
 		<div class="content">
 			<div class="price-and-booking">
 				<div class="car-tariffs-wrap">
 					<div class="car-tariffs__head">
-						<label>
-							<!-- В нейм вставить id  -->
-							<input type="radio" checked name="toggle-price"> 
-							<div class="text">
-								Оплата по часам
-							</div>
-						</label>
-						<label>
-							<input type="radio" name="toggle-price"> 
-							<div class="text">
-								Оплата по дням
-							</div>
-						</label>
+<!--						<label>-->
+<!--							 В нейм вставить id  -->
+<!--							<input type="radio" checked name="toggle-price"> -->
+<!--							<div class="text">-->
+<!--								Оплата по часам-->
+<!--							</div>-->
+<!--						</label>-->
+<!--						<label>-->
+<!--							<input type="radio" name="toggle-price"> -->
+<!--							<div class="text">-->
+<!--								Оплата по дням-->
+<!--							</div>-->
+<!--						</label>-->
 					</div>
-					<div class="car-tariffs">
+                    <?php if (!empty($model->tariffs)): ?>
+                        <div class="car-tariffs-wrap">
+                            <div class="car-tariffs__head">
+                                <!--<label>
+                                     В нейм вставить id
+                                    <input type="radio" checked name="toggle-price">
+                                    <div class="text">
+                                        Оплата по часам
+                                    </div>
+                                </label>
+                                <label>
+                                    <input type="radio" name="toggle-price">
+                                    <div class="text">
+                                        Оплата по дням
+                                    </div>
+                                </label>-->
+                            </div>
+                            <div class="car-tariffs">
+                                <?php foreach ($model->tariffs as $tariff) :?>
+                                    <div class="tariff">
+                                        <div class="days"><?= $tariff->time ?></div>
+                                        <div class="price"><?= $tariff->price_for_day ?></div>
+                                        <div class="price-desc">руб./сутки</div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+					<!--<div class="car-tariffs">
 						<div class="tariff">
 							<div class="days">1-2 дня</div>
 							<div class="price">1800</div>
@@ -60,88 +97,122 @@ $this->registerMetaTag([
 							<div class="price">1800</div>
 							<div class="price-desc">руб./сутки</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
-				<form>
+                <?php $form = ActiveForm::begin(['options' => ['class' => 'reserve-page'],
+                    'enableAjaxValidation' => true,
+                    'enableClientValidation' => false,
+                    'validationUrl' => ['/reserve/validate'],
+                ]) ?>
 					<div class="inputs-wrap">
-						<div class="form-group"><input placeholder="Ваше имя" type="text"></div>
-						<div class="form-group"><input  placeholder="Телефон" type="text"></div>
-						<div class="form-group"><select  placeholder="Тип аренды"><option value="">da</option></select></div>
-						<div class="form-group"><input  placeholder="Срок аренды" type="text"></div>
+                        <?= $form->field($reserve, 'model_id')->hiddenInput(['value' => $model->id])->label(false); ?>
+                        <?= $form->field($reserve, 'price')->hiddenInput(['value' => 0, 'class' => 'js-price-input'])->label(false); ?>
+                        <?= $form->field($reserve, 'name')->textInput(['placeholder' => 'Ваше имя'])->label(false); ?>
+<!--						<div class="form-group"><select  placeholder="Тип аренды"><option value="">da</option></select></div>-->
+                        <?= $form->field($reserve, 'phone')->textInput(['class' => 'js-phone-mask', 'placeholder' => 'Телефон'])->label(false); ?>
+                        <?= $form->field($reserve, 'date_reserve')->textInput(['class' => 'js-date-range-picker', 'placeholder' => 'Срок аренды'])->label(false); ?>
 						<button class="button">ЗАБРОНИРОВАТЬ</button>
 					</div>
 					<div class="sub-options">
 						<div class="head">Дополнительные опции</div>
-						<label class="check-wrap">
-							<input type="checkbox">
-							<div class="check-block"></div>
-							<div class="text">Видеорегистратор</div>
-						</label>
-						<label class="check-wrap">
-							<input type="checkbox">
-							<div class="check-block"></div>
-							<div class="text">Навигатор</div>
-						</label>
-						<label class="check-wrap">
-							<input type="checkbox">
-							<div class="check-block"></div>
-							<div class="text">Детское кресло</div>
-						</label>
-						<div class="price">
-							Итого:
-							<strong><span> 1600</span> ₽</strong> 
-						</div>
+                        <?php foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all() as $rent):?>
+                            <label class="check-wrap js-check">
+                                <input type="hidden" name="ReserveForm[addServices][<?= $rent->id ?>]" value="0">
+                                <input type="checkbox">
+                                <div class="check-block"></div>
+                                <div class="text"><?= $rent->title ?></div>
+                            </label>
+                        <?php endforeach; ?>
+                        <section class="price-section" id="price-section">
+                            <div class="price">
+                                Итого:
+                                <strong><span class="num js-price">0</span> ₽</strong>
+                            </div>
+                        </section>
 					</div>
-				</form>
+                <?php ActiveForm::end() ?>
 			</div>
 			<div class="gallery-and-specifications">
 				<div class="head">
-					<!-- Одно из двух -->
-					<div class="img-wrap"><img src="/images/img/thumb_5d3dd1816dc8d3c1db309bfde97c7a95_469x272.png" alt=""></div>
-					<!-- <div class="video-wrap"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/Gf6kNDDn6Lw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> -->
+                    <?php if (!empty($model->video)) : ?>
+                        <div class="video-wrap"><?= $model->video ?></div>
+                    <?php else : ?>
+                        <div class="img-wrap"><img src="<?= FileHelper::getImageThumb($model->image, 469, 272) ?>" alt=""></div>
+                    <?php endif; ?>
 				</div>
-				<div class="gallery">
-					<div class="title">Фотографии</div>
-					<div class="items-wrap js-car-view-gallery">
-						<div class="item"><img src="/images/img/car-view-gallery.png" alt=""></div>
-						<div class="item"><img src="/images/img/car-view-gallery.png" alt=""></div>
-						<div class="item"><img src="/images/img/car-view-gallery.png" alt=""></div>
-						<div class="item"><img src="/images/img/car-view-gallery.png" alt=""></div>
-					</div>
-				</div>
+                <?php if(!empty($model->modelGallery)) : ?>
+                    <div class="gallery">
+                        <div class="title">Фотографии</div>
+                        <div class="items-wrap js-car-view-gallery">
+                            <?php foreach ($model->modelGallery as $item) : ?>
+                                <div class="item"><img src="<?= $item->photo ?>" alt=""></div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
 				<div class="specifications">
 					<div class="title">Характеристики</div>
 					<div class="items-wrap">
-						<div class="item">
-							<div class="icon"><img src="/images/equipment.png" alt="Автоматическая коробка передач"></div>
-							<strong>Коробка: </strong>
-							Автомат
-						</div>
-						<div class="item">
-							<div class="icon"><img src="/images/car-oil.png" alt="Автоматическая коробка передач"></div>
-							<strong>Расход: </strong>
-							12 л / 100 км
-						</div>
-						<div class="item">
-							<div class="icon"><img src="/images/chassis.png" alt="Автоматическая коробка передач"></div>
-							<strong>Привод: </strong>
-							Передний
-						</div>
-						<div class="item">
-							<div class="icon"><img src="/images/climate-control.png" alt="Автоматическая коробка передач"></div>
-							<strong>Климат контроль: </strong>
-							Есть
-						</div>
-						<div class="item">
-							<div class="icon"><img src="/images/engine.png" alt="Автоматическая коробка передач"></div>
-							<strong>Мощность: </strong>
-							200 л.с.
-						</div>
-						<div class="item">
-							<div class="icon"><img src="/images/abs.png" alt="Автоматическая коробка передач"></div>
-							<strong>ABS: </strong>
-							Есть
-						</div>
+                        <?php if (!empty($model->transmission)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/equipment.png" alt="<?= $model->getTransmissionTitle() ?>"></div>
+                                <strong>Коробка: </strong>
+                                <?= $model->getTransmissionTitle() ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->climate_control)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/climate-control.png" alt="Климат контроль"></div>
+                                <strong>Климат контроль: </strong>
+                                Есть
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->abs)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/abs.png" alt="ABS"></div>
+                                <strong>ABS: </strong>
+                                Есть
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->conditioner)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/air-conditioner.png" alt="Кондиционер"></div>
+                                <strong>Кондиционер: </strong>
+                                Есть
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->heating)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/heat.png" alt="Подогрев сидений и руля"></div>
+                                <strong>Подогрев: </strong>
+                                Есть
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->audio)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/audio.png" alt="<?= $model->audio ?>"></div>
+                                <strong><?= $model->audio ?> </strong>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->engine)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/engine.png" alt="Двигатель <?= $model->engine ?>"></div>
+                                <strong>Мощность: </strong>
+                                <?= $model->engine ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->consumption)) : ?>
+                            <div class="item">
+                                <div class="icon"><img src="/images/car-oil.png" alt="Расход"></div>
+                                <strong>Расход: </strong>
+                                <?= $model->consumption ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="item">
+                            <div class="icon"><img src="/images/chassis.png" alt="Привод <?= $model->getDriveUnit() ?>"></div>
+                            <strong>Привод: </strong>
+                            <?= $model->getDriveUnit() ?>
+                        </div>
 					</div>
 				</div>
 			</div>
@@ -154,7 +225,10 @@ $this->registerMetaTag([
 				</div>
 				<div class="body js-toggle-info-body">
 					<article class="reviews active">
-						reviews
+                        <div id="vk_comments"></div>
+                        <script type="text/javascript">
+                            VK.Widgets.Comments("vk_comments", {limit: 5, width: "532", attach: "photo"});
+                        </script>
 					</article>
 					<article class="conditions">
 						<ul>

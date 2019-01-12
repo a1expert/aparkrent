@@ -43,6 +43,8 @@ cropperInit(params);
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'video')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'file')->widget(FileInput::classname(),
         [
             'name' => 'attach_logo',
@@ -98,9 +100,13 @@ cropperInit(params);
 
     <?= $form->field($model, 'engine')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'consumption')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'conditioner')->checkbox() ?>
 
     <?= $form->field($model, 'climate_control')->checkbox() ?>
+
+    <?= $form->field($model, 'abs')->checkbox() ?>
 
     <?= $form->field($model, 'heating')->checkbox() ?>
 

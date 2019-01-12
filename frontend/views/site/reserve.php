@@ -2,7 +2,6 @@
 /** @var \frontend\models\AutoModel $model */
 use frontend\assets\ReserveAsset;
 use frontend\models\AdditionalService;
-use frontend\models\Client;
 use frontend\helpers\SeoHelper;
 
 $seo = SeoHelper::getTitleMetaForAutoById($model);
@@ -109,14 +108,14 @@ ReserveAsset::register($this);
                                     </div>
                                     <div class="block-other-jobs">
                                         <div class="module-title">ДОП. ОБОРУДОВАНИЕ</div>
-                                        <div class="inputs">
-                                            <?php foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all() as $rent):?>
+                                        <!--<div class="inputs">
+                                            <?php /*foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all() as $rent):*/?>
                                                 <div class="check-other-job">
-                                                    <?= $rent->title ?>
-                                                    <input type="hidden" name="ReserveForm[addServices][<?= $rent->id ?>]" value="0">
+                                                    <?/*= $rent->title */?>
+                                                    <input type="hidden" name="ReserveForm[addServices][<?/*= $rent->id */?>]" value="0">
                                                 </div>
-                                            <?php endforeach; ?>
-                                        </div>
+                                            <?php /*endforeach; */?>
+                                        </div>-->
                                         <!--<div class="module-title" style="margin-top: 19px;">МОЙКА АВТО</div>
                                         <div class="inputs">
                                             <?php /*foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_WASH])->all() as $wash):*/?>

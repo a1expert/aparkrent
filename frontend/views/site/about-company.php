@@ -33,7 +33,7 @@
 			<article class="head">
 				<div class="left-wrap">
 					<div class="img-wrap"><img src="/images/img/our-fleet.png" alt=""></div>
-					<a href="" class="button">Посмотреть автомобили</a>
+					<a href="<?= \yii\helpers\Url::to(['/site/catalog']) ?>" class="button">Посмотреть автомобили</a>
 				</div>
 				<div class="text-wrap">
 					<div class="title">Мы не предлагаем своим клиентам  <br>автомобили старше 3 лет</div>

@@ -30,15 +30,14 @@ class AutoModel extends \common\models\AutoModel
     public function rules()
     {
         return [
-            [['description'], 'string'],
-            [['mark_id', 'class_id', 'status', 'conditioner', 'sort', 'visibility', 'transmission', 'climate_control', 'heating', 'drive_unit'], 'integer'],
-            [['title', 'image', 'equipment', 'engine', 'audio'], 'string', 'max' => 255],
+            [['description', 'video'], 'string'],
+            [['mark_id', 'class_id', 'status', 'conditioner', 'sort', 'visibility', 'transmission', 'climate_control', 'heating', 'drive_unit', 'abs'], 'integer'],
+            [['title', 'image', 'equipment', 'engine', 'audio', 'consumption'], 'string', 'max' => 255],
             [['class_id'], 'exist', 'skipOnError' => true, 'targetClass' => AutoClass::className(), 'targetAttribute' => ['class_id' => 'id']],
             [['mark_id'], 'exist', 'skipOnError' => true, 'targetClass' => AutoMark::className(), 'targetAttribute' => ['mark_id' => 'id']],
             [['file', 'cropX', 'cropY', 'cropWidth', 'cropHeight'], 'safe'],
         ];
     }
-
 
     /**
      * @return \yii\db\ActiveQuery
