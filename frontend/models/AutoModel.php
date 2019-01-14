@@ -109,6 +109,11 @@ class AutoModel extends \common\models\AutoModel
         return $max;
     }
 
+    public function isExistence($object)
+    {
+        return !empty($object) ? 'Есть' : 'Нет';
+    }
+
     public function getTransmissionTitle()
     {
         return ArrayHelper::getValue(self::$transmissions, $this->transmission, '');

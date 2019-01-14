@@ -160,34 +160,26 @@ ReserveAsset::register($this);
                                 <?= $model->getTransmissionTitle() ?>
                             </div>
                         <?php endif; ?>
-                        <?php if (!empty($model->climate_control)) : ?>
-                            <div class="item">
-                                <div class="icon"><img src="/images/climate-control.png" alt="Климат контроль"></div>
-                                <strong>Климат контроль: </strong>
-                                Есть
-                            </div>
-                        <?php endif; ?>
-                        <?php if (!empty($model->abs)) : ?>
-                            <div class="item">
-                                <div class="icon"><img src="/images/abs.png" alt="ABS"></div>
-                                <strong>ABS: </strong>
-                                Есть
-                            </div>
-                        <?php endif; ?>
-                        <?php if (!empty($model->conditioner)) : ?>
-                            <div class="item">
-                                <div class="icon"><img src="/images/air-conditioner.png" alt="Кондиционер"></div>
-                                <strong>Кондиционер: </strong>
-                                Есть
-                            </div>
-                        <?php endif; ?>
-                        <?php if (!empty($model->heating)) : ?>
-                            <div class="item">
-                                <div class="icon"><img src="/images/heat.png" alt="Подогрев сидений и руля"></div>
-                                <strong>Подогрев: </strong>
-                                Есть
-                            </div>
-                        <?php endif; ?>
+                        <div class="item">
+                            <div class="icon"><img src="/images/climate-control.png" alt="Климат контроль"></div>
+                            <strong>Климат контроль: </strong>
+                            <?= $model->isExistence($model->climate_control) ?>
+                        </div>
+                        <div class="item">
+                            <div class="icon"><img src="/images/abs.png" alt="ABS"></div>
+                            <strong>ABS: </strong>
+                            <?= $model->isExistence($model->abs) ?>
+                        </div>
+                        <div class="item">
+                            <div class="icon"><img src="/images/air-conditioner.png" alt="Кондиционер"></div>
+                            <strong>Кондиционер: </strong>
+                            <?= $model->isExistence($model->conditioner) ?>
+                        </div>
+                        <div class="item">
+                            <div class="icon"><img src="/images/heat.png" alt="Подогрев сидений и руля"></div>
+                            <strong>Подогрев: </strong>
+                            <?= $model->isExistence($model->heating) ?>
+                        </div>
                         <?php if (!empty($model->audio)) : ?>
                             <div class="item">
                                 <div class="icon"><img src="/images/audio.png" alt="<?= $model->audio ?>"></div>
