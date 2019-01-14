@@ -54,6 +54,14 @@ use frontend\models\AutoModel;
                                 <div class="option-desc"><?= $model->getTransmissionType() ?></div>
                             </div>
                         <?php endif; ?>
+                        <?php if (!empty($model->abs)) : ?>
+                            <div class="option" title="ABS">
+                                <div class="option-icon">
+                                    <img src="/images/abs.png" alt="ABS">
+                                </div>
+                                <div class="option-desc"></div>
+                            </div>
+                        <?php endif; ?>
                         <?php if (!empty($model->climate_control)) : ?>
                             <div class="option" title="Климат контроль">
                                 <div class="option-icon">
@@ -92,6 +100,14 @@ use frontend\models\AutoModel;
                                     <img src="/images/engine.png" alt="двигатель <?= $model->engine ?>">
                                 </div>
                                 <div class="option-desc"><?= $model->engine ?></div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->consumption)) : ?>
+                            <div class="option" title="<?= $model->consumption ?>">
+                                <div class="option-icon">
+                                    <img src="/images/engine.png" alt="расход <?= $model->consumption ?>">
+                                </div>
+                                <div class="option-desc"><?= $model->consumption ?></div>
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($model->drive_unit)) : ?>
