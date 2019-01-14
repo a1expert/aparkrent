@@ -145,7 +145,7 @@ ReserveAsset::register($this);
                         <div class="title">Фотографии</div>
                         <div class="items-wrap js-car-view-gallery">
                             <?php foreach ($model->modelGallery as $item) : ?>
-                                <a data-fancybox="our-fleet-gallery" href="<?= $item->photo ?>" class="item"><img src="<?= $item->photo ?>" alt=""></a>
+                                <a data-fancybox="car-gallery" href="<?= $item->photo ?>" class="item"><img src="<?= $item->photo ?>" alt=""></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
