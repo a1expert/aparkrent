@@ -86,28 +86,20 @@ use frontend\models\AutoModel;
                                 <div class="option-desc"></div>
                             </div>
                         <?php endif; ?>
-                        <?php if (!empty($model->audio)) : ?>
-                            <div class="option" title="<?= $model->audio ?>">
-                                <div class="option-icon">
-                                    <img src="/images/audio.png" alt="<?= $model->audio ?>">
-                                </div>
-                                <div class="option-desc"></div>
-                            </div>
-                        <?php endif; ?>
                         <?php if (!empty($model->engine)) : ?>
                             <div class="option" title="<?= $model->engine ?>">
                                 <div class="option-icon">
                                     <img src="/images/engine.png" alt="двигатель <?= $model->engine ?>">
                                 </div>
-                                <div class="option-desc"><?= $model->engine ?></div>
+                                <div class="option-desc"></div>
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($model->consumption)) : ?>
                             <div class="option" title="<?= $model->consumption ?>">
                                 <div class="option-icon">
-                                    <img src="/images/engine.png" alt="расход <?= $model->consumption ?>">
+                                    <img src="/images/car-oil.png" alt="расход <?= $model->consumption ?>">
                                 </div>
-                                <div class="option-desc"><?= $model->consumption ?></div>
+                                <div class="option-desc"></div>
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($model->drive_unit)) : ?>
