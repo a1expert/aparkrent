@@ -46,9 +46,9 @@
 				</div>
 			</article>
 			<article class="gallery">
-				<div class="img-wrap"><img src="/images/img/our-fleet-gallery-1.png" alt=""></div>
-				<div class="img-wrap"><img src="/images/img/our-fleet-gallery-2.png" alt=""></div>
-				<div class="img-wrap"><img src="/images/img/our-fleet-gallery-3.png" alt=""></div>
+				<div data-fancybox="our-fleet-gallery" href="/images/img/our-fleet-gallery-1.png" class="img-wrap"><img src="/images/img/our-fleet-gallery-1.png" alt=""></div>
+				<div data-fancybox="our-fleet-gallery" href="/images/img/our-fleet-gallery-2.png" class="img-wrap"><img src="/images/img/our-fleet-gallery-2.png" alt=""></div>
+				<div data-fancybox="our-fleet-gallery" href="/images/img/our-fleet-gallery-3.png" class="img-wrap"><img src="/images/img/our-fleet-gallery-3.png" alt=""></div>
 			</article>
 		</div>
 	</section>
