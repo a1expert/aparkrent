@@ -56,6 +56,14 @@ use frontend\models\AutoModel;
                                 <div class="option-desc"><?= $model->getTransmissionType() ?></div>
                             </div>
                         <?php endif; ?>
+                        <?php if (!empty($model->abs)) : ?>
+                            <div class="option" title="ABS">
+                                <div class="option-icon">
+                                    <img src="/images/abs.png" alt="ABS">
+                                </div>
+                                <div class="option-desc"></div>
+                            </div>
+                        <?php endif; ?>
                         <?php if (!empty($model->climate_control)) : ?>
                             <div class="option" title="Климат контроль">
                                 <div class="option-icon">
@@ -80,20 +88,20 @@ use frontend\models\AutoModel;
                                 <div class="option-desc"></div>
                             </div>
                         <?php endif; ?>
-                        <?php if (!empty($model->audio)) : ?>
-                            <div class="option" title="<?= $model->audio ?>">
-                                <div class="option-icon">
-                                    <img src="/images/audio.png" alt="<?= $model->audio ?>">
-                                </div>
-                                <div class="option-desc"></div>
-                            </div>
-                        <?php endif; ?>
                         <?php if (!empty($model->engine)) : ?>
                             <div class="option" title="<?= $model->engine ?>">
                                 <div class="option-icon">
                                     <img src="/images/engine.png" alt="двигатель <?= $model->engine ?>">
                                 </div>
-                                <div class="option-desc"><?= $model->engine ?></div>
+                                <div class="option-desc"></div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($model->consumption)) : ?>
+                            <div class="option" title="<?= $model->consumption ?>">
+                                <div class="option-icon">
+                                    <img src="/images/car-oil.png" alt="расход <?= $model->consumption ?>">
+                                </div>
+                                <div class="option-desc"></div>
                             </div>
                         <?php endif; ?>
                         <?php if (!empty($model->drive_unit)) : ?>
@@ -108,84 +116,41 @@ use frontend\models\AutoModel;
                 <?php endif; ?>
 
                 <?php if (!empty($model->tariffs)): ?>
-                    <div class="car-tariffs">
-                        <?php foreach ($model->tariffs as $tariff) :?>
-                            <div class="tariff">
-                                <div class="days"><?= $tariff->time ?></div>
-                                <div class="price"><?= $tariff->price_for_day ?></div>
-                                <div class="price-desc">руб./сутки</div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-				
-				<?php if($model->id == 3) : ?>
-                    <div class="car-gallery">
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/3/foto-speredi.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/3/foto-speredi.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/3/foto-s-boku.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/3/foto-s-boku.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/3/foto-salona.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/3/foto-salona.jpg');"></div>
-                        </a>
-                    </div>
-                <?php endif; ?>
-				
-                <?php if($model->id == 6) : ?>
-                    <div class="car-gallery">
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/6/foto-speredi.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/6/foto-speredi.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/6/foto-s-boku.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/6/foto-s-boku.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/6/foto-salona.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/6/foto-salona.jpg');"></div>
-                        </a>
-                    </div>
-                <?php endif; ?>
-				
-				<?php if($model->id == 10) : ?>
-                    <div class="car-gallery">
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/10/foto-speredi.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/10/foto-speredi.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/10/foto-s-boku.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/10/foto-s-boku.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/10/foto-salona.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/10/foto-salona.jpg');"></div>
-                        </a>
+                    <div class="car-tariffs-wrap">
+                        <div class="car-tariffs__head">
+                            <!--<label>
+                                 В нейм вставить id
+                                <input type="radio" checked name="toggle-price">
+                                <div class="text">
+                                    Оплата по часам
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="toggle-price">
+                                <div class="text">
+                                    Оплата по дням
+                                </div>
+                            </label>-->
+                        </div>
+                        <div class="car-tariffs">
+                            <?php foreach ($model->tariffs as $tariff) :?>
+                                <div class="tariff">
+                                    <div class="days"><?= $tariff->time ?></div>
+                                    <div class="price"><?= $tariff->price_for_day ?></div>
+                                    <div class="price-desc">руб./сутки</div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 <?php endif; ?>
 
-                <?php if($model->id == 9) : ?>
+                <?php if(!empty($model->modelGallery)) : ?>
                     <div class="car-gallery">
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-speredi.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/9/foto-speredi.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-s-boku.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/9/foto-s-boku.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/9/foto-salona.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/9/foto-salona.jpg');"></div>
-                        </a>
-                    </div>
-                <?php endif; ?>
-				
-				<?php if($model->id == 11) : ?>
-                    <div class="car-gallery">
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/11/foto-speredi.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/11/foto-speredi.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/11/foto-s-boku.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/11/foto-s-boku.jpg');"></div>
-                        </a>
-                        <a data-fancybox="car-gallery-<?= $model->id; ?>" href="/images/cars-main/11/foto-salona.jpg">
-                            <div class="item" style="background-image: url('/images/cars-main/11/foto-salona.jpg');"></div>
-                        </a>
+                        <?php foreach ($model->modelGallery as $item) : ?>
+                            <a data-fancybox="car-gallery-<?= $model->id; ?>" href="<?= $item->photo ?>">
+                                <div class="item" style="background-image: url('<?= $item->photo ?>');"></div>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
 

@@ -4,6 +4,7 @@
 		<nav>
 			<a href="<?= \yii\helpers\Url::to(['/site/catalog']) ?>">Автомобили</a>
 			<a href="<?= \yii\helpers\Url::to(['/site/jobs']) ?>">Услуги</a>
+			<a href="<?= \yii\helpers\Url::to(['/site/about-company']) ?>">О компании</a>
 			<a href="<?= \yii\helpers\Url::to(['/site/conditions']) ?>">Условия</a>
 			<a href="<?= \yii\helpers\Url::to(['/site/contacts']) ?>">Контакты</a>
 		</nav>

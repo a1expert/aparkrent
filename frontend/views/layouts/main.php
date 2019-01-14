@@ -49,6 +49,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TMNN3RJ');</script>
 <!-- End Google Tag Manager -->
+<!-- VK Comments -->
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+    <script type="text/javascript">
+        VK.init({apiId: 6816336, onlyWidgets: true});
+    </script>
+<!-- End VK Comments -->
         <?php endif; ?>
         <meta charset="<?= Yii::$app->charset ?>">
         <!--[if lt IE 10]>
@@ -62,7 +68,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <title><?= Html::encode($this->title) ?></title>
         <link rel="shortcut icon" type="image/png" href="/images/favicon.png?v=3">
         <?php $this->head() ?>
-        
+
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->

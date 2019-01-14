@@ -39,7 +39,8 @@ ReserveAsset::register($this);
         <?= $form->field($reserve, 'model_id')->hiddenInput()->label(false); ?>
         <?= $form->field($reserve, 'price')->hiddenInput(['value' => 0, 'class' => 'js-price-input'])->label(false); ?>
         <?= $form->field($reserve, 'phone')->textInput(['class' => 'js-phone-mask', 'placeholder' => 'Телефон'])->label(false); ?>
-        <?= $form->field($reserve, 'date_reserve')->textInput(['class' => 'js-date-range-picker', 'placeholder' => 'Дата аренды'])->label(false); ?>
+<!--        --><?//= $form->field($reserve, 'date_reserve')->textInput(['class' => 'js-date-range-picker', 'placeholder' => 'Тип аренды'])->label(false); ?>
+        <?= $form->field($reserve, 'date_reserve')->textInput(['class' => 'js-date-range-picker', 'placeholder' => 'Срок аренды'])->label(false); ?>
 
         <label class="additional-parameters-switch">
             <input type="checkbox" name="" id="">
@@ -52,10 +53,12 @@ ReserveAsset::register($this);
                 <div class="block-other-jobs">
                     <div class="inputs">
                         <?php foreach (AdditionalService::find()->where(['type' => AdditionalService::TYPE_RENT])->all() as $rent):?>
-                            <div class="check-other-job">
-                                <?= $rent->title ?>
+                            <label class="check-wrap js-check">
                                 <input type="hidden" name="ReserveForm[addServices][<?= $rent->id ?>]" value="0">
-                            </div>
+                                <input type="checkbox">
+                                <div class="check-block"></div>
+                                <div class="text"><?= $rent->title ?></div>
+                            </label>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -72,7 +75,7 @@ ReserveAsset::register($this);
         </section>
 
         <div class="button-wrapper">
-            <button class="button">ОТПРАВИТЬ</button>
+            <button class="button">ЗАБРОНИРОВАТЬ</button>
         </div>
     </div>
     <div class="error-message"></div>

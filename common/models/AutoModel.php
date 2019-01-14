@@ -31,6 +31,9 @@ use yii\db\ActiveRecord;
  * @property integer $count_total
  * @property integer $code
  * @property integer $drive_unit
+ * @property string $video
+ * @property string $consumption
+ * @property integer $abs
  *
  * @property ModelGallery[] $modelGallery
  */
@@ -46,6 +49,9 @@ class AutoModel extends ActiveRecord
     const TRANSMISSION_A = 1;
     const TRANSMISSION_M = 2;
 
+    const DRIVE_UNIT_FRONT = 0;
+    const DRIVE_UNIT_FULL = 1;
+
     public static $visibilities = [
         self::VISIBILITY_HIDDEN => 'нет',
         self::VISIBILITY_VISIBLE => 'да',
@@ -57,8 +63,13 @@ class AutoModel extends ActiveRecord
     ];
 
     public static $transmissions = [
-        self::TRANSMISSION_A => 'Автоматическая коробка передач',
-        self::TRANSMISSION_M => 'Механическая коробка передач',
+        self::TRANSMISSION_A => 'АКПП',
+        self::TRANSMISSION_M => 'МКПП',
+    ];
+
+    public static $drive_units = [
+        self::DRIVE_UNIT_FRONT => 'Передний',
+        self::DRIVE_UNIT_FULL => 'Полный',
     ];
 
     /**
@@ -88,6 +99,9 @@ class AutoModel extends ActiveRecord
             'count_total' => 'Всего автомобилей',
             'code' => 'Код автомобиля',
             'drive_unit' => 'Привод(4WD)',
+            'video' => 'Видео',
+            'abs' => 'ABS',
+            'consumption' => 'Расход',
         ];
     }
 

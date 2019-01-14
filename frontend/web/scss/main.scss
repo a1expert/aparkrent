@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400, 500, 700, 300, 900");
+@import url("https://fonts.googleapis.com/css?family=Roboto: 300, 400, 500, 700, 900");
 
 // FONT "BLISSPRO"
 @font-face {
@@ -2402,41 +2402,77 @@ section.brand-cars {
                         }
                     }
                 }
-                .car-tariffs {
-                    display: flex;
-                    .tariff {
-                        padding: 5px 4px;
-                        flex: 1 1 1px;
-                        text-align: center;
-                        &:not(:last-child) {
-                            border-right: 1px solid #d8d4e4;
-                        }
-                        .days {
-                            font-size: 12px;
-                            font-weight: 500;
-                            position: relative;
-                            padding-bottom: 6px;
-                            &::before {
-                                content: "";
-                                display: block;
-                                position: absolute;
-                                left: 50%;
-                                bottom: 0;
-                                width: 30px;
-                                height: 1px;
-                                margin-left: -15px;
-                                background: #eead49;
+                .car-tariffs-wrap {
+                    border: 1px solid #f7f6f6;
+                    border-radius: 5px;
+                    .car-tariffs__head {
+                        display: flex;
+                        label {
+                            flex: 1 1 auto;
+                            height: 35px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            input {
+                                display: none;
+                                &:checked {
+                                    &~ .text {
+                                        background: #fff;
+                                    }
+                                }
+                            }
+                            .text {
+                                width: 100%;
+                                height: 100%;
+                                font-weight: 500;
+                                font-size: 14px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: none;
+                                outline: none;
+                                background: #f7f6f6;
                             }
                         }
-                        .price {
-                            font-size: 24px;
-                            color: $purple + #000000;
-                            font-weight: 700;
-                            padding: 2px 0;
-                        }
-                        .price-desc {
-                            font-size: 12px;
-                            font-weight: 300;
+                    }
+                    .car-tariffs {
+                        display: flex;
+                        padding: 7px 0;
+                        .tariff {
+                            padding: 5px 4px;
+                            flex: 1 1 1px;
+                            text-align: center;
+                            &:not(:last-child) {
+                                border-right: 1px solid #d8d4e4;
+                            }
+                            .days {
+                                font-size: 12px;
+                                font-weight: 500;
+                                position: relative;
+                                padding-bottom: 6px;
+                                &::before {
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    left: 50%;
+                                    bottom: 0;
+                                    width: 30px;
+                                    height: 1px;
+                                    margin-left: -15px;
+                                    background: #eead49;
+                                }
+                            }
+                            .price {
+                                font-size: 24px;
+                                color: $purple + #000000;
+                                font-weight: 700;
+                                padding: 2px 0;
+                            }
+                            .price-desc {
+                                font-size: 12px;
+                                font-weight: 300;
+                            }
                         }
                     }
                 }
@@ -3469,25 +3505,55 @@ section.conditions-page {
 }
 
 .car-gallery {
-    margin: 0 auto;
-    display: table;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 0;
+    .item {
+        border-radius: 5px;
+        display: flex;
+        width: 150px;
+        height: 100px;
+        background-size: cover;
+        background-position: center center;
+        border: 1px solid #bbb;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(100, 0, 125, 0.6);
+            opacity: 0;
+            transition: .3s ease;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 30px;
+            height: 30px;
+            background: url(/images/ui/zoom-in.png);
+            opacity: 0;
+            transition: .3s ease;
+        }
+        &:hover {
+            &:before,&:after {
+                opacity: 1;
+            }
+        }
+    }
+    .item-empty {
+        text-align: center;
+        padding: 40px 0;
+    }
 }
 
-.car-gallery .item {
-    display: block;
-    float: left;
-    width: 144px;
-    height: 100px;
-    background-size: cover;
-    background-position: center center;
-    border: 1px solid #bbb;
-    margin: 20px 10px;
-}
-
-.car-gallery .item-empty {
-    text-align: center;
-    padding: 40px 0;
-}
 
 section.brand-cars .finded-cars .car .image {
     overflow: initial;
@@ -3498,12 +3564,16 @@ section.brand-cars .finded-cars .car .image .button {
     bottom: -40px;
     border: 1px solid #bbb;
     padding: 8px;
-    border-radius: 5px;
     background-color: #64007d;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
         background: lighten($purple, 3%);
     }
@@ -3511,6 +3581,615 @@ section.brand-cars .finded-cars .car .image .button {
         background: lighten($purple, 6%);
     }
 }
+
+main.about-company {
+    min-height: 100vh;
+    background: url(/images/bg/about-company-main.png) left top repeat;
+    section.about-company-banner {
+        background: url(/images/bg/about-company-banner.png) top center no-repeat;
+        background-size: cover;
+        height: 640px;
+        .content {
+            color: #ffffff;
+            .title {
+                font-weight: 700;
+                font-size: 36px;
+                padding: 80px 0 40px;
+                font-family: "BlissPro";
+                span {
+                    font-size: 60px;
+                }
+            }
+            p {
+                font-size: 22px;
+                max-width: 490px;
+            }
+        }
+    }
+    section.about-company-info {
+        padding-bottom: 100px;
+        .content {
+            display: flex;
+            .left-wrap {
+                width: 490px;
+                flex: none;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 60px 50px;
+                grid-gap: 10px 40px;
+                position: relative;
+                .img-wrap {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .text {
+                    position: absolute;
+                    font-family: "BlissPro";
+                    font-size: 24px;
+                    color: #64007d;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    font-weight: 700;
+                    text-align: center;
+                }
+            }
+            .right-wrap {
+                width: 100%;
+                font-size: 18px;
+                line-height: 1.556;
+            }
+        }
+    }
+    section.our-fleet {
+        article.head {
+            width: 100%;
+            display: flex;
+            .left-wrap {
+                width: 490px;
+                flex: none;
+                .button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: uppercase;
+                    color: $purple;
+                    text-decoration: none;
+                    font-weight: 600;
+                    border: 1px solid $purple;
+                    width: 300px;
+                    height: 44px;
+                    border-radius: 30px;
+                    outline: none;
+                    background: none;
+                    transition: 0.2s ease;
+                    margin: 30px auto 0;
+                    &:hover {
+                        background: $purple;
+                        color: #fff;
+                    }
+                }
+            }
+            .text-wrap {
+                width: 100%;
+                .title {
+                    font-size: 36px;
+                    font-family: "BlissPro";
+                    font-weight: 500;
+                    font-style: italic;
+                    color: #64007d;
+                    margin: 20px 0 40px;
+                }
+                p {
+                    font-size: 18px;
+                    line-height: 1.556;
+                }
+            }
+        }
+        article.gallery {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 0 100px;
+            .img-wrap {
+                border-radius: 5px;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(100, 0, 125, 0.6);
+                    opacity: 0;
+                    transition: .3s ease;
+                }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                    width: 30px;
+                    height: 30px;
+                    background: url(/images/ui/zoom-in.png);
+                    opacity: 0;
+                    transition: .3s ease;
+                }
+                &:hover {
+                    &:before,&:after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    section.customer-care {
+        p {
+            font-size: 18px;
+            line-height: 1.556;
+        }
+        h4 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            li {
+                font-size: 18px;
+                position: relative;
+                padding: 0 0 0 50px;
+                margin-bottom: 20px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 10px;
+                    top: 0;
+                    width: 25px;
+                    height: 24px;
+                    background: url(/images/ui/check.png);
+                }
+            }
+        }
+    }
+    section.advantages {
+        padding-top: 100px;
+        .content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 60px;
+            .block {
+                .icon {
+
+                }
+                .title {
+                    font-family: "BlissPro";
+                    font-size: 24px;
+                    color: #64007d;
+                    margin: 30px 0 40px;
+                }
+                p {
+                    
+                }
+            }
+        }
+    }
+}
+
+main.car-view {
+    section.car-view {
+        padding: 50px 0;
+        .content {
+            display: grid;
+            grid-template-columns: 570px 1fr;
+            grid-gap: 30px;
+            .price-and-booking {
+                border-radius: 5px;
+                box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.07);
+                background: #fff;
+                height: 480px;
+                padding: 20px;
+                .car-tariffs-wrap {
+                    border: 1px solid #f7f6f6;
+                    border-radius: 5px;
+                    width: 100%;
+                    .car-tariffs__head {
+                        display: flex;
+                        label {
+                            flex: 1 1 auto;
+                            height: 35px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            input {
+                                display: none;
+                                &:checked {
+                                    &~ .text {
+                                        background: #fff;
+                                    }
+                                }
+                            }
+                            .text {
+                                width: 100%;
+                                height: 100%;
+                                font-weight: 600;
+                                font-size: 14px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: none;
+                                outline: none;
+                                background: #f7f6f6;
+                            }
+                        }
+                    }
+                    .car-tariffs {
+                        display: flex;
+                        padding: 7px 0;
+                        .tariff {
+                            padding: 5px 4px;
+                            flex: 1 1 1px;
+                            text-align: center;
+                            &:not(:last-child) {
+                                border-right: 1px solid #d8d4e4;
+                            }
+                            .days {
+                                font-size: 12px;
+                                font-weight: 600;
+                                position: relative;
+                                padding-bottom: 6px;
+                                &::before {
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    left: 50%;
+                                    bottom: 0;
+                                    width: 30px;
+                                    height: 1px;
+                                    margin-left: -15px;
+                                    background: #eead49;
+                                }
+                            }
+                            .price {
+                                font-size: 24px;
+                                color: $purple + #000000;
+                                font-weight: 700;
+                                padding: 2px 0;
+                            }
+                            .price-desc {
+                                font-size: 12px;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+                form {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-top: 25px;
+                    .inputs-wrap {
+                        width: 300px;
+                        .form-group {
+                            width: 100%;
+                            margin-bottom: 15px;
+                            input {
+                                width: 100%;
+                                border: 1px solid #d8d8d8;
+                                border-radius: 30px;
+                                height: 42px;
+                                display: flex;
+                                align-items: center;
+                                outline: none;
+                                padding: 0 15px;
+                            }
+                            select {
+                                @extend input;
+                            }
+                        }
+                        .button {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 30px;
+                            height: 42px;
+                            width: 100%;
+                            border: none;
+                            background: $purple;
+                            font-weight: 300;
+                            color: #ffffff;
+                            outline: none;
+                            margin-top: 25px;
+                        }
+                    }
+                    .sub-options {
+                        position: relative;
+                        .head {
+                            padding-bottom: 15px;
+                            border-bottom: 1px solid #d8d8d8;
+                            margin-bottom: 20px;
+                        }
+                        .check-wrap {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 15px;
+                            cursor: pointer;
+                            input {
+                                display: none;
+                                &:checked {
+                                    &~ .check-block {
+                                        border-color: #680680;
+                                        &:before {
+                                            opacity: 1;
+                                        }
+                                    }
+                                    &~ .text {
+                                        color: #680680;
+                                    }
+                                }
+                            }
+                            .check-block {
+                                border-radius: 50%;
+                                border: 1px solid #959595;
+                                position: relative;
+                                width: 20px;
+                                height: 20px;
+                                margin-right: 10px;
+                                transition: .2s ease;
+                                &:before {
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    top: 0;
+                                    margin: auto;
+                                    background: url(/images/ui/car-view-check.png);
+                                    opacity: 0;
+                                    transition: .2s ease;
+                                    width: 10px;
+                                    height: 8px;
+                                }
+                            }
+                            .text {
+                                font-size: 14px;
+                                font-weight: 300;
+                                color: #929292;
+                            }
+                        }
+                        .price {
+                            font-weight: 600;
+                            font-size: 18px;
+                            position: absolute;
+                            bottom: 5px;
+                            strong {
+                                font-size: 18px;
+                                color: #64007d;
+                                span {
+                                    font-size: 28px;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .gallery-and-specifications {
+                grid-row: span 2;
+                .title {
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+                .head {
+                    margin-bottom: 30px;
+                    .img-wrap {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 260px;
+                        width: 100%;
+                        img {
+                            max-width: 100%;
+                            max-height: 100%
+                        }
+                    }
+                    .video-wrap {
+                        width: 100%;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        iframe {
+                            width: 100%;
+                            height: 260px;
+                        }
+                    }
+                }
+                .gallery {
+                    margin-bottom: 30px;
+                    .items-wrap {
+                        width: 500px;
+                        padding: 0 20px;
+                        .slick-next {
+                            background: url(/images/ui/car-view-arrow.png);
+                            width: 25px;
+                            height: 25px;
+                            right: 0;
+                            z-index: 4;
+                            &:before {
+                                display: none;
+                            }
+                        }
+                        .slick-prev {
+                            background: url(/images/ui/car-view-arrow.png);
+                            width: 25px;
+                            height: 25px;
+                            left: 0;
+                            transform: scale(-1, 1) translateY(-50%);
+                            z-index: 4;
+                            &:before {
+                                display: none;
+                            }
+                        }
+                        .item {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            overflow: hidden;
+                            border-radius: 10px;
+                            margin: 0 10px;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                .specifications {
+                    .items-wrap {
+                        display: grid;
+                        grid-template-columns: repeat(2, 200px);
+                        grid-gap: 10px;
+                        justify-content: center;
+                        .item {
+                            display: flex;
+                            align-items: center;
+                            font-size: 14px;
+                            .icon {
+                                width: 30px;
+                                display: flex;
+                                align-items: center;
+                                margin-right: 5px;
+                            }
+                            strong {
+                                margin-right: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+            .text-info-wrap {
+                border-radius: 5px;
+                box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.07);
+                background: #fff;
+                padding: 20px;
+                .head {
+                    border-bottom: 1px solid #e8e8e8;
+                    padding-bottom: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 25px;
+                    label {
+                        cursor: pointer;
+                        input {
+                            display: none;
+                            &:checked {
+                                &~ .title {
+                                    border-color: #64007d;
+                                }
+                            }
+                        }
+                        .title {
+                            height: 32px;
+                            padding: 0 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 16px;
+                            background: transparent;
+                            border: 1px solid transparent;
+                            color: #64007d;
+                            font-size: 14px;
+                            outline: none;
+                            font-weight: 600;
+                            transition: .3s ease;
+                        }
+                    }
+                }
+                .body {
+                    article {
+                        height: 100%;
+                        display: none;
+                        &.active {
+                            display: block;
+                        }
+                    }
+                    .conditions {
+                        ul {
+                            list-style: none;
+                            padding-left: 20px;
+                            li { 
+                                position: relative;
+                                margin-bottom: 10px;
+                                padding-left: 15px;
+                                &:before {
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    bottom: 0;
+                                    margin: auto;
+                                    width: 5px;
+                                    height: 5px;
+                                    border-radius: 50%;
+                                    background: $purple;
+                                }
+
+                            }
+                        }
+                    }
+                    .questions-and-answers {
+                        .faq-block {
+                            &.open {
+                                .faq-head:before {
+                                    transform: rotate(-180deg);
+                                }
+                            }
+                            .faq-head {
+                                font-weight: 700;
+                                padding-left: 50px;
+                                position: relative;
+                                margin-bottom: 20px;
+                                cursor: pointer;
+                                &:before {
+                                    content: "";
+                                    position: absolute;
+                                    left: 15px;
+                                    top: 0;
+                                    bottom: 0;
+                                    margin: auto;
+                                    @include sprite($ic2);
+                                    transition: .3s ease;
+                                }
+                            }
+                            .faq-body {
+                                font-size: 14px;
+                                padding-left: 70px;
+                                margin-bottom: 25px;
+                                line-height: 1.714;
+                                display: none;
+                            }
+                        }
+                    }
+                    .about-car {
+                        p {
+                            font-size: 14px;
+                            line-height: 1.714;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 #reserve-modal {
     border-radius: 20px;
@@ -3520,32 +4199,29 @@ section.brand-cars .finded-cars .car .image .button {
     width: 100%;
     padding: 15px;
     margin: auto;
-
     form {
         max-width: 300px;
         width: 100%;
         margin: 0 auto;
-
         .title {
             text-align: center;
             font-size: 20px;
             font-family: "BlissPro";
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
-
         .form {
-            padding-top: 1px;
-
+            .help-block {
+                font-size: 14px;
+                margin-top: 5px;
+            }
             .form-group {
                 margin-bottom: 15px;
                 text-align: center;
-
                 label {
                     padding-bottom: 5px;
                     display: inline-block;
                 }
-
                 input {
                     width: 100%;
                     outline: none;
@@ -3559,126 +4235,121 @@ section.brand-cars .finded-cars .car .image .button {
                     position: relative;
                     z-index: 2;
                 }
+                select {
+                    @extend input;
+                }
             }
-
             .button-wrapper {
                 display: flex;
                 justify-content: center;
-
                 .button {
                     font-size: 11px;
                     text-transform: uppercase;
-                    color: $purple;
                     font-weight: 600;
                     border: 1px solid $purple;
-                    width: 180px;
+                    background: $purple;
+                    width: 100%;
                     height: 44px;
                     border-radius: 30px;
                     outline: none;
-                    background: none;
                     transition: 0.2s ease;
-
-                    &:hover {
-                        background: $purple;
-                        color: #fff;
-                    }
+                    color: #ffffff;
                 }
             }
-
             .additional-parameters-switch {
                 display: flex;
                 align-items: center;
-                margin: 15px;
-
+                margin: 30px 0 15px;
+                padding: 0 15px;
+                border-bottom: 1px solid #d8d8d8;
+                padding-bottom: 15px;
+                position: relative;
+                cursor: pointer;
                 input {
                     display: none;
-
                     &:checked{
                         &~.check-block{
-                            background: $purple;
+                            transform: rotate(180deg);
                         }
                     }
                 }
-
                 .check-block {
-                    width: 14px;
-                    height: 14px;
-                    border: 2px solid $purple;
-                    border-radius: 3px;
-                    transition: .3s ease;
-                    margin-right: 10px;
+                    @include sprite($ic2);
+                    position: absolute;
+                    right: 15px;
+                    top: 8px;
                 }
-
-
             }
-
             .additional-parameters {
                 display: none;
-
-                .check-other-job {
-                    font-size: 14px;
-                    color: #929292;
-                    font-weight: 300;
-                    user-select: none;
-                    cursor: pointer;
-                    width: 100%;
-                    height: 42px;
-                    border-radius: 30px;
-                    border: 1px solid #d8d8d8;
-                    padding: 0 19px;
-                    position: relative;
+                padding-left: 10px;
+                .check-wrap {
                     display: flex;
                     align-items: center;
-                    margin: 16px 12px;
-                    max-width: 302.67px;
-                    margin-left: 0;
-
-                    &:before {
-                        content: "";
-                        display: block;
-                        position: absolute;
-                        right: 19px;
-                        top: 50%;
-                        margin-top: -10px;
-                        @include sprite($ic18);
-                    }
-
-                    &:hover {
-                        border-color: $purple;
-                        color: #000;
-                    }
-
-                    &.active {
-                        border-color: $purple;
-                        color: #000;
-
-                        &::before {
-                            @include sprite($ic19);
+                    margin-bottom: 15px;
+                    cursor: pointer;
+                    input {
+                        display: none;
+                        &:checked {
+                            &~ .check-block {
+                                border-color: #680680;
+                                &:before {
+                                    opacity: 1;
+                                }
+                            }
+                            &~ .text {
+                                color: #680680;
+                            }
                         }
+                    }
+                    .check-block {
+                        border-radius: 50%;
+                        border: 1px solid #959595;
+                        position: relative;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                        transition: .2s ease;
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            top: 0;
+                            margin: auto;
+                            background: url(/images/ui/car-view-check.png);
+                            opacity: 0;
+                            transition: .2s ease;
+                            width: 10px;
+                            height: 8px;
+                        }
+                    }
+                    .text {
+                        font-size: 14px;
+                        font-weight: 300;
+                        color: #929292;
                     }
                 }
             }
 
             .price-section {
-
                 .price {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     color: $purple;
-
+                    padding: 10px 0;
                     .num {
                         flex: none;
                         font-size: 30px;
                         margin-right: 8px;
                     }
-
                     .price-desc {
                         .ruble {
                             font-size: 20px;
                             margin-bottom: -5px;
                         }
-
                         .price-desc-text {
                             font-size: 12px;
                         }

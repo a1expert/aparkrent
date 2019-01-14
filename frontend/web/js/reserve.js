@@ -77,10 +77,23 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.check-other-job', function () {
-        if ($(this).children('input').val() == 1) {
-            $(this).children('input').val(0);
+        var $child_input = $(this).find('input[type="hidden"]');
+        console.log($child_input.val());
+        if ($child_input.val() == 1) {
+            $child_input.val(0);
         } else {
-            $(this).children('input').val(1);
+            $child_input.val(1);
+        }
+        countPrice();
+    });
+
+    $(document).on('change', '.js-check', function () {
+        var $child_input = $(this).find('input[type="hidden"]');
+        console.log($child_input.val());
+        if ($child_input.val() == 1) {
+            $child_input.val(0);
+        } else {
+            $child_input.val(1);
         }
         countPrice();
     });
@@ -110,7 +123,7 @@ $(document).ready(function () {
             success: function (data) {
                 var errorSummary = _this.find('.error-summary');
                 if (data.status == 'ok') {
-                    yaCounter45911007.reachGoal('reserve');
+                    // yaCounter45911007.reachGoal('reserve');
                     $('#success').html(data.message);
                     $.magnificPopup.open({
                         items: {

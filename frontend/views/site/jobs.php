@@ -48,12 +48,12 @@ $this->registerMetaTag([
                                 <div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format($wash->price, 0, '.', ' ') ?> ₽</span></div>
                             </div>
                         <?php endif; ?>
-                        <?php if (!empty($expressWash)) : ?>
-                            <div class="title"><?= $expressWash->title ?></div>
+                        <?php /*if (!empty($expressWash)) : */?><!--
+                            <div class="title"><?/*= $expressWash->title */?></div>
                             <div class="locations">
-                                <div class="location" style="text-align: center; display: block;"><span class="price"><?= number_format($expressWash->price, 0, '.', ' ') ?> ₽</span></div>
+                                <div class="location" style="text-align: center; display: block;"><span class="price"><?/*= number_format($expressWash->price, 0, '.', ' ') */?> ₽</span></div>
                             </div>
-                        <?php endif; ?>
+                        --><?php /*endif; */?>
 					</div>
 					<div class="block">
 						<div class="image">

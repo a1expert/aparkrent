@@ -89,6 +89,11 @@ class SiteController extends Controller
         return $this->render('contacts');
     }
 
+    public function actionAboutCompany()
+    {
+        return $this->render('about-company');
+    }
+
     public function actionJobs()
     {
         $deliveryType = AdditionalService::find()->where(['type' => AdditionalService::TYPE_DELIVERY])->all();
@@ -113,7 +118,7 @@ class SiteController extends Controller
         if (!$model) {
             throw new NotFoundHttpException();
         }
-        return $this->render('reserve', [
+        return $this->render('car-view', [
             'model' => $model,
         ]);
     }
