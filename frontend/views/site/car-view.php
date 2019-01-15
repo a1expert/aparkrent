@@ -180,12 +180,12 @@ ReserveAsset::register($this);
                             <strong>Подогрев: </strong>
                             <?= $model->isExistence($model->heating) ?>
                         </div>
-                        <?php if (!empty($model->audio)) : ?>
+                        <?php /*if (!empty($model->audio)) : */?><!--
                             <div class="item">
-                                <div class="icon"><img src="/images/audio.png" alt="<?= $model->audio ?>"></div>
-                                <strong><?= $model->audio ?> </strong>
+                                <div class="icon"><img src="/images/audio.png" alt="<?/*= $model->audio */?>"></div>
+                                <strong><?/*= $model->audio */?> </strong>
                             </div>
-                        <?php endif; ?>
+                        --><?php /*endif; */?>
                         <?php if (!empty($model->engine)) : ?>
                             <div class="item">
                                 <div class="icon"><img src="/images/engine.png" alt="Двигатель <?= $model->engine ?>"></div>
