@@ -144,12 +144,14 @@ use frontend\models\AutoModel;
                     </div>
                 <?php endif; ?>
 
-                <?php if(!empty($model->modelGallery)) : ?>
+                <?php if (!empty($model->modelGallery)) : ?>
                     <div class="car-gallery">
-                        <?php foreach ($model->modelGallery as $item) : ?>
-                            <a data-fancybox="car-gallery-<?= $model->id; ?>" href="<?= $item->photo ?>">
-                                <div class="item" style="background-image: url('<?= $item->photo ?>');"></div>
-                            </a>
+                        <?php foreach ($model->modelGallery as $key => $item) : ?>
+                            <?php if ($key < 3) : ?>
+                                <a data-fancybox="car-gallery-<?= $model->id; ?>" href="<?= $item->photo ?>">
+                                    <div class="item" style="background-image: url('<?= $item->photo ?>');"></div>
+                                </a>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
