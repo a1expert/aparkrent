@@ -89,6 +89,7 @@ html,
 body {
     width: 100%;
     min-width: 320px;
+    transform: translate3d(0, 0, 0);
 }
 
 html {
@@ -853,7 +854,7 @@ section.find-result-section {
                                 }
                                 .price {
                                     font-size: 24px;
-                                    color: $purple + #000000;
+                                    color: $purple;
                                     font-weight: 700;
                                     padding: 2px 0;
                                 }
@@ -1683,7 +1684,7 @@ footer {
                             }
                             .price {
                                 font-size: 24px;
-                                color: $purple + #000000;
+                                color: $purple;
                                 font-weight: 700;
                                 padding: 2px 0;
                             }
@@ -2465,7 +2466,7 @@ section.brand-cars {
                             }
                             .price {
                                 font-size: 24px;
-                                color: $purple + #000000;
+                                color: $purple;
                                 font-weight: 700;
                                 padding: 2px 0;
                             }
@@ -3787,7 +3788,7 @@ main.about-company {
 
 main.car-view {
     section.car-view {
-        padding: 50px 0;
+        padding: 50px 0 200px;
         .content {
             display: grid;
             grid-template-columns: 570px 1fr;
@@ -3862,7 +3863,7 @@ main.car-view {
                             }
                             .price {
                                 font-size: 24px;
-                                color: $purple + #000000;
+                                color: $purple;
                                 font-weight: 700;
                                 padding: 2px 0;
                             }
