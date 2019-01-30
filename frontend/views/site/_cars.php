@@ -30,9 +30,18 @@ use frontend\models\AutoModel;
                     <div class="free-autos">
                         <?php if ($model->getFreeCars() != null) : ?>
                             <div class="text">Свободно автомобилей: <?= $model->getCountFree() ?></div>
+                            <div class="text auto-statuses">
+                                <?php foreach ($model->getFreeCars() as $key => $value) : ?>
+                                    <?php if ($key < 10) : ?>
+                                        <div class="<?= $value['status'] ?>" title="<?= $value['title'] ?>"></div>
+                                    <?php endif;?>
+                                <?php endforeach;?>
+                            </div>
                             <div class="auto-statuses">
-                                <?php foreach ($model->getFreeCars() as $value) : ?>
-                                    <div class="<?= $value['status'] ?>" title="<?= $value['title'] ?>"></div>
+                                <?php foreach ($model->getFreeCars() as $key => $value) : ?>
+                                    <?php if ($key > 10) : ?>
+                                        <div class="<?= $value['status'] ?>" title="<?= $value['title'] ?>"></div>
+                                    <?php endif;?>
                                 <?php endforeach;?>
                             </div>
                         <?php endif;?>
