@@ -11,7 +11,7 @@
 		</div>
 	</section>
 	<section class="about-company-info">
-		<div class="section-title">О компании</div>
+		<h1 class="section-title">О компании</h1>
 		<div class="content">
 			<div class="left-wrap">
 				<div class="img-wrap"><img src="/images/img/about-company-info-1.png" alt=""></div>

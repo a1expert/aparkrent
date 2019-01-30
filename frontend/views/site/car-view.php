@@ -19,7 +19,7 @@ ReserveAsset::register($this);
 
 <main class="car-view">
 	<section class="car-view">
-		<div class="section-title">Прокат <?= $model->mark->title ?> <?= $model->title ?> в Сургуте</div>
+		<h1 class="section-title">Прокат <?= $model->mark->title ?> <?= $model->title ?> в Сургуте</h1>
 		<div class="content">
 			<div class="price-and-booking">
 				<div class="car-tariffs-wrap">
