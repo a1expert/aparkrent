@@ -39,7 +39,7 @@ use frontend\models\AutoModel;
                             </div>
                             <div class="auto-statuses">
                                 <?php foreach ($model->getFreeCars() as $key => $value) : ?>
-                                    <?php if ($key > 10) : ?>
+                                    <?php if ($key > 9) : ?>
                                         <div class="<?= $value['status'] ?>" title="<?= $value['title'] ?>"></div>
                                     <?php endif;?>
                                 <?php endforeach;?>
