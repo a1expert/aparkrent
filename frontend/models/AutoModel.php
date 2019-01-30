@@ -141,7 +141,7 @@ class AutoModel extends \common\models\AutoModel
             'title' => '',
         ];
         if (isset($this->count_free) && !empty($this->count_total)) {
-            for ($i = 0, $arr = []; $i < $this->count_total; $i++) {
+            for ($i = 0; $i < $this->count_total; $i++) {
                 if ($i < $this->count_free) {
                     $arr[$i] =
                         [
