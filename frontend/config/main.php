@@ -58,6 +58,7 @@ return [
                 'jobs' => '/site/jobs',
                 'conditions' => '/site/conditions',
                 'contacts' => '/site/contacts',
+                'about-company' => '/site/about-company',
             ],
         ],
     ],

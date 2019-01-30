@@ -126,33 +126,35 @@ class AutoModel extends \common\models\AutoModel
 
     public function getTransmissionType()
     {
-        return $this->transmission == 1?'АТ':'МТ';
+        return $this->transmission == 1 ? 'АТ' : 'МТ';
     }
 
     public function getCountFree()
     {
-        return !empty($this->count_free)?$this->count_free:'0';
+        return !empty($this->count_free) ? $this->count_free : '0';
     }
 
     public function getFreeCars()
     {
-        $arr = [];
+        $arr[0] = [
+            'status' => '',
+            'title' => '',
+        ];
         if (isset($this->count_free) && !empty($this->count_total)) {
-            $one_point = 10 / $this->count_total;
-            $count_free = round($this->count_free * $one_point);
-            for ($i = 0, $arr = []; $i < $count_free; $i++) {
-                $arr[$i] =
-                    [
-                        'status' => 'status free',
-                        'title' => 'Автомобиль свободен',
-                    ];
-            }
-            for ($i = (int)$count_free; $i < 10; $i++) {
-                $arr[$i] =
-                    [
-                        'status' => 'status reserve',
-                        'title' => 'Автомобиль занят',
-                    ];
+            for ($i = 0, $arr = []; $i < $this->count_total; $i++) {
+                if ($i < $this->count_free) {
+                    $arr[$i] =
+                        [
+                            'status' => 'status free',
+                            'title' => 'Автомобиль свободен',
+                        ];
+                } else {
+                    $arr[$i] =
+                        [
+                            'status' => 'status reserve',
+                            'title' => 'Автомобиль занят',
+                        ];
+                }
             }
         }
         return $arr;
