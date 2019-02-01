@@ -28,7 +28,7 @@ class AppAsset extends AssetBundle
         'js/tooltipster.bundle.min.js',
         'js/clipboard.min.js',
         'js/main.js',
-        '//maps.googleapis.com/maps/api/js?key=AIzaSyDp2EMUXX7TYPw5w1gKoQM-aCL5yXTaWBY',
+        '//maps.googleapis.com/maps/api/js?key=AIzaSyAmpQVMbrChKegYaqZa9Lex7grtCvxVZ4M',
         'js/map.js',
         'js/device.js',
         'vendor/fancybox/jquery.fancybox.min.js',

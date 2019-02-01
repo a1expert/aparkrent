@@ -16,7 +16,7 @@ class MapAsset extends AssetBundle
 
     public $css = [];
     public $js= [
-        '//maps.googleapis.com/maps/api/js?key=AIzaSyDp2EMUXX7TYPw5w1gKoQM-aCL5yXTaWBY',
+        '//maps.googleapis.com/maps/api/js?key=AIzaSyAmpQVMbrChKegYaqZa9Lex7grtCvxVZ4M',
         'js/map.js',
     ];
     public $depends = [
