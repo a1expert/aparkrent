@@ -14,6 +14,8 @@ use frontend\models\AutoModel;
     </div>
 <?php else: ?>
     <?php foreach ($models as $model): ?>
+        <?if($model->getCountFree() == "0")
+            continue;?>
         <div class="car">
             <div class="color-block" style="background: <?= $model->mark->color ?>"></div>
             <div class="logo"></div>
@@ -27,34 +29,6 @@ use frontend\models\AutoModel;
                 <div class="car-name"><?= $model->mark->title . ' ' . $model->title ?></div>
                 <!-- <div class="car-desc"><?= $model->description ?></div> -->
                 <div class="nums-auto-buttons-wrap">
-                    <div class="free-autos">
-                        <?php if ($model->getFreeCars() != null) : ?>
-                            <div class="text">Свободно автомобилей: <?= $model->getCountFree() ?></div>
-                            <div class="text auto-statuses">
-                                <?php foreach ($model->getFreeCars() as $key => $value) : ?>
-                                    <?php if ($key < 10) : ?>
-                                        <div class="<?= $value['status'] ?>" title="<?= $value['title'] ?>"></div>
-                                    <?php endif;?>
-                                <?php endforeach;?>
-                            </div>
-                            <div class="auto-statuses">
-                                <?php foreach ($model->getFreeCars() as $key => $value) : ?>
-                                    <?php if ($key > 9) : ?>
-                                        <div class="<?= $value['status'] ?>" title="<?= $value['title'] ?>"></div>
-                                    <?php endif;?>
-                                <?php endforeach;?>
-                            </div>
-                        <?php endif;?>
-                    </div>
-                    <?php if (!in_array(Yii::$app->controller->action->id, ['reserve', 'pay'])) :?>
-                        <?php if ($model->status == \frontend\models\AutoModel::STATUS_ACTIVE) :?>
-                            <a href="#reserve-modal" data-id="<?=$model->id; ?>" data-title="Забронировать <?= $model->mark->title . ' ' . $model->title ?>" class="button js-reserve-button popup-reserve">ЗАБРОНИРОВАТЬ</a>
-                        <?php else:?>
-                            <a href="<?= Url::to(['/site/reserve', 'id' => $model->id]) ?>" class="button disabled">ВРЕМЕННО НЕДОСТУПНО</a>
-                        <?php endif;?>
-                    <?php endif; ?>
-                </div>
-
                 <?php if ($model->status == AutoModel::STATUS_ACTIVE) : ?>
                     <div class="options">
                         <?php if (!empty($model->transmission)) : ?>
@@ -123,7 +97,14 @@ use frontend\models\AutoModel;
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
-
+                    <?php if (!in_array(Yii::$app->controller->action->id, ['reserve', 'pay'])) :?>
+                        <?php if ($model->status == \frontend\models\AutoModel::STATUS_ACTIVE) :?>
+                            <a href="#reserve-modal" data-id="<?=$model->id; ?>" data-title="Забронировать <?= $model->mark->title . ' ' . $model->title ?>" class="button js-reserve-button popup-reserve">ЗАБРОНИРОВАТЬ</a>
+                        <?php else:?>
+                            <a href="<?= Url::to(['/site/reserve', 'id' => $model->id]) ?>" class="button disabled">ВРЕМЕННО НЕДОСТУПНО</a>
+                        <?php endif;?>
+                    <?php endif; ?>
+                </div>
                 <?php if (!empty($model->tariffs)): ?>
                     <div class="car-tariffs-wrap">
                         <div class="car-tariffs__head">
