@@ -1,3 +1,10 @@
+<?php
+$this->title = 'О компании - Автопарк';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Компания «Автопарк» превратила прокат автомобилей в Сургуте в удобный, доступный и бесперебойно работающий сервис.'
+]);
+?>
 <main class="about-company">
 	<section class="about-company-banner">
 		<div class="content">
