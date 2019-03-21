@@ -2,6 +2,58 @@ var filesToSend = []; // файлы из дропзоны(только имя и
 
 $(document).ready(function () {
 
+    $(document).on('submit', '.form-groups-avto', function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '/',
+            method: 'post',
+            data: $(this).serializeArray(),
+            dataType: 'json',
+            beforeSend: function(request) {
+                return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
+            },
+            success: function (data) {
+                if (data.status == 'ok') {
+                    if ($('.find-result-section').length == 0) {
+                        $('.index-banner').after(data.content);
+                        $('html, body').animate({scrollTop: $('.find-result-section').offset().top});
+                        $('.js-brand-cars-title').hide();
+                        $('.brand-cars').hide();
+                        reserveButton();
+                        popupReserve();
+                    } else {
+                        $('.find-result-section').replaceWith(data.content);
+                        $('html, body').animate({scrollTop: $('.find-result-section').offset().top});
+                        reserveButton();
+                        popupReserve();
+                    }
+                }
+            },
+        });
+    });
+
+    reserveButton();
+    function reserveButton()
+    {
+        $(document).on('click', '.js-reserve-button', function (event) {
+            event.preventDefault();
+            var formArray = $('.form-groups-avto').serializeArray();
+            var url = $(this).attr('href');
+            var first = 1;
+            $.each(formArray, function (name, value) {
+                if (value.value != '') {
+                    if (first) {
+                        url += ('?' + value.name + '=' + value.value);
+                        first = 0;
+                    } else {
+                        url += ('&' + value.name + '=' + value.value);
+                    }
+                }
+            });
+            location.href = url;
+        });
+    }
+
     function hidePriceSection() {
         if (($(document).scrollTop() + $(window).height()) >= $('body').height() - 76) {
             $('#price-section').addClass('hide')
@@ -232,36 +284,39 @@ $(document).ready(function () {
         countPrice();
     });
 
-    // Подключение Magnific Modal
-    $('.popup-reserve').magnificPopup({
-        type: 'inline',
+    popupReserve();
+    function popupReserve() {
+        // Подключение Magnific Modal
+        $('.popup-reserve').magnificPopup({
+            type: 'inline',
 
-        fixedContentPos: false,
-        fixedBgPos: true,
+            fixedContentPos: false,
+            fixedBgPos: true,
 
-        overflowY: 'auto',
+            overflowY: 'auto',
 
-        closeBtnInside: true,
-        preloader: false,
+            closeBtnInside: true,
+            preloader: false,
 
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'my-mfp-zoom-in',
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in',
 
-        callbacks: {
-            open: function(data) {
-                var magnificPopup = $.magnificPopup.instance;
+            callbacks: {
+                open: function (data) {
+                    var magnificPopup = $.magnificPopup.instance;
 
-                var id = $(magnificPopup.st.el).data('id');
-                var title = $(magnificPopup.st.el).data('title');
+                    var id = $(magnificPopup.st.el).data('id');
+                    var title = $(magnificPopup.st.el).data('title');
 
-                $(magnificPopup.content).find('.title').text(title);
-                $(magnificPopup.content).find('#reserveform-model_id').val(id);
-            },
-            close: function() {
-                resetPage();
+                    $(magnificPopup.content).find('.title').text(title);
+                    $(magnificPopup.content).find('#reserveform-model_id').val(id);
+                },
+                close: function () {
+                    resetPage();
+                }
             }
-        }
-    });
+        });
+    }
 
 });

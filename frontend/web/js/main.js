@@ -177,49 +177,6 @@ $('.popup').magnificPopup({
 });
 
 
-$(document).on('submit', '.form-groups-avto', function (event) {
-	event.preventDefault();
-	$.ajax({
-		url: '/',
-		method: 'post',
-		data: $(this).serializeArray(),
-		dataType: 'json',
-        beforeSend: function(request) {
-            return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
-        },
-		success: function (data) {
-			if (data.status == 'ok') {
-				if ($('.find-result-section').length == 0) {
-                    $('.index-banner').after(data.content);
-                    $('html, body').animate({scrollTop: $('.find-result-section').offset().top});
-                    $('.js-brand-cars-title').hide();
-					$('.brand-cars').hide();
-				} else {
-                    $('.find-result-section').replaceWith(data.content);
-                    $('html, body').animate({scrollTop: $('.find-result-section').offset().top})
-				}
-			}
-        },
-	});
-});
-
-$(document).on('click', '.js-reserve-button', function (event) {
-    event.preventDefault();
-	var formArray = $('.form-groups-avto').serializeArray();
-	var url = $(this).attr('href');
-	var first = 1;
-	$.each(formArray, function (name, value) {
-		if (value.value != '') {
-			if (first) {
-                url += ('?' + value.name + '=' + value.value);
-                first = 0;
-			} else {
-                url += ('&' + value.name + '=' + value.value);
-			}
-		}
-    });
-	location.href = url;
-});
 
 $(document).on('click', '.brand', function () {
 	var child = $(this).find('.checker');
